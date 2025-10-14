@@ -1,209 +1,232 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #121212, #1e1e1e, #282828); /* Minimalist dark palette */
-    color: #e0e0e0;
-    line-height: 1.6;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhilesh N Naidu - Data Annotation Specialist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
+            <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
+            <h2 class="sparkle-hover">Data Annotation Specialist 🌟</h2>
+            <p class="profile-desc slide-reveal">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision, and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV, and YOLO models. Adept at analyzing complex data, ensuring high accuracy, and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
+        </div>
+    </div>
 
-.hero {
-    background: linear-gradient(135deg, #1e1e1e, #121212);
-    color: #e0e0e0;
-    text-align: center;
-    padding: 80px 20px;
-    position: relative;
-    overflow: hidden;
-}
+    <div class="container">
+        <aside class="left-column slide-reveal">
+            <section class="contact">
+                <h3 class="sparkle-hover"><i class="fas fa-address-card"></i> Contact</h3>
+                <p><i class="fas fa-phone bounce-hover"></i> +91 7349626862</p>
+                <p><i class="fas fa-envelope bounce-hover"></i> akhileshpower22@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt bounce-hover"></i> Bengaluru, India</p>
+                <p><a href="https://linkedin.com/in/your-profile"><i class="fab fa-linkedin bounce-hover"></i> LinkedIn</a></p>
+                <p><a href="https://github.com/your-username"><i class="fab fa-github bounce-hover"></i> GitHub</a></p>
+            </section>
 
-.hero-content {
-    animation: parallax 10s linear infinite;
-}
+            <section class="skills">
+                <h3 class="sparkle-hover"><i class="fas fa-tools"></i> Skills</h3>
+                <div id="skill-tile" class="skill-tile"></div>
+            </section>
 
-@keyframes parallax {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 0; }
-}
+            <section class="courses">
+                <h3 class="sparkle-hover"><i class="fas fa-book"></i> Courses</h3>
+                <ul>
+                    <li class="glow-hover">Full Stack Development (ExcelR)</li>
+                    <li class="glow-hover">Nanodegree - E-mobility (DIY Guru.org)</li>
+                    <li class="glow-hover">AWS Certified Cloud Practitioner</li>
+                </ul>
+            </section>
 
-.profile-photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 6px solid #333333;
-    margin-bottom: 20px;
-}
+            <section class="languages">
+                <h3 class="sparkle-hover"><i class="fas fa-globe"></i> Languages</h3>
+                <ul>
+                    <li class="glow-hover">English: Professional</li>
+                    <li class="glow-hover">Telugu: Native</li>
+                    <li class="glow-hover">Kannada: Conversational</li>
+                    <li class="glow-hover">Hindi: Conversational</li>
+                </ul>
+            </section>
 
-.hero h1, .hero h2 {
-    margin: 10px 0;
-}
+            <section class="interests">
+                <h3 class="sparkle-hover"><i class="fas fa-heart"></i> Interests</h3>
+                <p class="glow-hover">Music 🎶 | Chess ♟️ | Documentaries 📺 | Travel ✈️ | Sports ⚽ | Space Research 🚀 | Technology 🤖</p>
+            </section>
+        </aside>
 
-.profile-desc {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        <main class="right-column">
+            <div class="diamond pink spin-hover"></div>
+            <section class="education slide-reveal">
+                <input type="radio" id="edu-toggle" name="section-toggle" class="toggle-input">
+                <label for="edu-toggle" class="toggle-label sparkle-hover"><i class="fas fa-graduation-cap"></i> Education</label>
+                <div class="toggle-content">
+                    <p>Bachelor of Engineering in Mechanical Engineering<br>Dayananda Sagar Academy of Technology<br>2019–2023 (7.3 CGPA)</p>
+                </div>
+            </section>
 
-.container {
-    max-width: 1200px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 40px;
-    padding: 0 20px;
-}
+            <div class="diamond teal spin-hover"></div>
+            <section class="experience slide-reveal">
+                <h3 class="sparkle-hover"><i class="fas fa-briefcase"></i> Work Experience</h3>
+                <div class="slider-container" onclick="handleSlideClick(event, 'experience')">
+                    <div class="slider">
+                        <div class="slide">
+                            <h4>Freelance/Independent Computer Vision Developer</h4>
+                            <p>Bengaluru, India | 06/2024 - Present</p>
+                            <ul>
+                                <li>Developed computer vision systems using YOLOv8/v11 and OpenCV for object detection and tracking, annotating video and image datasets with Labelbox and CVAT for model training.</li>
+                                <li>Labeled and curated datasets for vehicle collision detection and delivery partner identification, achieving high precision in bounding box annotations.</li>
+                                <li>Processed and validated annotated datasets to ensure compatibility with Vision Transformer and machine learning models.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Strategic Partnership Executive</h4>
+                            <p>Bhanzu | Bengaluru, India | 07/2023 - 06/2024</p>
+                            <ul>
+                                <li>Collected and analyzed quantitative and qualitative data from marketing campaigns to support strategic partnerships, ensuring data accuracy for decision-making.</li>
+                                <li>Performed market analysis and competitive research, structuring insights into actionable datasets for business development.</li>
+                                <li>Facilitated communication between management and clients, ensuring precise data exchange and documentation.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Internship Trainee</h4>
+                            <p>BOSCH Ltd. (Sparkplug Manufacturing Plant) | Bengaluru, India | Sept - Oct,2022</p>
+                            <ul>
+                                <li>Researched technical and production data, compiling reports on manufacturing variances to support process optimization.</li>
+                                <li>Monitored and annotated production datasets to identify equipment and process inefficiencies, improving workflow accuracy.</li>
+                                <li>Supported administrative tasks, maintaining detailed records for operational analysis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-section {
-    background: #1e1e1e;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
+            <div class="diamond purple spin-hover"></div>
+            <section class="projects slide-reveal">
+                <h3 class="sparkle-hover"><i class="fas fa-rocket"></i> Projects</h3>
+                <div class="slider-container" onclick="handleSlideClick(event, 'projects')">
+                    <div class="slider">
+                        <div class="slide">
+                            <h4>Vehicle Collision Detection System</h4>
+                            <ul>
+                                <li>Designed an AI-based computer vision system using YOLOv11x and OpenCV to detect collisions between vehicles (e.g., cars, bikes, buses) in video footage.</li>
+                                <li>Annotated video frames with Labelbox to label vehicle bounding boxes and collision events, creating a dataset for model training.</li>
+                                <li>Saved collision screenshots with timestamps to a specified directory, ensuring accurate data for analysis.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Delivery Partner Identification System</h4>
+                            <ul>
+                                <li>Developed a computer vision solution to identify delivery partners (e.g., Swiggy, Zomato) based on uniforms, logos, and bags using YOLOv8 and OpenCV.</li>
+                                <li>Curated and annotated image datasets with CVAT, applying company-specific labels to improve model accuracy for real-time detection.</li>
+                                <li>Customized data preprocessing pipelines to handle diverse Indian market conditions, enhancing dataset quality.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Investigation on Mechanical Properties of Natural Fibres Hybrid Composites</h4>
+                            <ul>
+                                <li>Conducted research on plant-based natural fibers, analyzing mechanical properties through structured data collection and testing.</li>
+                                <li>Compiled and annotated experimental datasets, contributing to high-strength composite material development.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-h3 {
-    color: #e0e0e0;
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+            <div class="diamond pink spin-hover"></div>
+            <section class="certifications slide-reveal">
+                <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications</h3>
+                <div class="slider-container" onclick="handleSlideClick(event, 'certifications')">
+                    <div class="slider">
+                        <div class="slide">
+                            <p>AWS Certified Cloud Practitioner (Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
+                            <p>Link for all certificates: <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">Google Drive</a></p>
+                        </div>
+                        <!-- Add more slides if needed for certifications -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+    <script>
+        // Scroll reveal observer for reactivity
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible'); // Reset for re-trigger
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.slide-reveal').forEach(el => observer.observe(el));
 
-ul li {
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 20px;
-}
+        // Skills rotation with increased delay and smoother transition
+        const skills = [
+            { title: "Data Annotation & AI Skills", details: "Data Labeling and Dataset Preparation (Image, Video, Text), Data Annotation Tools (Labelbox, CVAT)" },
+            { title: "Computer Vision", details: "OpenCV, YOLOv8/v11, Image Segmentation, Object Detection" },
+            { title: "Machine Learning", details: "Supervised/Unsupervised Learning, Scikit-learn, Feature Engineering" },
+            { title: "Deep Learning", details: "Neural Networks, CNNs, RNNs, TensorFlow, PyTorch" },
+            { title: "Programming", details: "Python, Java (Basics), MATLAB" },
+            { title: "Web Development", details: "Full Stack Development (HTML, CSS, JavaScript, Node.js, React, Django, Flask), Database Management (SQL, MongoDB)" },
+            { title: "AWS Cloud Development", details: "AWS Core Services (EC2, S3, Lambda, IAM), Cloud Storage and Data Management (S3, EFS), Cloud Compute for AI/ML (EC2, Lambda), AWS Security and Access Management (IAM, KMS), Cloud Architecture and Cost Optimization" },
+            { title: "Engineering & Analysis", details: "Finite Element Analysis (ANSYS), Computer-Aided Design (SolidWorks)" },
+            { title: "Tools & Platforms", details: "Linux (Ubuntu), Docker, Git, Microsoft Office" },
+            { title: "Soft Skills", details: "Critical Thinking and Problem Solving, Communication Skills, Fast Learner" }
+        ];
 
-ul li::before {
-    content: "•"; /* Changed to bullet point */
-    color: #e0e0e0;
-    position: absolute;
-    left: 0;
-}
+        let currentSkill = 0;
+        const skillTile = document.getElementById('skill-tile');
 
-.exp-item, .proj-item {
-    background: linear-gradient(to right, #282828, #1e1e1e);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+        function rotateSkill() {
+            skillTile.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                skillTile.innerHTML = `
+                    <div class="skill-card">
+                        <h4>${skills[currentSkill].title}</h4>
+                        <p>${skills[currentSkill].details}</p>
+                    </div>
+                `;
+                skillTile.style.opacity = 1; // Fade in
+                currentSkill = (currentSkill + 1) % skills.length;
+            }, 1000); // Increased delay to 1000ms
+        }
 
-.diamond {
-    width: 30px;
-    height: 30px;
-    transform: rotate(45deg);
-    margin: -15px 0 0 auto;
-}
+        rotateSkill();
+        setInterval(rotateSkill, 6000); // Interval 6 seconds for smoother pacing
 
-.pink { background: #333333; }
-.teal { background: #444444; }
-.purple { background: #555555; }
+        // Slider click handler for all sections
+        const sliders = {
+            experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), slides: document.querySelectorAll('.experience .slide') },
+            projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), slides: document.querySelectorAll('.projects .slide') },
+            certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), slides: document.querySelectorAll('.certifications .slide') }
+        };
 
-a {
-    color: #e0e0e0;
-    text-decoration: none;
-}
+        function showSlide(section, index) {
+            const { slider, slides } = sliders[section];
+            index = (index + slides.length) % slides.length;
+            sliders[section].currentIndex = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
 
-a:hover {
-    color: #aaaaaa;
-}
-
-.toggle-input { display: none; }
-
-.toggle-content { display: none; }
-
-.toggle-input:checked + .toggle-label + .toggle-content { display: block; }
-
-.toggle-label {
-    cursor: pointer;
-    display: block;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-/* Playful Animations */
-.bounce-load { animation: bounce 2s ease-in-out; }
-@keyframes bounce {
-  0% { transform: scale(0) rotate(0deg); opacity: 0; }
-  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-  100% { transform: scale(1) rotate(360deg); opacity: 1; }
-}
-
-.sparkle-hover:hover { animation: sparkle 1s ease-in-out infinite; }
-@keyframes sparkle {
-  0% { text-shadow: 0 0 5px #e0e0e0, 0 0 10px #e0e0e0; }
-  50% { text-shadow: 0 0 20px #e0e0e0, 0 0 30px #e0e0e0; }
-  100% { text-shadow: 0 0 5px #e0e0e0, 0 0 10px #e0e0e0; }
-}
-
-.glow-hover:hover { animation: glow 0.5s ease-out forwards; }
-@keyframes glow {
-  0% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px #e0e0e0; }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.slide-reveal { opacity: 0; transform: translateX(100%); transition: all 1s ease-out; }
-.slide-reveal.visible { opacity: 1; transform: translateX(0); animation: slide 1s ease-out; }
-@keyframes slide {
-  0% { transform: translateX(100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-.bounce-hover:hover { animation: bounce 0.5s ease-in-out; }
-
-.spin-hover:hover { animation: spin 1s linear infinite; }
-@keyframes spin {
-  0% { transform: rotate(45deg); }
-  100% { transform: rotate(405deg); }
-}
-
-/* Slider for work experience */
-.slider-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-
-.prev-btn, .next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #333333;
-    border: none;
-    color: #e0e0e0;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
-
-/* Skill tile with transition */
-.skill-tile {
-    background: #282828;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    transition: opacity 0.5s ease; /* Reduced transition duration */
-}
-
-@media (max-width: 768px) {
-    .container { grid-template-columns: 1fr; }
-    .diamond { margin: 20px auto; }
-}
+        function handleSlideClick(event, section) {
+            const { slides, currentIndex } = sliders[section];
+            const rect = event.target.closest('.slider-container').getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const halfWidth = rect.width / 2;
+            let newIndex = currentIndex;
+            if (clickX < halfWidth) {
+                newIndex = currentIndex - 1;
+            } else {
+                newIndex = currentIndex + 1;
+            }
+            showSlide(section, newIndex);
+        }
+    </script>
+</body>
+</html>
