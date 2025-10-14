@@ -2,14 +2,14 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #2c3e50, #34495e, #283747); /* Minimalist darker scheme */
-    color: #ecf0f1;
+    background: linear-gradient(to bottom, #121212, #1e1e1e, #282828); /* Minimalist dark palette */
+    color: #e0e0e0;
     line-height: 1.6;
 }
 
 .hero {
-    background: linear-gradient(135deg, #34495e, #2c3e50);
-    color: #ecf0f1;
+    background: linear-gradient(135deg, #1e1e1e, #121212);
+    color: #e0e0e0;
     text-align: center;
     padding: 80px 20px;
     position: relative;
@@ -29,7 +29,7 @@ body {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    border: 6px solid #bdc3c7;
+    border: 6px solid #333333;
     margin-bottom: 20px;
 }
 
@@ -53,14 +53,14 @@ body {
 }
 
 section {
-    background: rgba(52, 73, 94, 0.8); /* Darker transparent bg */
+    background: #1e1e1e;
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 h3 {
-    color: #bdc3c7;
+    color: #e0e0e0;
     font-size: 1.4em;
     margin-bottom: 15px;
     display: flex;
@@ -80,14 +80,14 @@ ul li {
 }
 
 ul li::before {
-    content: "★";
-    color: #bdc3c7;
+    content: "•"; /* Changed to bullet point */
+    color: #e0e0e0;
     position: absolute;
     left: 0;
 }
 
 .exp-item, .proj-item {
-    background: linear-gradient(to right, #34495e, #2c3e50);
+    background: linear-gradient(to right, #282828, #1e1e1e);
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -100,17 +100,17 @@ ul li::before {
     margin: -15px 0 0 auto;
 }
 
-.pink { background: #7f8c8d; } /* Adjusted to gray tones for minimalist dark */
-.teal { background: #95a5a6; }
-.purple { background: #bdc3c7; }
+.pink { background: #333333; }
+.teal { background: #444444; }
+.purple { background: #555555; }
 
 a {
-    color: #bdc3c7;
+    color: #e0e0e0;
     text-decoration: none;
 }
 
 a:hover {
-    color: #95a5a6;
+    color: #aaaaaa;
 }
 
 .toggle-input { display: none; }
@@ -136,15 +136,15 @@ a:hover {
 
 .sparkle-hover:hover { animation: sparkle 1s ease-in-out infinite; }
 @keyframes sparkle {
-  0% { text-shadow: 0 0 5px #bdc3c7, 0 0 10px #bdc3c7; }
-  50% { text-shadow: 0 0 20px #bdc3c7, 0 0 30px #bdc3c7; }
-  100% { text-shadow: 0 0 5px #bdc3c7, 0 0 10px #bdc3c7; }
+  0% { text-shadow: 0 0 5px #e0e0e0, 0 0 10px #e0e0e0; }
+  50% { text-shadow: 0 0 20px #e0e0e0, 0 0 30px #e0e0e0; }
+  100% { text-shadow: 0 0 5px #e0e0e0, 0 0 10px #e0e0e0; }
 }
 
 .glow-hover:hover { animation: glow 0.5s ease-out forwards; }
 @keyframes glow {
   0% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px #bdc3c7; }
+  50% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px #e0e0e0; }
   100% { opacity: 1; transform: scale(1); }
 }
 
@@ -177,18 +177,15 @@ a:hover {
 .slide {
     min-width: 100%;
     box-sizing: border-box;
-    padding: 15px;
-    background: rgba(52, 73, 94, 0.8);
-    border-radius: 10px;
 }
 
 .prev-btn, .next-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #bdc3c7;
+    background: #333333;
     border: none;
-    color: #2c3e50;
+    color: #e0e0e0;
     padding: 10px;
     cursor: pointer;
     border-radius: 50%;
@@ -197,17 +194,13 @@ a:hover {
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
 
-/* Skill tile */
+/* Skill tile with transition */
 .skill-tile {
-    background: rgba(52, 73, 94, 0.8);
+    background: #282828;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-    transition: background 0.5s;
-}
-
-.skill-tile:hover {
-    background: rgba(189, 195, 199, 0.2);
+    transition: opacity 0.5s ease; /* Reduced transition duration */
 }
 
 @media (max-width: 768px) {
