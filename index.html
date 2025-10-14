@@ -13,7 +13,7 @@
         <div class="hero-content">
             <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
             <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
-            <h2 class="sparkle-hover">Data Annotation Specialist 🌟</h2>
+            <h2 class="sparkle-hover">Data Annotation Specialist </h2>
             <p class="profile-desc slide-reveal">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision, and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV, and YOLO models. Adept at analyzing complex data, ensuring high accuracy, and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
         </div>
     </div>
@@ -146,7 +146,7 @@
                             <p>AWS Certified Cloud Practitioner (Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
                             <p>Link for all certificates: <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">Google Drive</a></p>
                         </div>
-                        <!-- Add more slides if needed -->
+                        <!-- Add more slides if needed for certifications -->
                     </div>
                 </div>
             </section>
@@ -184,7 +184,7 @@
         const skillTile = document.getElementById('skill-tile');
 
         function rotateSkill() {
-            skillTile.style.transition = 'opacity 1s ease-in-out'; // Smoother transition
+            skillTile.style.transition = 'opacity 1s ease-in-out';
             skillTile.style.opacity = 0;
             setTimeout(() => {
                 skillTile.innerHTML = `
@@ -195,11 +195,11 @@
                 `;
                 skillTile.style.opacity = 1;
                 currentSkill = (currentSkill + 1) % skills.length;
-            }, 1200); // Increased delay to 1200ms
+            }, 1200);
         }
 
         rotateSkill();
-        setInterval(rotateSkill, 7000); // Interval 7 seconds
+        setInterval(rotateSkill, 7000);
 
         // Slider setup for experience, projects, certifications
         const sliders = {
@@ -220,6 +220,7 @@
         function pauseAutoSlide(section) {
             if (sliders[section].autoInterval) {
                 clearInterval(sliders[section].autoInterval);
+                sliders[section].autoInterval = null;
             }
         }
 
@@ -233,7 +234,7 @@
             const { slider, slides } = sliders[section];
             index = (index + slides.length) % slides.length;
             sliders[section].currentIndex = index;
-            slider.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; // Smoother cubic-bezier
+            slider.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             slider.style.transform = `translateX(-${index * 100}%)`;
         }
 
