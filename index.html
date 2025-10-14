@@ -72,7 +72,7 @@
             <div class="diamond teal spin-hover"></div>
             <section class="experience slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-briefcase"></i> Work Experience</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'experience')">
+                <div class="slider-container" onmouseover="pauseAutoSlide('experience')" onmouseout="resumeAutoSlide('experience')">
                     <div class="slider">
                         <div class="slide">
                             <h4>Freelance/Independent Computer Vision Developer</h4>
@@ -108,7 +108,7 @@
             <div class="diamond purple spin-hover"></div>
             <section class="projects slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-rocket"></i> Projects</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'projects')">
+                <div class="slider-container" onmouseover="pauseAutoSlide('projects')" onmouseout="resumeAutoSlide('projects')">
                     <div class="slider">
                         <div class="slide">
                             <h4>Vehicle Collision Detection System</h4>
@@ -140,13 +140,13 @@
             <div class="diamond pink spin-hover"></div>
             <section class="certifications slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'certifications')">
+                <div class="slider-container" onmouseover="pauseAutoSlide('certifications')" onmouseout="resumeAutoSlide('certifications')">
                     <div class="slider">
                         <div class="slide">
                             <p>AWS Certified Cloud Practitioner (Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
                             <p>Link for all certificates: <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">Google Drive</a></p>
                         </div>
-                        <!-- Add more slides if needed for certifications -->
+                        <!-- Add more slides if needed -->
                     </div>
                 </div>
             </section>
@@ -154,13 +154,13 @@
     </div>
 
     <script>
-        // Scroll reveal observer for reactivity
+        // Scroll reveal observer for reactivity (always active)
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 } else {
-                    entry.target.classList.remove('visible'); // Reset for re-trigger
+                    entry.target.classList.remove('visible');
                 }
             });
         }, { threshold: 0.1 });
@@ -184,7 +184,8 @@
         const skillTile = document.getElementById('skill-tile');
 
         function rotateSkill() {
-            skillTile.style.opacity = 0; // Fade out
+            skillTile.style.transition = 'opacity 1s ease-in-out'; // Smoother transition
+            skillTile.style.opacity = 0;
             setTimeout(() => {
                 skillTile.innerHTML = `
                     <div class="skill-card">
@@ -192,41 +193,70 @@
                         <p>${skills[currentSkill].details}</p>
                     </div>
                 `;
-                skillTile.style.opacity = 1; // Fade in
+                skillTile.style.opacity = 1;
                 currentSkill = (currentSkill + 1) % skills.length;
-            }, 1000); // Increased delay to 1000ms
+            }, 1200); // Increased delay to 1200ms
         }
 
         rotateSkill();
-        setInterval(rotateSkill, 6000); // Interval 6 seconds for smoother pacing
+        setInterval(rotateSkill, 7000); // Interval 7 seconds
 
-        // Slider click handler for all sections
+        // Slider setup for experience, projects, certifications
         const sliders = {
             experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), slides: document.querySelectorAll('.experience .slide') },
             projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), slides: document.querySelectorAll('.projects .slide') },
             certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), slides: document.querySelectorAll('.certifications .slide') }
         };
 
+        // Auto slide function
+        function startAutoSlide(section) {
+            sliders[section].autoInterval = setInterval(() => {
+                const { currentIndex, slides } = sliders[section];
+                const newIndex = (currentIndex + 1) % slides.length;
+                showSlide(section, newIndex);
+            }, 30000); // 30 seconds
+        }
+
+        function pauseAutoSlide(section) {
+            if (sliders[section].autoInterval) {
+                clearInterval(sliders[section].autoInterval);
+            }
+        }
+
+        function resumeAutoSlide(section) {
+            if (!sliders[section].autoInterval) {
+                startAutoSlide(section);
+            }
+        }
+
         function showSlide(section, index) {
             const { slider, slides } = sliders[section];
             index = (index + slides.length) % slides.length;
             sliders[section].currentIndex = index;
+            slider.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; // Smoother cubic-bezier
             slider.style.transform = `translateX(-${index * 100}%)`;
         }
 
         function handleSlideClick(event, section) {
-            const { slides, currentIndex } = sliders[section];
-            const rect = event.target.closest('.slider-container').getBoundingClientRect();
+            const rect = event.currentTarget.getBoundingClientRect();
             const clickX = event.clientX - rect.left;
             const halfWidth = rect.width / 2;
-            let newIndex = currentIndex;
+            let newIndex = sliders[section].currentIndex;
             if (clickX < halfWidth) {
-                newIndex = currentIndex - 1;
+                newIndex -= 1;
             } else {
-                newIndex = currentIndex + 1;
+                newIndex += 1;
             }
             showSlide(section, newIndex);
         }
+
+        // Initialize auto slides
+        Object.keys(sliders).forEach(startAutoSlide);
+
+        // Overall smoother animations
+        document.querySelectorAll('*').forEach(el => {
+            el.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
     </script>
 </body>
 </html>
