@@ -8,13 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body onload="confettiBurst()">
+<body onload="confettiBurst(); initParallax()">
+    <button id="dark-mode-toggle" class="dark-mode-btn">🌙 Dark Mode</button>
     <div class="hero">
+        <div class="parallax-layer hero-bg"></div>
         <div class="hero-content">
             <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
             <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
             <h2 class="sparkle-hover">Data Annotation Specialist 🌟</h2>
-            <p class="profile-desc slide-reveal">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision, and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV, and YOLO models. Adept at analyzing complex data, ensuring high accuracy, and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
+            <p class="profile-desc" id="typed-profile"></p>
         </div>
     </div>
 
@@ -29,21 +31,27 @@
                 <p><a href="https://github.com/your-username"><i class="fab fa-github bounce-hover"></i> GitHub</a></p>
             </section>
 
-            <section class="skills">
+            <section class="skills parallax-section">
+                <div class="parallax-layer skills-bg"></div>
                 <h3 class="sparkle-hover"><i class="fas fa-tools"></i> Skills</h3>
-                <ul>
-                    <li class="glow-hover">Data Labeling & Dataset Prep (Image/Video/Text)</li>
-                    <li class="glow-hover">Annotation Tools (Labelbox, CVAT)</li>
-                    <li class="glow-hover">Computer Vision (OpenCV, YOLOv8/v11)</li>
-                    <li class="glow-hover">ML/DL (Scikit-learn, TensorFlow, PyTorch)</li>
-                    <li class="glow-hover">Programming (Python, Java Basics)</li>
-                    <li class="glow-hover">Web Dev (HTML/CSS/JS, React, Django)</li>
-                    <li class="glow-hover">Databases (SQL, MongoDB)</li>
-                    <li class="glow-hover">AWS (EC2, S3, Lambda, IAM)</li>
-                    <li class="glow-hover">Engineering (ANSYS, SolidWorks)</li>
-                    <li class="glow-hover">Tools (Docker, Git, Linux)</li>
-                    <li class="glow-hover">Soft Skills (Problem Solving, Communication)</li>
-                </ul>
+                <div class="skill-bar">
+                    <label>Data Labeling & Dataset Prep</label>
+                    <div class="bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <label>Annotation Tools (Labelbox, CVAT)</label>
+                    <div class="bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <label>Computer Vision (OpenCV, YOLOv8/v11)</label>
+                    <div class="bar">
+                        <div class="progress" style="width: 95%;"></div>
+                    </div>
+                </div>
             </section>
 
             <section class="courses">
@@ -68,59 +76,57 @@
             <section class="interests">
                 <h3 class="sparkle-hover"><i class="fas fa-heart"></i> Interests</h3>
                 <p class="glow-hover">Music 🎶 | Chess ♟️ | Documentaries 📺 | Travel ✈️ | Sports ⚽ | Space Research 🚀 | Technology 🤖</p>
+                <button id="fun-fact-btn">Reveal Fun Fact!</button>
+                <p id="fun-fact" class="hidden">Fun Fact: I once annotated a dataset of 1000 images in one sitting! 🚀</p>
             </section>
         </aside>
 
         <main class="right-column">
-            <div class="diamond pink spin-hover"></div>
-            <section class="education slide-reveal">
-                <input type="radio" id="edu-toggle" name="section-toggle" class="toggle-input">
-                <label for="edu-toggle" class="toggle-label sparkle-hover"><i class="fas fa-graduation-cap"></i> Education</label>
-                <div class="toggle-content">
-                    <p>Bachelor of Engineering in Mechanical Engineering<br>Dayananda Sagar Academy of Technology<br>2019–2023 (7.3 CGPA)</p>
+            <div class="diamond-line">
+                <div class="diamond pink spin-hover"></div>
+                <div class="line"></div>
+            </div>
+            <section class="education slide-reveal flip-card parallax-section">
+                <div class="parallax-layer edu-bg"></div>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="sparkle-hover"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Bachelor of Engineering in Mechanical Engineering<br>Dayananda Sagar Academy of Technology<br>2019–2023 (7.3 CGPA)</p>
+                    </div>
                 </div>
             </section>
 
-            <div class="diamond teal spin-hover"></div>
-            <section class="experience slide-reveal">
+            <div class="diamond-line">
+                <div class="diamond teal spin-hover"></div>
+                <div class="line"></div>
+            </div>
+            <section class="experience slide-reveal parallax-section">
+                <div class="parallax-layer exp-bg"></div>
                 <h3 class="sparkle-hover"><i class="fas fa-briefcase"></i> Work Experience</h3>
-                <div class="exp-item glow-hover">
-                    <input type="radio" id="exp1-toggle" name="exp-toggle" class="toggle-input">
-                    <label for="exp1-toggle" class="toggle-label">Freelance Computer Vision Developer</label>
-                    <div class="toggle-content">
-                        <p>Bengaluru | 06/2024 – Present</p>
-                        <ul>
-                            <li>Developed systems with YOLOv8/v11 & OpenCV, annotating 500+ datasets (92% precision).</li>
-                            <li>Curated data for collision & partner ID, reducing errors 15%.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp-item glow-hover">
-                    <input type="radio" id="exp2-toggle" name="exp-toggle" class="toggle-input">
-                    <label for="exp2-toggle" class="toggle-label">Strategic Partnership Executive</label>
-                    <div class="toggle-content">
-                        <p>Bhanzu | 07/2023 – 06/2024</p>
-                        <ul>
-                            <li>Analyzed 20+ campaigns for decisions.</li>
-                            <li>Structured insights for development.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp-item glow-hover">
-                    <input type="radio" id="exp3-toggle" name="exp-toggle" class="toggle-input">
-                    <label for="exp3-toggle" class="toggle-label">Internship Trainee</label>
-                    <div class="toggle-content">
-                        <p>BOSCH Ltd. | Sept–Oct 2022</p>
-                        <ul>
-                            <li>Optimized processes by 10% via reports.</li>
-                            <li>Annotated datasets for improvements.</li>
-                        </ul>
+                <div class="exp-item glow-hover flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h4>Freelance Computer Vision Developer</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Bengaluru | 06/2024 – Present</p>
+                            <ul>
+                                <li>Developed systems with YOLOv8/v11 & OpenCV, annotating 500+ datasets (92% precision).</li>
+                                <li>Curated data for collision & partner ID, reducing errors 15%.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <div class="diamond purple spin-hover"></div>
-            <section class="projects slide-reveal">
+            <div class="diamond-line">
+                <div class="diamond purple spin-hover"></div>
+                <div class="line"></div>
+            </div>
+            <section class="projects slide-reveal parallax-section">
+                <div class="parallax-layer proj-bg"></div>
                 <h3 class="sparkle-hover"><i class="fas fa-rocket"></i> Projects</h3>
                 <div class="proj-item glow-hover">
                     <h4>Vehicle Collision Detection System</h4>
@@ -142,8 +148,12 @@
                 </div>
             </section>
 
-            <div class="diamond pink spin-hover"></div>
-            <section class="certifications slide-reveal">
+            <div class="diamond-line">
+                <div class="diamond pink spin-hover"></div>
+                <div class="line"></div>
+            </div>
+            <section class="certifications slide-reveal parallax-section">
+                <div class="parallax-layer cert-bg"></div>
                 <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications</h3>
                 <p>AWS Certified Cloud Practitioner (2024)</p>
                 <p><a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing">All Certificates</a></p>
@@ -152,7 +162,54 @@
     </div>
 
     <script>
-        // Simple confetti burst on load for fun
+        // Typing animation for profile
+        const profileText = "Detail-oriented and technically proficient professional with expertise in data annotation, computer vision, and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV, and YOLO models. Adept at analyzing complex data, ensuring high accuracy, and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.";
+        let i = 0;
+        function typeWriter() {
+            if (i < profileText.length) {
+                document.getElementById("typed-profile").innerHTML += profileText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+
+        // Dark mode toggle
+        document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('dark-mode-toggle');
+            btn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+
+        // Fun fact reveal
+        document.getElementById('fun-fact-btn').addEventListener('click', () => {
+            const fact = document.getElementById('fun-fact');
+            fact.classList.toggle('hidden');
+            fact.style.animation = 'bounce 0.5s ease-in-out';
+        });
+
+        // Mouse trail
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.className = 'mouse-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+            setTimeout(() => trail.remove(), 1000);
+        });
+
+        // Skill bar animation on scroll
+        const skillBars = document.querySelectorAll('.progress');
+        const skillObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fillBar 2s ease-in-out forwards';
+                }
+            });
+        });
+        skillBars.forEach(bar => skillObserver.observe(bar));
+
+        // Confetti burst
         function confettiBurst() {
             const canvas = document.createElement('canvas');
             canvas.style.position = 'fixed';
@@ -178,7 +235,7 @@
                 pieces.forEach(p => {
                     p.x += p.vx;
                     p.y += p.vy;
-                    p.vy += 0.1; // Gravity
+                    p.vy += 0.1;
                     ctx.fillStyle = p.color;
                     ctx.fillRect(p.x, p.y, p.size, p.size);
                 });
@@ -188,7 +245,7 @@
             animate();
         }
 
-        // Scroll reveal observer for reactivity
+        // Scroll reveal
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -197,6 +254,36 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.slide-reveal').forEach(el => observer.observe(el));
+
+        // Parallax scrolling
+        function initParallax() {
+            const parallaxSections = document.querySelectorAll('.parallax-section');
+            let lastScroll = window.scrollY;
+
+            function updateParallax() {
+                const scroll = window.scrollY;
+                const delta = scroll - lastScroll;
+                parallaxSections.forEach(section => {
+                    const layer = section.querySelector('.parallax-layer');
+                    if (layer) {
+                        const speed = layer.dataset.speed || 0.5;
+                        layer.style.transform = `translateY(${scroll * speed * -1}px)`;
+                    }
+                });
+                lastScroll = scroll;
+                requestAnimationFrame(updateParallax);
+            }
+            updateParallax();
+        }
+
+        // Adjust parallax on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.parallax-layer').forEach(layer => {
+                    layer.style.transform = 'translateY(0)';
+                });
+            }
+        });
     </script>
 </body>
 </html>
