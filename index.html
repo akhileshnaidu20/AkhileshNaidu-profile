@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body onload="confettiBurst(); initParallax()">
+<body>
     <div class="hero">
         <div class="hero-content">
             <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
             <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
-            <h2 class="sparkle-hover">Data Annotation Specialist </h2>
+            <h2 class="sparkle-hover">Data Annotation Specialist 🌟</h2>
             <p class="profile-desc slide-reveal">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision, and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV, and YOLO models. Adept at analyzing complex data, ensuring high accuracy, and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
         </div>
     </div>
@@ -145,43 +145,6 @@
     </div>
 
     <script>
-        // Confetti burst on load for fun
-        function confettiBurst() {
-            const canvas = document.createElement('canvas');
-            canvas.style.position = 'fixed';
-            canvas.style.position = 'fixed';
-            canvas.style.top = 0;
-            canvas.style.left = 0;
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            document.body.appendChild(canvas);
-            const ctx = canvas.getContext('2d');
-            const pieces = [];
-            for (let i = 0; i < 50; i++) {
-                pieces.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height / 2,
-                    size: Math.random() * 10 + 5,
-                    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-                    vx: Math.random() * 10 - 5,
-                    vy: Math.random() * 5 + 2
-                });
-            }
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                pieces.forEach(p => {
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.vy += 0.1; // Gravity
-                    ctx.fillStyle = p.color;
-                    ctx.fillRect(p.x, p.y, p.size, p.size);
-                });
-                if (pieces.some(p => p.y < canvas.height)) requestAnimationFrame(animate);
-                else document.body.removeChild(canvas);
-            }
-            animate();
-        }
-
         // Scroll reveal observer for reactivity
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -192,26 +155,7 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.slide-reveal').forEach(el => observer.observe(el));
 
-        // Parallax scrolling with enhanced smoothness
-        function initParallax() {
-            let lastScroll = 0;
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                lastScroll = window.scrollY;
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        document.querySelectorAll('.parallax-layer').forEach(layer => {
-                            const speed = layer.getAttribute('data-speed') || 0.5;
-                            layer.style.transform = `translateY(${lastScroll * speed}px)`;
-                        });
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-        }
-
-        // Skills rotation
+        // Skills rotation with reduced transition and delay
         const skills = [
             { title: "Data Annotation & AI Skills", details: "Data Labeling and Dataset Preparation (Image, Video, Text), Data Annotation Tools (Labelbox, CVAT)" },
             { title: "Computer Vision", details: "OpenCV, YOLOv8/v11, Image Segmentation, Object Detection" },
@@ -229,17 +173,21 @@
         const skillTile = document.getElementById('skill-tile');
 
         function rotateSkill() {
-            skillTile.innerHTML = `
-                <div class="skill-card">
-                    <h4>${skills[currentSkill].title}</h4>
-                    <p>${skills[currentSkill].details}</p>
-                </div>
-            `;
-            currentSkill = (currentSkill + 1) % skills.length;
+            skillTile.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                skillTile.innerHTML = `
+                    <div class="skill-card">
+                        <h4>${skills[currentSkill].title}</h4>
+                        <p>${skills[currentSkill].details}</p>
+                    </div>
+                `;
+                skillTile.style.opacity = 1; // Fade in
+                currentSkill = (currentSkill + 1) % skills.length;
+            }, 500); // Delay for fade out
         }
 
         rotateSkill();
-        setInterval(rotateSkill, 3000); // Rotate every 3 seconds
+        setInterval(rotateSkill, 5000); // Increased interval to 5 seconds
 
         // Work experience slider
         const slider = document.querySelector('.slider');
