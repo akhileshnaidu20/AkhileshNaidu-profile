@@ -2,16 +2,27 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #ffb3c6, #a2d2ff, #d0f4de); /* Vibrant pink-purple-blue-green gradient */
+    background: linear-gradient(to bottom, #ffb3c6, #a2d2ff, #d0f4de);
     color: #333;
     line-height: 1.6;
 }
 
 .hero {
-    background: linear-gradient(135deg, #ff69b4, #4b0082); /* Hot pink to indigo */
+    background: linear-gradient(135deg, #ff69b4, #4b0082);
     color: white;
     text-align: center;
     padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    animation: parallax 10s linear infinite;
+}
+
+@keyframes parallax {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
 }
 
 .profile-photo {
@@ -22,20 +33,13 @@ body {
     margin-bottom: 20px;
 }
 
-.hero h1 {
-    font-size: 3em;
-    margin: 0;
-}
-
-.hero h2 {
-    font-size: 2em;
+.hero h1, .hero h2 {
     margin: 10px 0;
 }
 
 .profile-desc {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.1em;
     padding: 0 20px;
 }
 
@@ -53,15 +57,10 @@ section {
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-section:hover {
-    transform: translateY(-5px);
 }
 
 h3 {
-    color: #4b0082; /* Indigo */
+    color: #4b0082;
     font-size: 1.4em;
     margin-bottom: 15px;
     display: flex;
@@ -69,26 +68,15 @@ h3 {
     gap: 10px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 20px;
-}
-
 ul li::before {
     content: "★";
-    color: #ff69b4; /* Pink star for fun */
+    color: #ff69b4;
     position: absolute;
     left: 0;
 }
 
 .exp-item, .proj-item {
-    background: linear-gradient(to right, #d0f4de, #a2d2ff); /* Green to blue gradient */
+    background: linear-gradient(to right, #d0f4de, #a2d2ff);
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -98,35 +86,66 @@ ul li::before {
     width: 30px;
     height: 30px;
     transform: rotate(45deg);
-    margin: -15px 0 0 auto; /* Pointing left from right column */
-    transition: transform 0.3s;
-}
-
-.diamond:hover {
-    transform: rotate(45deg) scale(1.2) rotate(360deg);
+    margin: -15px 0 0 auto;
 }
 
 .pink { background: #ff69b4; }
 .teal { background: #00fa9a; }
 .purple { background: #a020f0; }
 
-a {
-    color: #4b0082;
-    text-decoration: none;
+a:hover { color: #ff69b4; }
+
+.toggle-input { display: none; }
+
+.toggle-content { display: none; }
+
+.toggle-input:checked + .toggle-label + .toggle-content { display: block; }
+
+.toggle-label {
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-a:hover {
-    color: #ff69b4;
+/* Playful Animations */
+.bounce-load { animation: bounce 2s ease-in-out; }
+@keyframes bounce {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+  100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
+
+.sparkle-hover:hover { animation: sparkle 1s ease-in-out infinite; }
+@keyframes sparkle {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+  50% { text-shadow: 0 0 20px #fff, 0 0 30px #fff; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+}
+
+.glow-hover:hover { animation: glow 0.5s ease-out forwards; }
+@keyframes glow {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px #ff69b4; }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.slide-reveal { opacity: 0; transform: translateX(100%); transition: all 1s ease-out; }
+.slide-reveal.visible { opacity: 1; transform: translateX(0); animation: slide 1s ease-out; }
+@keyframes slide {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.bounce-hover:hover { animation: bounce 0.5s ease-in-out; }
+
+.spin-hover:hover { animation: spin 1s linear infinite; }
+@keyframes spin {
+  0% { transform: rotate(45deg); }
+  100% { transform: rotate(405deg); }
 }
 
 @media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .diamond {
-        margin: 20px auto;
-    }
-    .hero { padding: 60px 20px; }
-    .hero h1 { font-size: 2.5em; }
+    .container { grid-template-columns: 1fr; }
+    .diamond { margin: 20px auto; }
 }
