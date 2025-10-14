@@ -13,7 +13,7 @@
         <div class="hero-content">
             <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
             <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
-            <h2 class="sparkle-hover">Data Annotation Specialist </h2>
+            <h2 class="sparkle-hover">Data Annotation Specialist 🌟</h2>
             <p class="profile-desc slide-reveal">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision, and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV, and YOLO models. Adept at analyzing complex data, ensuring high accuracy, and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
         </div>
     </div>
@@ -72,7 +72,7 @@
             <div class="diamond teal spin-hover"></div>
             <section class="experience slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-briefcase"></i> Work Experience</h3>
-                <div class="slider-container">
+                <div class="slider-container" onclick="handleSlideClick(event, 'experience')">
                     <div class="slider">
                         <div class="slide">
                             <h4>Freelance/Independent Computer Vision Developer</h4>
@@ -102,44 +102,53 @@
                             </ul>
                         </div>
                     </div>
-                    <button class="prev-btn">&#9664;</button>
-                    <button class="next-btn">&#9654;</button>
                 </div>
             </section>
 
             <div class="diamond purple spin-hover"></div>
             <section class="projects slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-rocket"></i> Projects</h3>
-                <div class="proj-item glow-hover">
-                    <h4>Vehicle Collision Detection System</h4>
-                    <ul>
-                        <li>Designed an AI-based computer vision system using YOLOv11x and OpenCV to detect collisions between vehicles (e.g., cars, bikes, buses) in video footage.</li>
-                        <li>Annotated video frames with Labelbox to label vehicle bounding boxes and collision events, creating a dataset for model training.</li>
-                        <li>Saved collision screenshots with timestamps to a specified directory, ensuring accurate data for analysis.</li>
-                    </ul>
-                </div>
-                <div class="proj-item glow-hover">
-                    <h4>Delivery Partner Identification System</h4>
-                    <ul>
-                        <li>Developed a computer vision solution to identify delivery partners (e.g., Swiggy, Zomato) based on uniforms, logos, and bags using YOLOv8 and OpenCV.</li>
-                        <li>Curated and annotated image datasets with CVAT, applying company-specific labels to improve model accuracy for real-time detection.</li>
-                        <li>Customized data preprocessing pipelines to handle diverse Indian market conditions, enhancing dataset quality.</li>
-                    </ul>
-                </div>
-                <div class="proj-item glow-hover">
-                    <h4>Investigation on Mechanical Properties of Natural Fibres Hybrid Composites</h4>
-                    <ul>
-                        <li>Conducted research on plant-based natural fibers, analyzing mechanical properties through structured data collection and testing.</li>
-                        <li>Compiled and annotated experimental datasets, contributing to high-strength composite material development.</li>
-                    </ul>
+                <div class="slider-container" onclick="handleSlideClick(event, 'projects')">
+                    <div class="slider">
+                        <div class="slide">
+                            <h4>Vehicle Collision Detection System</h4>
+                            <ul>
+                                <li>Designed an AI-based computer vision system using YOLOv11x and OpenCV to detect collisions between vehicles (e.g., cars, bikes, buses) in video footage.</li>
+                                <li>Annotated video frames with Labelbox to label vehicle bounding boxes and collision events, creating a dataset for model training.</li>
+                                <li>Saved collision screenshots with timestamps to a specified directory, ensuring accurate data for analysis.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Delivery Partner Identification System</h4>
+                            <ul>
+                                <li>Developed a computer vision solution to identify delivery partners (e.g., Swiggy, Zomato) based on uniforms, logos, and bags using YOLOv8 and OpenCV.</li>
+                                <li>Curated and annotated image datasets with CVAT, applying company-specific labels to improve model accuracy for real-time detection.</li>
+                                <li>Customized data preprocessing pipelines to handle diverse Indian market conditions, enhancing dataset quality.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Investigation on Mechanical Properties of Natural Fibres Hybrid Composites</h4>
+                            <ul>
+                                <li>Conducted research on plant-based natural fibers, analyzing mechanical properties through structured data collection and testing.</li>
+                                <li>Compiled and annotated experimental datasets, contributing to high-strength composite material development.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <div class="diamond pink spin-hover"></div>
             <section class="certifications slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications</h3>
-                <p>AWS Certified Cloud Practitioner (Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
-                <p>Link for all certificates: <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">Google Drive</a></p>
+                <div class="slider-container" onclick="handleSlideClick(event, 'certifications')">
+                    <div class="slider">
+                        <div class="slide">
+                            <p>AWS Certified Cloud Practitioner (Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
+                            <p>Link for all certificates: <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">Google Drive</a></p>
+                        </div>
+                        <!-- Add more slides if needed for certifications -->
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -150,12 +159,14 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible'); // Reset for re-trigger
                 }
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.slide-reveal').forEach(el => observer.observe(el));
 
-        // Skills rotation with reduced transition and delay
+        // Skills rotation with increased delay and smoother transition
         const skills = [
             { title: "Data Annotation & AI Skills", details: "Data Labeling and Dataset Preparation (Image, Video, Text), Data Annotation Tools (Labelbox, CVAT)" },
             { title: "Computer Vision", details: "OpenCV, YOLOv8/v11, Image Segmentation, Object Detection" },
@@ -183,32 +194,39 @@
                 `;
                 skillTile.style.opacity = 1; // Fade in
                 currentSkill = (currentSkill + 1) % skills.length;
-            }, 500); // Delay for fade out
+            }, 1000); // Increased delay to 1000ms
         }
 
         rotateSkill();
-        setInterval(rotateSkill, 5000); // Increased interval to 5 seconds
+        setInterval(rotateSkill, 6000); // Interval 6 seconds for smoother pacing
 
-        // Work experience slider
-        const slider = document.querySelector('.slider');
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        let currentIndex = 0;
+        // Slider click handler for all sections
+        const sliders = {
+            experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), slides: document.querySelectorAll('.experience .slide') },
+            projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), slides: document.querySelectorAll('.projects .slide') },
+            certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), slides: document.querySelectorAll('.certifications .slide') }
+        };
 
-        function showSlide(index) {
+        function showSlide(section, index) {
+            const { slider, slides } = sliders[section];
+            index = (index + slides.length) % slides.length;
+            sliders[section].currentIndex = index;
             slider.style.transform = `translateX(-${index * 100}%)`;
         }
 
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-            showSlide(currentIndex);
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-            showSlide(currentIndex);
-        });
+        function handleSlideClick(event, section) {
+            const { slides, currentIndex } = sliders[section];
+            const rect = event.target.closest('.slider-container').getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const halfWidth = rect.width / 2;
+            let newIndex = currentIndex;
+            if (clickX < halfWidth) {
+                newIndex = currentIndex - 1;
+            } else {
+                newIndex = currentIndex + 1;
+            }
+            showSlide(section, newIndex);
+        }
     </script>
 </body>
 </html>
