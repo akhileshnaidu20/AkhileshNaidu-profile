@@ -31,6 +31,7 @@ body {
     border-radius: 50%;
     border: 6px solid #2a2a2a;
     margin-bottom: 20px;
+    object-fit: cover; /* Ensures image fits nicely */
 }
 
 .hero h1, .hero h2 {
@@ -91,11 +92,6 @@ ul li::before {
     height: 30px;
     transform: rotate(45deg);
     margin: -15px 0 0 auto;
-    transition: transform 0.3s ease; /* Smooth spin */
-}
-
-.diamond:hover {
-    transform: rotate(45deg) rotate(180deg); /* Spin on hover for all diamonds */
 }
 
 .pink { background: #4682b4; } /* Blue mix */
@@ -202,9 +198,68 @@ a:hover {
     background-color: #4682b4;
 }
 
+/* Mobile Compatibility */
 @media (max-width: 768px) {
-    .container { grid-template-columns: 1fr; }
-    .diamond { margin: 20px auto; }
+    .container { 
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        gap: 20px; 
+    }
+    .diamond { 
+        margin: 10px auto; /* Center and reduce spacing */
+    }
+    .profile-photo { 
+        width: 120px; /* Smaller on mobile */
+        height: 120px;
+    }
+    .hero { 
+        padding: 40px 15px; /* Adjust padding */
+        text-align: left; /* Left-align for better reading */
+    }
+    .hero h1 { 
+        font-size: 2em; /* Scale down fonts */
+    }
+    .hero h2 { 
+        font-size: 1.3em; 
+    }
+    .profile-desc { 
+        font-size: 0.9em; /* Smaller text */
+        line-height: 1.4; 
+    }
+    section { 
+        padding: 15px; /* Reduce padding */
+    }
+    h3 { 
+        font-size: 1.2em; 
+    }
+    ul li { 
+        font-size: 0.9em; 
+        padding-left: 15px; /* Adjust bullet spacing */
+    }
+    .navigation-dots { 
+        margin-top: 5px; 
+    }
+    .dot { 
+        height: 10px; /* Larger dots for touch */
+        width: 10px;
+    }
+    .slider-container { 
+        touch-action: pan-y; /* Enable vertical scroll, horizontal swipe for slider */
+    }
+    .slide ul {
+        padding-left: 0;
+        margin-left: 0;
+    }
+    .slide li {
+        padding-left: 0;
+        margin-left: 0;
+        text-indent: -0.5em; /* Simple indent for mobile */
+    }
+    /* Disable hover effects on touch devices */
+    @media (hover: none) {
+        .glow-hover:hover { transform: none; box-shadow: none; }
+        .sparkle-hover:hover { animation: none; }
+        .slider-container:hover { transform: none; box-shadow: none; }
+    }
 }
 
 /* Skill tile with smoother transition */
