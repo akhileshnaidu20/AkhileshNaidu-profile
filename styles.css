@@ -91,11 +91,6 @@ ul li::before {
     height: 30px;
     transform: rotate(45deg);
     margin: -15px 0 0 auto;
-    transition: transform 0.3s ease; /* Smooth spin */
-}
-
-.diamond:hover {
-    transform: rotate(45deg) rotate(180deg); /* Spin on hover for all diamonds */
 }
 
 .pink { background: #4682b4; } /* Blue mix */
@@ -134,84 +129,4 @@ a:hover {
 
 .sparkle-hover:hover { animation: sparkle 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
 @keyframes sparkle {
-  0% { text-shadow: 0 0 5px #4682b4, 0 0 10px #4682b4; }
-  50% { text-shadow: 0 0 20px #4682b4, 0 0 30px #4682b4; }
-  100% { text-shadow: 0 0 5px #4682b4, 0 0 10px #4682b4; }
-}
-
-.glow-hover:hover { animation: glow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-@keyframes glow {
-  0% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px #4682b4; }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.slide-reveal { opacity: 0; transform: translateX(100%); transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.slide-reveal.visible { opacity: 1; transform: translateX(0); }
-
-.bounce-hover:hover { animation: bounce 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
-
-.spin-hover:hover { animation: spin 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
-@keyframes spin {
-  0% { transform: rotate(45deg); }
-  100% { transform: rotate(405deg); }
-}
-
-/* Slider with hover animation */
-.slider-container {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.slider-container:hover {
-    box-shadow: 0 4px 20px rgba(70, 130, 180, 0.3); /* Blue glow on hover */
-    transform: scale(1.02);
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother slider transition */
-}
-
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    transition: opacity 0.5s ease;
-}
-
-/* Navigation dots */
-.navigation-dots {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.dot {
-    height: 8px;
-    width: 8px;
-    margin: 0 4px;
-    background-color: #2a2a2a;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.dot.active {
-    background-color: #4682b4;
-}
-
-@media (max-width: 768px) {
-    .container { grid-template-columns: 1fr; }
-    .diamond { margin: 20px auto; }
-}
-
-/* Skill tile with smoother transition */
-.skill-tile {
-    background: #2a2a2a;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother, longer transition */
-}
+  0% { text-shadow: 0 0 5px #4682b4, 0
