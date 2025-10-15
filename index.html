@@ -13,8 +13,8 @@
         <div class="hero-content">
             <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
             <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
-            <h2 class="sparkle-hover">Data Annotation Specialist </h2>
-            <p class="profile-desc slide-reveal">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV and YOLO models. Adept at analyzing complex data, ensuring high accuracy and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
+            <h2 class="sparkle-hover">Data Annotation Specialist 🌟</h2>
+            <p class="profile-desc slide-reveal">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision, and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV, and YOLO models. Adept at analyzing complex data, ensuring high accuracy, and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
         </div>
     </div>
 
@@ -25,8 +25,8 @@
                 <p><i class="fas fa-phone bounce-hover"></i> +91 7349626862</p>
                 <p><i class="fas fa-envelope bounce-hover"></i> akhileshpower22@gmail.com</p>
                 <p><i class="fas fa-map-marker-alt bounce-hover"></i> Bengaluru, India</p>
-                <p><a href="https://www.linkedin.com/in/akhilesh-n-naidu"><i class="fab fa-linkedin bounce-hover"></i> LinkedIn</a></p>
-                <p><a href="https://github.com/akhileshnaidu20"><i class="fab fa-github bounce-hover"></i> GitHub</a></p>
+                <p><a href="https://linkedin.com/in/your-profile"><i class="fab fa-linkedin bounce-hover"></i> LinkedIn</a></p>
+                <p><a href="https://github.com/your-username"><i class="fab fa-github bounce-hover"></i> GitHub</a></p>
             </section>
 
             <section class="skills">
@@ -72,7 +72,7 @@
             <div class="diamond teal spin-hover"></div>
             <section class="experience slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-briefcase"></i> Work Experience</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'experience')">
+                <div class="slider-container" onmouseover="pauseAutoSlide('experience')" onmouseout="resumeAutoSlide('experience')" onclick="handleSlideClick(event, 'experience')">
                     <div class="slider">
                         <div class="slide">
                             <h4>Freelance/Independent Computer Vision Developer</h4>
@@ -98,7 +98,7 @@
                             <ul>
                                 <li>Researched technical and production data, compiling reports on manufacturing variances that optimized processes by identifying inefficiencies.</li>
                                 <li>Monitored and annotated production datasets to pinpoint equipment issues, improving workflow accuracy.</li>
-                                <li>Supported administrative tasks with detailed records for operational analysis.</li>
+                                <li>Supported administrative tasks with detailed data records for operational analysis.</li>
                             </ul>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
             <div class="diamond purple spin-hover"></div>
             <section class="projects slide-reveal">
                 <h3 class="sparkle-hover"><i class="fas fa-rocket"></i> Projects</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'projects')">
+                <div class="slider-container" onmouseover="pauseAutoSlide('projects')" onmouseout="resumeAutoSlide('projects')" onclick="handleSlideClick(event, 'projects')">
                     <div class="slider">
                         <div class="slide">
                             <h4>Vehicle Collision Detection System</h4>
@@ -149,8 +149,8 @@
 
             <div class="diamond pink spin-hover"></div>
             <section class="certifications slide-reveal">
-                <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications & Courses</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'certifications')">
+                <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications</h3>
+                <div class="slider-container" onmouseover="pauseAutoSlide('certifications')" onmouseout="resumeAutoSlide('certifications')" onclick="handleSlideClick(event, 'certifications')">
                     <div class="slider">
                         <div class="slide">
                             <h4>AWS Certified Cloud Practitioner</h4>
@@ -287,8 +287,24 @@
         document.querySelectorAll('*').forEach(el => {
             el.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
+
+        // Mobile swipe support (touch events)
+        document.querySelectorAll('.slider-container').forEach(container => {
+            let startX = 0;
+            let endX = 0;
+            container.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            });
+            container.addEventListener('touchend', e => {
+                endX = e.changedTouches[0].clientX;
+                const deltaX = startX - endX;
+                const section = container.closest('section').classList[1]; // e.g., 'experience'
+                if (Math.abs(deltaX) > 50) { // Minimum swipe distance
+                    const newIndex = deltaX > 0 ? sliders[section].currentIndex + 1 : sliders[section].currentIndex - 1;
+                    showSlide(section, newIndex);
+                }
+            });
+        });
     </script>
 </body>
 </html>
-
-
