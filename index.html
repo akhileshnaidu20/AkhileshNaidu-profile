@@ -149,18 +149,27 @@
 
             <div class="diamond pink spin-hover"></div>
             <section class="certifications slide-reveal">
-                <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications</h3>
+                <h3 class="sparkle-hover"><i class="fas fa-certificate"></i> Certifications & Courses</h3>
                 <div class="slider-container" onclick="handleSlideClick(event, 'certifications')">
                     <div class="slider">
                         <div class="slide">
-                            <p>AWS Certified Cloud Practitioner (Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
-                            <p>Link for all certificates: <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">Google Drive</a></p>
+                            <h4>AWS Certified Cloud Practitioner</h4>
+                            <p>(Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
+                            <p><a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">View All Certificates</a></p>
                         </div>
-                        <!-- Add more slides if needed -->
+                        <div class="slide">
+                            <h4>Full Stack Development</h4>
+                            <p>ExcelR, Bengaluru: HTML, CSS, JavaScript, Node.js, React, Django, Flask; Database Management (SQL, MongoDB); Version Control (Git), RESTful APIs.</p>
+                        </div>
+                        <div class="slide">
+                            <h4>Nanodegree - E-mobility</h4>
+                            <p>DIY Guru.org, Bengaluru: Analog/Digital Electronics, Circuit Designing, EV Fundamentals, MATLAB, ANSYS, SOLIDWORKS, BMS for EV Systems, Powertrain for EV.</p>
+                        </div>
                     </div>
                     <div class="navigation-dots">
                         <span class="dot active" onclick="currentSlide(0, 'certifications')"></span>
-                        <!-- Add more dots if more slides -->
+                        <span class="dot" onclick="currentSlide(1, 'certifications')"></span>
+                        <span class="dot" onclick="currentSlide(2, 'certifications')"></span>
                     </div>
                 </div>
             </section>
@@ -214,9 +223,9 @@
 
         // Slider setup for experience, projects, certifications
         const sliders = {
-            experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), slides: document.querySelectorAll('.experience .slide') },
-            projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), slides: document.querySelectorAll('.projects .slide') },
-            certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), slides: document.querySelectorAll('.certifications .slide') }
+            experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), slides: document.querySelectorAll('.experience .slide'), dots: document.querySelectorAll('.experience .dot') },
+            projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), slides: document.querySelectorAll('.projects .slide'), dots: document.querySelectorAll('.projects .dot') },
+            certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), slides: document.querySelectorAll('.certifications .slide'), dots: document.querySelectorAll('.certifications .dot') }
         };
 
         // Auto slide function
@@ -225,7 +234,6 @@
                 const { currentIndex, slides } = sliders[section];
                 const newIndex = (currentIndex + 1) % slides.length;
                 showSlide(section, newIndex);
-                updateDots(section, newIndex);
             }, 30000); // 30 seconds
         }
 
@@ -243,19 +251,16 @@
         }
 
         function showSlide(section, index) {
-            const { slider, slides } = sliders[section];
+            const { slider, slides, dots } = sliders[section];
             index = (index + slides.length) % slides.length;
             sliders[section].currentIndex = index;
             slider.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             slider.style.transform = `translateX(-${index * 100}%)`;
-            updateDots(section, index);
-        }
-
-        function updateDots(section, index) {
-            const dots = document.querySelectorAll(`.${section} .dot`);
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
+            if (dots) {
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
         }
 
         function currentSlide(index, section) {
