@@ -2,14 +2,14 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #000000, #1a1a1a, #2a2a2a); /* Black, gray shades */
+    background: linear-gradient(to bottom, #000000, #1a1a1a, #2a2a2a);
     color: #d4d4d4;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
 }
 
 .hero {
-    background: linear-gradient(135deg, #001f3f, #000000); /* Navy blue to black */
+    background: linear-gradient(135deg, #001f3f, #000000);
     color: #d4d4d4;
     text-align: center;
     padding: 80px 20px;
@@ -62,7 +62,7 @@ section {
 }
 
 h3 {
-    color: #4682b4; /* Steel blue accent */
+    color: #4682b4;
     font-size: 1.4em;
     margin-bottom: 15px;
     display: flex;
@@ -82,8 +82,8 @@ ul li {
 }
 
 ul li::before {
-    content: "•"; /* Bullet point */
-    color: #4682b4; /* Blue accent */
+    content: "•";
+    color: #4682b4;
     position: absolute;
     left: 0;
 }
@@ -95,9 +95,9 @@ ul li::before {
     margin: -15px 0 0 auto;
 }
 
-.pink { background: #4682b4; } /* Blue mix */
-.teal { background: #5f9ea0; } /* Cadet blue */
-.purple { background: #4169e1; } /* Royal blue */
+.pink { background: #4682b4; }
+.teal { background: #5f9ea0; }
+.purple { background: #4169e1; }
 
 a {
     color: #4682b4;
@@ -105,7 +105,7 @@ a {
 }
 
 a:hover {
-    color: #87cefa; /* Light sky blue hover */
+    color: #87cefa;
 }
 
 .toggle-input { display: none; }
@@ -121,7 +121,7 @@ a:hover {
     margin-bottom: 10px;
 }
 
-/* Animations - smoother with cubic-bezier */
+/* Animations */
 .bounce-load { animation: bounce 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
 @keyframes bounce {
   0% { transform: translateY(0); }
@@ -201,27 +201,32 @@ a:hover {
 
 /* Mobile Compatibility - Full Responsive Design */
 @media (max-width: 768px) {
-    body { font-size: 14px; } /* Base font size for mobile */
+    body { 
+        font-size: 14px; 
+        overflow-x: hidden; 
+    }
     .container { 
         grid-template-columns: 1fr; /* Stack columns vertically */
         gap: 15px; /* Reduced gap */
+        min-height: auto; /* Allow natural height */
     }
     .diamond { 
-        margin: 15px auto; /* Center and reduce spacing */
-        width: 20px;
-        height: 20px;
+        margin: 10px auto; /* Center and reduce spacing */
+        width: 25px; /* Smaller diamonds */
+        height: 25px;
     }
     .profile-photo { 
         width: 100px; /* Smaller on mobile */
         height: 100px;
     }
     .hero { 
-        padding: 50px 10px; /* Less padding */
+        padding: 40px 15px; /* Less padding, ensure full visibility */
+        min-height: 80vh; /* Ensure hero takes full viewport on mobile */
     }
     .hero h1 { font-size: 1.8em; }
-    .hero h2 { font-size: 1.2em; }
+    .hero h2 { font-size: 1.3em; }
     .profile-desc { 
-        font-size: 0.85em; 
+        font-size: 0.9em; 
         line-height: 1.4; 
         margin-top: 10px;
     }
@@ -229,18 +234,18 @@ a:hover {
         padding: 15px; /* Reduce padding */
     }
     h3 { 
-        font-size: 1.1em; 
+        font-size: 1.2em; 
     }
     ul li { 
-        font-size: 0.85em; 
+        font-size: 0.9em; 
         padding-left: 15px; /* Adjust bullet spacing */
     }
     .navigation-dots { 
-        margin-top: 10px; 
+        margin-top: 5px; 
     }
     .dot { 
-        height: 12px; /* Larger dots for touch */
-        width: 12px;
+        height: 10px; /* Larger dots for touch */
+        width: 10px;
     }
     .slider-container { 
         touch-action: pan-y; /* Enable vertical scroll, horizontal swipe for slider */
@@ -254,7 +259,7 @@ a:hover {
         margin-left: 0;
         text-indent: -0.5em; /* Simple indent for mobile */
     }
-    /* Disable hover effects on touch devices */
+    /* Disable hover effects on touch devices to prevent conflicts */
     @media (hover: none) {
         .glow-hover:hover, .sparkle-hover:hover, .bounce-hover:hover, .spin-hover:hover { 
             transform: none; 
@@ -265,9 +270,9 @@ a:hover {
             box-shadow: none; 
         }
     }
-    /* Prevent scroll issues */
-    body { overflow-x: hidden; }
-    .container { min-height: 100vh; }
+    /* Fix scroll jumping - ensure smooth scrolling */
+    html { scroll-behavior: smooth; }
+    body { -webkit-overflow-scrolling: touch; } /* iOS smooth scroll */
 }
 
 /* Skill tile with smoother transition */
