@@ -5,6 +5,7 @@ body {
     background: linear-gradient(to bottom, #000000, #1a1a1a, #2a2a2a); /* Black, gray shades */
     color: #d4d4d4;
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 .hero {
@@ -31,7 +32,7 @@ body {
     border-radius: 50%;
     border: 6px solid #2a2a2a;
     margin-bottom: 20px;
-    object-fit: cover; /* Ensures image fits nicely */
+    object-fit: cover;
 }
 
 .hero h1, .hero h2 {
@@ -198,56 +199,55 @@ a:hover {
     background-color: #4682b4;
 }
 
-/* Mobile Compatibility */
+/* Mobile Compatibility - Full Responsive Design */
 @media (max-width: 768px) {
+    body { font-size: 14px; } /* Base font size for mobile */
     .container { 
         grid-template-columns: 1fr; /* Stack columns vertically */
-        gap: 20px; 
+        gap: 15px; /* Reduced gap */
     }
     .diamond { 
-        margin: 10px auto; /* Center and reduce spacing */
+        margin: 15px auto; /* Center and reduce spacing */
+        width: 20px;
+        height: 20px;
     }
     .profile-photo { 
-        width: 120px; /* Smaller on mobile */
-        height: 120px;
+        width: 100px; /* Smaller on mobile */
+        height: 100px;
     }
     .hero { 
-        padding: 40px 15px; /* Adjust padding */
-        text-align: left; /* Left-align for better reading */
+        padding: 50px 10px; /* Less padding */
     }
-    .hero h1 { 
-        font-size: 2em; /* Scale down fonts */
-    }
-    .hero h2 { 
-        font-size: 1.3em; 
-    }
+    .hero h1 { font-size: 1.8em; }
+    .hero h2 { font-size: 1.2em; }
     .profile-desc { 
-        font-size: 0.9em; /* Smaller text */
+        font-size: 0.85em; 
         line-height: 1.4; 
+        margin-top: 10px;
     }
     section { 
         padding: 15px; /* Reduce padding */
     }
     h3 { 
-        font-size: 1.2em; 
+        font-size: 1.1em; 
     }
     ul li { 
-        font-size: 0.9em; 
+        font-size: 0.85em; 
         padding-left: 15px; /* Adjust bullet spacing */
     }
     .navigation-dots { 
-        margin-top: 5px; 
+        margin-top: 10px; 
     }
     .dot { 
-        height: 10px; /* Larger dots for touch */
-        width: 10px;
+        height: 12px; /* Larger dots for touch */
+        width: 12px;
     }
     .slider-container { 
         touch-action: pan-y; /* Enable vertical scroll, horizontal swipe for slider */
     }
     .slide ul {
         padding-left: 0;
-        margin-left: 0;
+        margin: 0;
     }
     .slide li {
         padding-left: 0;
@@ -256,10 +256,18 @@ a:hover {
     }
     /* Disable hover effects on touch devices */
     @media (hover: none) {
-        .glow-hover:hover { transform: none; box-shadow: none; }
-        .sparkle-hover:hover { animation: none; }
-        .slider-container:hover { transform: none; box-shadow: none; }
+        .glow-hover:hover, .sparkle-hover:hover, .bounce-hover:hover, .spin-hover:hover { 
+            transform: none; 
+            animation: none; 
+        }
+        .slider-container:hover { 
+            transform: none; 
+            box-shadow: none; 
+        }
     }
+    /* Prevent scroll issues */
+    body { overflow-x: hidden; }
+    .container { min-height: 100vh; }
 }
 
 /* Skill tile with smoother transition */
