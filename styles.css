@@ -91,6 +91,11 @@ ul li::before {
     height: 30px;
     transform: rotate(45deg);
     margin: -15px 0 0 auto;
+    transition: transform 0.3s ease; /* Smooth spin */
+}
+
+.diamond:hover {
+    transform: rotate(45deg) rotate(180deg); /* Spin on hover for all diamonds */
 }
 
 .pink { background: #4682b4; } /* Blue mix */
