@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akhilesh N Naidu - Data Annotation Specialist</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -98,7 +98,7 @@
                             <ul>
                                 <li>Researched technical and production data, compiling reports on manufacturing variances that optimized processes by identifying inefficiencies.</li>
                                 <li>Monitored and annotated production datasets to pinpoint equipment issues, improving workflow accuracy.</li>
-                                <li>Supported administrative tasks with detailed data records for operational analysis.</li>
+                                <li>Supported administrative tasks with detailed records for operational analysis.</li>
                             </ul>
                         </div>
                     </div>
@@ -178,8 +178,8 @@
 
     <script>
         // Scroll reveal observer for reactivity (always active)
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 } else {
@@ -187,7 +187,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.slide-reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.slide-reveal').forEach((el) => observer.observe(el));
 
         // Skills rotation with increased delay and smoother transition
         const skills = [
@@ -298,7 +298,7 @@
             container.addEventListener('touchend', e => {
                 endX = e.changedTouches[0].clientX;
                 const deltaX = startX - endX;
-                const section = container.closest('section').classList[1]; // e.g., 'experience'
+                const section = container.closest('section').className.split(' ')[1]; // e.g., 'experience'
                 if (Math.abs(deltaX) > 50) { // Minimum swipe distance
                     const newIndex = deltaX > 0 ? sliders[section].currentIndex + 1 : sliders[section].currentIndex - 1;
                     showSlide(section, newIndex);
