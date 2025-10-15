@@ -86,13 +86,6 @@ ul li::before {
     left: 0;
 }
 
-.exp-item, .proj-item {
-    background: linear-gradient(to right, #2a2a2a, #1a1a1a);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
 .diamond {
     width: 30px;
     height: 30px;
