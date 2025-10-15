@@ -91,6 +91,11 @@ ul li::before {
     height: 30px;
     transform: rotate(45deg);
     margin: -15px 0 0 auto;
+    transition: transform 0.3s ease; /* Smooth spin */
+}
+
+.diamond:hover {
+    transform: rotate(45deg) rotate(180deg); /* Spin on hover for all diamonds */
 }
 
 .pink { background: #4682b4; } /* Blue mix */
@@ -198,37 +203,8 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    .container { 
-        grid-template-columns: 1fr; 
-        gap: 20px; 
-    }
-    .diamond { 
-        margin: 20px auto; 
-    }
-    .profile-photo { 
-        width: 120px; 
-        height: 120px; 
-    }
-    .hero { 
-        padding: 60px 20px; /* Adjusted for mobile */
-    }
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.5em; }
-    .navigation-dots { 
-        margin-top: 5px; 
-    }
-    .slider-container { 
-        touch-action: pan-y; /* Enable swipe on touch devices */
-    }
-    .slide ul {
-        padding-left: 0;
-        margin: 0;
-    }
-    .slide li {
-        padding-left: 0;
-        margin-left: 0;
-        text-indent: -0.5em; /* Simple indent for mobile */
-    }
+    .container { grid-template-columns: 1fr; }
+    .diamond { margin: 20px auto; }
 }
 
 /* Skill tile with smoother transition */
