@@ -8,48 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark-theme"> <!-- Default to dark; toggle via JS -->
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <!-- Floating Nav -->
-    <nav class="floating-nav">
-        <ul>
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-            <li><a href="#projects"><i class="fas fa-rocket"></i> Projects</a></li>
-            <li><a href="#certifications"><i class="fas fa-certificate"></i> Certs</a></li>
-        </ul>
-    </nav>
-
+<body>
     <div class="hero">
-        <div class="hero-bg"></div> <!-- Parallax layer -->
         <div class="hero-content">
             <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
-            <h1 class="sparkle-hover typing-effect">Akhilesh N Naidu</h1>
-            <h2 class="sparkle-hover glow-hover">Data Annotation Specialist</h2>
+            <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
+            <h2 class="sparkle-hover">Data Annotation Specialist </h2>
             <p class="profile-desc">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV and YOLO models. Adept at analyzing complex data, ensuring high accuracy and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
         </div>
     </div>
 
     <div class="container">
         <aside class="left-column">
-            <section class="contact card" id="contact">
+            <section class="contact">
                 <h3><i class="fas fa-address-card"></i> Contact</h3>
-                <p><i class="fas fa-phone icon-hover"></i> +91 7349626862</p>
-                <p><i class="fas fa-envelope icon-hover"></i> akhileshpower22@gmail.com</p>
-                <p><i class="fas fa-map-marker-alt icon-hover"></i> Bengaluru, India</p>
-                <p><a href="https://www.linkedin.com/in/akhilesh-n-naidu" aria-label="LinkedIn Profile" class="link-hover"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                <p><i class="fas fa-phone"></i> +91 7349626862</p>
+                <p><i class="fas fa-envelope"></i> akhileshpower22@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bengaluru, India</p>
+                <p><a href="https://www.linkedin.com/in/akhilesh-n-naidu" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                <!-- GitHub link removed -->
             </section>
 
-            <section class="skills card" id="skills">
+            <section class="skills">
                 <h3><i class="fas fa-tools"></i> Skills</h3>
                 <div id="skill-tile" class="skill-tile"></div>
             </section>
 
-            <section class="courses card">
+            <section class="courses">
                 <h3><i class="fas fa-book"></i> Courses</h3>
                 <ul>
                     <li>Full Stack Development (ExcelR)</li>
@@ -58,7 +43,7 @@
                 </ul>
             </section>
 
-            <section class="languages card">
+            <section class="languages">
                 <h3><i class="fas fa-globe"></i> Languages</h3>
                 <ul>
                     <li>English: Professional</li>
@@ -68,24 +53,23 @@
                 </ul>
             </section>
 
-            <section class="interests card">
+            <section class="interests">
                 <h3><i class="fas fa-heart"></i> Interests</h3>
                 <p>Music | Chess | Documentaries | Travel | Sports | Space Research | Technology</p>
             </section>
         </aside>
 
         <main class="right-column">
-            <div class="diamond pink pulse-hover"></div>
-            <section class="education card slide-reveal" id="education">
+            <div class="diamond pink"></div>
+            <section class="education">
                 <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                 <p>Bachelor of Engineering in Mechanical Engineering<br>Dayananda Sagar Academy of Technology<br>2019–2023 (7.3 CGPA)</p>
             </section>
 
-            <div class="diamond teal pulse-hover"></div>
-            <section class="experience card slide-reveal" id="experience">
+            <div class="diamond teal"></div>
+            <section class="experience">
                 <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
-                <div class="slider-container timeline-slider" onclick="handleSlideClick(event, 'experience')" role="region" aria-label="Work Experience Slider">
-                    <div class="slider-track"></div> <!-- Progress indicator -->
+                <div class="slider-container" onclick="handleSlideClick(event, 'experience')" role="region" aria-label="Work Experience Slider">
                     <div class="slider">
                         <div class="slide">
                             <h4>ML Data Associate (GO-AI)</h4>
@@ -96,7 +80,6 @@
                                 <li>Keep a check on data metrics such as low confidence and high confidence situations.</li>
                             </ul>
                         </div>
-                        <!-- Other slides unchanged for brevity; add the 4th as before -->
                         <div class="slide">
                             <h4>Freelance/Independent Computer Vision Developer</h4>
                             <p>Bengaluru, India | 06/2024 - Present</p>
@@ -134,133 +117,179 @@
                 </div>
             </section>
 
-            <!-- Projects and Certifications sections unchanged for brevity; apply similar enhancements -->
-            <div class="diamond purple pulse-hover"></div>
-            <section class="projects card slide-reveal" id="projects">
+            <div class="diamond purple"></div>
+            <section class="projects">
                 <h3><i class="fas fa-rocket"></i> Projects</h3>
-                <!-- Slider as before, with added class="timeline-slider" -->
-                <div class="slider-container timeline-slider" onclick="handleSlideClick(event, 'projects')" role="region" aria-label="Projects Slider">
-                    <div class="slider-track"></div>
-                    <!-- Slides as before -->
+                <div class="slider-container" onclick="handleSlideClick(event, 'projects')" role="region" aria-label="Projects Slider">
+                    <div class="slider">
+                        <div class="slide">
+                            <h4>Vehicle Collision Detection System</h4>
+                            <p>Personal Project | 2024</p>
+                            <ul>
+                                <li>Implemented YOLOv8 for real-time vehicle detection in dashcam footage, achieving 92% mAP on custom annotated dataset.</li>
+                                <li>Integrated OpenCV for tracking and alert generation, reducing false positives by 15% through post-processing filters.</li>
+                                <li>Deployed on edge devices using TensorRT for low-latency inference.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Delivery Partner Identification Tool</h4>
+                            <p>Freelance | 2024</p>
+                            <ul>
+                                <li>Developed annotation pipeline with CVAT for multi-class labeling of delivery personnel in urban environments.</li>
+                                <li>Fine-tuned Vision Transformer on labeled data, improving recognition accuracy from 78% to 94%.</li>
+                                <li>Automated data validation scripts in Python to flag inconsistencies, saving 20 hours/week in manual review.</li>
+                            </ul>
+                        </div>
+                        <div class="slide">
+                            <h4>Composite Material Analysis Dashboard</h4>
+                            <p>B.Tech Project | 2023</p>
+                            <ul>
+                                <li>Analyzed mechanical properties through data collection and testing.</li>
+                                <li>Compiled and annotated experimental datasets for high-strength composite development.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="navigation-dots" role="tablist" aria-label="Projects Slide Navigation">
+                        <span class="dot active" onclick="currentSlide(0, 'projects')" role="tab" aria-selected="true" tabindex="0"></span>
+                        <span class="dot" onclick="currentSlide(1, 'projects')" role="tab" aria-selected="false" tabindex="-1"></span>
+                        <span class="dot" onclick="currentSlide(2, 'projects')" role="tab" aria-selected="false" tabindex="-1"></span>
+                    </div>
                 </div>
             </section>
 
-            <div class="diamond pink pulse-hover"></div>
-            <section class="certifications card slide-reveal" id="certifications">
+            <div class="diamond pink"></div>
+            <section class="certifications">
                 <h3><i class="fas fa-certificate"></i> Certifications</h3>
-                <!-- Slider as before, with added class="timeline-slider" -->
-                <div class="slider-container timeline-slider" onclick="handleSlideClick(event, 'certifications')" role="region" aria-label="Certifications Slider">
-                    <div class="slider-track"></div>
-                    <!-- Slides as before -->
+                <div class="slider-container" onclick="handleSlideClick(event, 'certifications')" role="region" aria-label="Certifications Slider">
+                    <div class="slider">
+                        <div class="slide">
+                            <h4>AWS Certified Cloud Practitioner</h4>
+                            <p>(Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
+                            <p><a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">View All Certificates</a></p>
+                        </div>
+                        <div class="slide">
+                            <h4>Full Stack Development</h4>
+                            <p>ExcelR, Bengaluru: HTML, CSS, JavaScript, Node.js, React, Django, Flask; Database Management (SQL, MongoDB); Version Control (Git), RESTful APIs.</p>
+                        </div>
+                        <div class="slide">
+                            <h4>Nanodegree - E-mobility</h4>
+                            <p>DIY Guru.org, Bengaluru: Analog/Digital Electronics, Circuit Designing, EV Fundamentals, MATLAB, ANSYS, SOLIDWORKS, BMS for EV Systems, Powertrain for EV.</p>
+                        </div>
+                    </div>
+                    <div class="navigation-dots" role="tablist" aria-label="Certifications Slide Navigation">
+                        <span class="dot active" onclick="currentSlide(0, 'certifications')" role="tab" aria-selected="true" tabindex="0"></span>
+                        <span class="dot" onclick="currentSlide(1, 'certifications')" role="tab" aria-selected="false" tabindex="-1"></span>
+                        <span class="dot" onclick="currentSlide(2, 'certifications')" role="tab" aria-selected="false" tabindex="-1"></span>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Back to Top -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
-        <i class="fas fa-rocket"></i>
-    </button>
-
     <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            themeToggle.querySelector('i').classList.toggle('fa-moon');
-            themeToggle.querySelector('i').classList.toggle('fa-sun');
-        });
-
-        // Typing Effect for Name
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-        window.addEventListener('load', () => typeWriter(document.querySelector('.typing-effect'), 'Akhilesh N Naidu'));
-
-        // Scroll Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), index * 200); // Staggered reveal
-                }
-            });
-        });
-        document.querySelectorAll('.slide-reveal').forEach(el => observer.observe(el));
-
-        // Back to Top
-        const backToTop = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            backToTop.style.opacity = window.scrollY > 300 ? '1' : '0';
-        });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // Floating Nav
-        window.addEventListener('scroll', () => {
-            document.querySelector('.floating-nav').style.opacity = window.scrollY > 100 ? '1' : '0';
-        });
-
-        // Enhanced Skills Rotation with Progress Bars
+        // Skills rotation
         const skills = [
-            { title: "Data Annotation", details: "Data Labeling and Dataset Preparation (Image, Video, Text). Data Annotation Tools (Labelbox, CVAT).", progress: 95 },
-            // ... other skills with progress: e.g., 85, 90, etc.
-            { title: "AI Skills", details: "Computer Vision (OpenCV, YOLOv8/v11, Image Segmentation, Object Detection). Machine Learning (Supervised/Unsupervised Learning, Scikit-learn, Feature Engineering). Deep Learning (Neural Networks, CNNs, RNNs, TensorFlow, PyTorch). Programming (Python, Java basics, MATLAB).", progress: 90 },
-            // Add progress to all for consistency
+            { title: "Data Annotation", details: "Data Labeling and Dataset Preparation (Image, Video, Text). Data Annotation Tools (Labelbox, CVAT)." },
+            { title: "AI Skills", details: "Computer Vision (OpenCV, YOLOv8/v11, Image Segmentation, Object Detection). Machine Learning (Supervised/Unsupervised Learning, Scikit-learn, Feature Engineering). Deep Learning (Neural Networks, CNNs, RNNs, TensorFlow, PyTorch). Programming (Python, Java basics, MATLAB)." },
+            { title: "Web Development", details: "Full Stack Development (HTML, CSS, JavaScript, Node.js, React, Django, Flask). Database Management (SQL, MongoDB)." },
+            { title: "AWS Cloud Development", details: "AWS Core Services (EC2, S3, Lambda, IAM). Cloud Storage and Data Management (S3, EFS). Cloud Compute for AI/ML (EC2, Lambda). AWS Security and Access Management (IAM, KMS). Cloud Architecture and Cost Optimization." },
+            { title: "Engineering & Analysis", details: "Finite Element Analysis (ANSYS). Computer-Aided Design (SolidWorks)." },
+            { title: "Tools & Platforms", details: "Linux (Ubuntu), Docker, Git. Microsoft Office." },
+            { title: "Soft Skills", details: "Critical Thinking and Problem Solving. Communication Skills. Fast Learner." }
         ];
+
         let currentSkill = 0;
         const skillTile = document.getElementById('skill-tile');
 
         function rotateSkill() {
             skillTile.style.opacity = 0;
             setTimeout(() => {
-                const skill = skills[currentSkill];
-                skillTile.innerHTML = `
-                    <div class="skill-card">
-                        <h4>${skill.title}</h4>
-                        <p>${skill.details}</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${skill.progress}%"></div>
-                        </div>
-                        <span class="progress-text">${skill.progress}% Proficiency</span>
-                    </div>
-                `;
+                skillTile.innerHTML = `<div class="skill-card"><h4>${skills[currentSkill].title}</h4><p>${skills[currentSkill].details}</p></div>`;
                 skillTile.style.opacity = 1;
                 currentSkill = (currentSkill + 1) % skills.length;
-            }, 800);
+            }, 800); // Slower fade for smoothness
         }
+
         rotateSkill();
         setInterval(rotateSkill, 5000);
 
-        // Slider functions (enhanced with pause on hover)
-        // ... (keep previous, but add: sliderContainer.addEventListener('mouseenter', pauseAutoSlide); 'mouseleave', resume)
+        // Slider functions (updated for 4 experience slides)
+        const sliders = {
+            experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), dots: document.querySelectorAll('.experience .dot') },
+            projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), dots: document.querySelectorAll('.projects .dot') },
+            certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), dots: document.querySelectorAll('.certifications .dot') }
+        };
 
-        // Pause/Resume Auto-slide on Hover
-        let autoSlideIntervals = {};
+        function showSlide(section, index) {
+            const slider = sliders[section].slider;
+            const dots = sliders[section].dots;
+            sliders[section].currentIndex = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+                dot.setAttribute('aria-selected', i === index);
+                dot.tabIndex = i === index ? 0 : -1;
+            });
+        }
+
+        function currentSlide(index, section) {
+            showSlide(section, index);
+        }
+
+        function handleSlideClick(event, section) {
+            // Ripple effect for UX
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            const rect = event.currentTarget.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            event.currentTarget.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+
+            const rectFull = event.currentTarget.getBoundingClientRect();
+            const clickX = event.clientX - rectFull.left;
+            const halfWidth = rectFull.width / 2;
+            let newIndex = sliders[section].currentIndex;
+            const maxSlides = section === 'experience' ? 4 : 3; // Handle 4 for experience
+            if (clickX < halfWidth) newIndex = (newIndex - 1 + maxSlides) % maxSlides;
+            else newIndex = (newIndex + 1) % maxSlides;
+            showSlide(section, newIndex);
+        }
+
+        // Auto-slide
         Object.keys(sliders).forEach(section => {
-            autoSlideIntervals[section] = setInterval(() => {
-                // ... existing auto-slide logic
+            setInterval(() => {
+                const maxSlides = section === 'experience' ? 4 : 3;
+                const newIndex = (sliders[section].currentIndex + 1) % maxSlides;
+                showSlide(section, newIndex);
             }, 30000);
-            sliders[section].slider.addEventListener('mouseenter', () => clearInterval(autoSlideIntervals[section]));
-            sliders[section].slider.addEventListener('mouseleave', () => autoSlideIntervals[section] = setInterval(/* logic */, 30000));
         });
 
-        // Smooth Scroll for Nav Links
-        document.querySelectorAll('.floating-nav a').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        // Mobile swipe (enhanced with momentum)
+        document.querySelectorAll('.slider-container').forEach(container => {
+            let startX = 0, startTime = 0;
+            container.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+                startTime = Date.now();
+            });
+            container.addEventListener('touchend', e => {
+                const endX = e.changedTouches[0].clientX;
+                const deltaX = startX - endX;
+                const deltaTime = Date.now() - startTime;
+                if (Math.abs(deltaX) > 50 && deltaTime < 300) { // Swipe threshold
+                    const section = Array.from(container.closest('section').classList).find(c => ['experience', 'projects', 'certifications'].includes(c));
+                    const maxSlides = section === 'experience' ? 4 : 3;
+                    let newIndex = sliders[section].currentIndex;
+                    if (deltaX > 0) newIndex = (newIndex + 1) % maxSlides; // Swipe left: next
+                    else newIndex = (newIndex - 1 + maxSlides) % maxSlides; // Swipe right: prev
+                    showSlide(section, newIndex);
+                }
             });
         });
-
-        // ... (rest of slider JS unchanged)
     </script>
 </body>
 </html>
