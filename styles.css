@@ -4,7 +4,7 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #000000, #1a1a1a, #2a2a2a);
     color: #d4d4d4;
-    line-height: 1.6;
+    line-height: 1.7; /* Slightly increased for better readability */
     overflow-x: hidden;
 }
 
@@ -18,7 +18,8 @@ body {
 }
 
 .hero-content {
-    animation: parallax 10s linear infinite;
+    animation: parallax 15s linear infinite; /* Slower for subtlety */
+    will-change: background-position;
 }
 
 @keyframes parallax {
@@ -33,6 +34,11 @@ body {
     border: 6px solid #2a2a2a;
     margin-bottom: 20px;
     object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother bounce integration */
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
 }
 
 .hero h1, .hero h2 {
@@ -43,6 +49,8 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+    border-left: 3px solid #4682b4; /* Subtle accent for UX depth */
+    padding-left: 15px;
 }
 
 .container {
@@ -59,6 +67,13 @@ section {
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(70, 130, 180, 0.1); /* Subtle border for separation */
+    transition: box-shadow 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+section:hover {
+    box-shadow: 0 8px 25px rgba(70, 130, 180, 0.2);
+    transform: translateY(-2px);
 }
 
 h3 {
@@ -79,6 +94,11 @@ ul li {
     margin-bottom: 8px;
     position: relative;
     padding-left: 20px;
+    transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+ul li:hover {
+    color: #87cefa;
 }
 
 ul li::before {
@@ -86,6 +106,7 @@ ul li::before {
     color: #4682b4;
     position: absolute;
     left: 0;
+    transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .diamond {
@@ -93,6 +114,11 @@ ul li::before {
     height: 30px;
     transform: rotate(45deg);
     margin: -15px 0 0 auto;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.diamond:hover {
+    transform: rotate(45deg) scale(1.1);
 }
 
 .pink { background: #4682b4; }
@@ -102,153 +128,210 @@ ul li::before {
 a {
     color: #4682b4;
     text-decoration: none;
+    transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    border-bottom: 1px solid transparent; /* Subtle underline on hover */
 }
 
 a:hover {
     color: #87cefa;
+    border-bottom-color: #87cefa;
 }
 
 .toggle-input { display: none; }
 
-.toggle-content { display: none; }
+.toggle-content { display: none; opacity: 0; transform: translateY(10px); transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
 
-.toggle-input:checked + .toggle-label + .toggle-content { display: block; }
+.toggle-input:checked + .toggle-label + .toggle-content { display: block; opacity: 1; transform: translateY(0); }
 
 .toggle-label {
     cursor: pointer;
     display: block;
     font-weight: 600;
     margin-bottom: 10px;
+    transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-/* Animations */
-.bounce-load { animation: bounce 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
+.toggle-label:hover {
+    color: #87cefa;
+}
+
+/* Animations - Smoothed with Material easing */
+.bounce-load { 
+    animation: bounce 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; /* Slower, smoother bounce */
+}
 @keyframes bounce {
-  0% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
 }
 
-.sparkle-hover:hover { animation: sparkle 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
+.sparkle-hover:hover { 
+    animation: sparkle 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; /* Longer, fluid sparkle */
+}
 @keyframes sparkle {
-  0% { text-shadow: 0 0 5px #4682b4, 0 0 10px #4682b4; }
+  0%, 100% { text-shadow: 0 0 5px #4682b4, 0 0 10px #4682b4; }
   50% { text-shadow: 0 0 20px #4682b4, 0 0 30px #4682b4; }
-  100% { text-shadow: 0 0 5px #4682b4, 0 0 10px #4682b4; }
 }
 
-.glow-hover:hover { animation: glow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.glow-hover:hover { 
+    animation: glow 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; /* Smoother glow */
+}
 @keyframes glow {
   0% { opacity: 0.7; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px #4682b4; }
   100% { opacity: 1; transform: scale(1); }
 }
 
-.slide-reveal { opacity: 0; transform: translateX(100%); transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.slide-reveal.visible { opacity: 1; transform: translateX(0); }
+.slide-reveal { 
+    opacity: 0; 
+    transform: translateX(100%); 
+    transition: all 1s cubic-bezier(0.25, 0.1, 0.25, 1); /* Fluid slide-in */
+}
+.slide-reveal.visible { 
+    opacity: 1; 
+    transform: translateX(0); 
+}
 
-.bounce-hover:hover { animation: bounce 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
+.bounce-hover:hover { 
+    animation: bounce 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; /* Smoother hover bounce */
+}
 
-.spin-hover:hover { animation: spin 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
+.spin-hover:hover { 
+    animation: spin 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; /* Slower, elegant spin */
+}
 @keyframes spin {
   0% { transform: rotate(45deg); }
   100% { transform: rotate(405deg); }
 }
 
-/* Slider with hover animation */
+/* Slider with enhanced smoothness */
 .slider-container {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transition: box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); /* Fluid hover response */
+    will-change: transform;
+    border-radius: 10px; /* Rounded for modern feel */
 }
 
 .slider-container:hover {
-    box-shadow: 0 4px 20px rgba(70, 130, 180, 0.3); /* Blue glow on hover */
+    box-shadow: 0 4px 20px rgba(70, 130, 180, 0.3);
     transform: scale(1.02);
 }
 
 .slider {
     display: flex;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother slider transition */
+    transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1); /* Longer, buttery slide */
+    will-change: transform;
 }
 
 .slide {
     min-width: 100%;
     box-sizing: border-box;
-    transition: opacity 0.5s ease;
+    padding: 20px;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    opacity: 0.95;
+}
+
+.slide:hover {
+    opacity: 1;
+}
+
+/* Ripple effect for clicks */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(70, 130, 180, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 /* Navigation dots */
 .navigation-dots {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px; /* More breathing room */
 }
 
 .dot {
-    height: 8px;
-    width: 8px;
-    margin: 0 4px;
+    height: 10px;
+    width: 10px;
+    margin: 0 6px;
     background-color: #2a2a2a;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.dot:hover {
+    transform: scale(1.2);
+    background-color: #87cefa;
 }
 
 .dot.active {
     background-color: #4682b4;
+    transform: scale(1.2);
 }
 
-/* Mobile Compatibility - Full Responsive Design */
+/* Mobile Compatibility - Enhanced */
 @media (max-width: 768px) {
     body { 
         font-size: 14px; 
         overflow-x: hidden; 
     }
     .container { 
-        grid-template-columns: 1fr; /* Stack columns vertically */
-        gap: 15px; /* Reduced gap */
-        min-height: auto; /* Allow natural height */
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+        min-height: auto; 
     }
     .diamond { 
-        margin: 10px auto; /* Center and reduce spacing */
-        width: 25px; /* Smaller diamonds */
+        margin: 10px auto; 
+        width: 25px; 
         height: 25px;
     }
     .profile-photo { 
-        width: 100px; /* Smaller on mobile */
+        width: 100px; 
         height: 100px;
     }
     .hero { 
-        padding: 40px 15px; /* Less padding, ensure full visibility */
-        min-height: 80vh; /* Ensure hero takes full viewport on mobile */
+        padding: 50px 15px; 
+        min-height: 80vh; 
     }
     .hero h1 { font-size: 1.8em; }
     .hero h2 { font-size: 1.3em; }
     .profile-desc { 
         font-size: 0.9em; 
-        line-height: 1.4; 
+        line-height: 1.5; 
         margin-top: 10px;
+        border-left: none; /* Remove on mobile */
+        padding-left: 0;
     }
     section { 
-        padding: 15px; /* Reduce padding */
+        padding: 20px; 
     }
     h3 { 
         font-size: 1.2em; 
     }
     ul li { 
         font-size: 0.9em; 
-        padding-left: 15px; /* Adjust bullet spacing */
+        padding-left: 15px; 
     }
     .navigation-dots { 
-        margin-top: 5px; 
+        margin-top: 10px; 
     }
     .dot { 
-        height: 10px; /* Larger dots for touch */
-        width: 10px;
+        height: 12px; /* Larger for touch */
+        width: 12px;
     }
     .slider-container { 
-        touch-action: pan-y; /* Enable vertical scroll, horizontal swipe for slider */
+        touch-action: pan-y; 
     }
     .slide ul {
         padding-left: 0;
@@ -257,22 +340,19 @@ a:hover {
     .slide li {
         padding-left: 0;
         margin-left: 0;
-        text-indent: -0.5em; /* Simple indent for mobile */
+        text-indent: -0.5em;
     }
-    /* Disable hover effects on touch devices to prevent conflicts */
+    /* Disable hovers on touch, but keep ripples */
     @media (hover: none) {
-        .glow-hover:hover, .sparkle-hover:hover, .bounce-hover:hover, .spin-hover:hover { 
+        .glow-hover:hover, .sparkle-hover:hover, .bounce-hover:hover, .spin-hover:hover, 
+        .slider-container:hover, section:hover { 
             transform: none; 
             animation: none; 
-        }
-        .slider-container:hover { 
-            transform: none; 
             box-shadow: none; 
         }
     }
-    /* Fix scroll jumping - ensure smooth scrolling */
     html { scroll-behavior: smooth; }
-    body { -webkit-overflow-scrolling: touch; } /* iOS smooth scroll */
+    body { -webkit-overflow-scrolling: touch; }
 }
 
 /* Skill tile with smoother transition */
@@ -281,5 +361,11 @@ a:hover {
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-    transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother, longer transition */
+    transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Fluid fade */
+    border: 1px solid rgba(70, 130, 180, 0.1);
+}
+
+.skill-card h4 {
+    color: #4682b4;
+    margin-bottom: 10px;
 }
