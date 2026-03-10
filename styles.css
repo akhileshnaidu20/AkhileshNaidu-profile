@@ -6,6 +6,9 @@ body {
     color: #d4d4d4;
     line-height: 1.7; /* Slightly increased for better readability */
     overflow-x: hidden;
+    * {
+        box-sizing: border-box; /* Ensure consistent box model */
+    }
 }
 
 .hero {
@@ -43,6 +46,8 @@ body {
 
 .hero h1, .hero h2 {
     margin: 10px 0;
+    overflow-wrap: break-word; /* Prevent horizontal overflow */
+    hyphens: auto;
 }
 
 .profile-desc {
@@ -51,6 +56,8 @@ body {
     padding: 0 20px;
     border-left: 3px solid #4682b4; /* Subtle accent for UX depth */
     padding-left: 15px;
+    overflow-wrap: anywhere; /* Break long words */
+    white-space: normal; /* Allow wrapping */
 }
 
 .container {
@@ -69,6 +76,7 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(70, 130, 180, 0.1); /* Subtle border for separation */
     transition: box-shadow 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    overflow: hidden; /* Contain internal overflows */
 }
 
 section:hover {
@@ -83,11 +91,13 @@ h3 {
     display: flex;
     align-items: center;
     gap: 10px;
+    overflow-wrap: break-word;
 }
 
 ul {
     list-style: none;
     padding: 0;
+    margin: 0; /* Reset margins to prevent extra space */
 }
 
 ul li {
@@ -95,6 +105,8 @@ ul li {
     position: relative;
     padding-left: 20px;
     transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    overflow-wrap: break-word; /* Wrap long bullets */
+    white-space: normal;
 }
 
 ul li:hover {
@@ -130,6 +142,7 @@ a {
     text-decoration: none;
     transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     border-bottom: 1px solid transparent; /* Subtle underline on hover */
+    display: inline-block; /* Prevent line breaks */
 }
 
 a:hover {
@@ -211,6 +224,7 @@ a:hover {
     transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); /* Fluid hover response */
     will-change: transform;
     border-radius: 10px; /* Rounded for modern feel */
+    width: 100%; /* Ensure full width */
 }
 
 .slider-container:hover {
@@ -222,6 +236,7 @@ a:hover {
     display: flex;
     transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1); /* Longer, buttery slide */
     will-change: transform;
+    width: 100%; /* Prevent contraction */
 }
 
 .slide {
@@ -230,6 +245,34 @@ a:hover {
     padding: 20px;
     transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
     opacity: 0.95;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    overflow-wrap: break-word; /* Break words in slides */
+    white-space: normal; /* Allow full wrapping */
+    max-width: 100%; /* Cap width */
+}
+
+.slide h4 {
+    margin: 0 0 8px 0; /* Tighten spacing */
+    overflow-wrap: break-word;
+}
+
+.slide p {
+    margin: 0 0 12px 0;
+    overflow-wrap: break-word;
+}
+
+.slide ul {
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.slide li {
+    margin-bottom: 6px; /* Tighter bullets */
+    padding-left: 15px; /* Reduced indent */
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .slide:hover {
@@ -257,17 +300,21 @@ a:hover {
 .navigation-dots {
     text-align: center;
     margin-top: 15px; /* More breathing room */
+    padding: 10px; /* Extra padding for taps */
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Even spacing */
 }
 
 .dot {
     height: 10px;
     width: 10px;
-    margin: 0 6px;
     background-color: #2a2a2a;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    flex-shrink: 0; /* Prevent compression */
 }
 
 .dot:hover {
@@ -288,11 +335,27 @@ a:hover {
     text-align: center;
     transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Fluid fade */
     border: 1px solid rgba(70, 130, 180, 0.1);
+    overflow: hidden; /* Contain carousel text */
+    max-height: 200px; /* Cap height to prevent expansion */
+    overflow-y: auto; /* Scroll if needed */
+}
+
+.skill-card {
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .skill-card h4 {
     color: #4682b4;
     margin-bottom: 10px;
+    overflow-wrap: break-word;
+}
+
+.skill-card p {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    overflow-wrap: break-word;
 }
 
 /* Mobile Compatibility - Enhanced for Optimal UX */
@@ -310,10 +373,15 @@ a:hover {
         padding: 0 clamp(10px, 5vw, 20px); /* Flexible padding */
     }
     
+    .left-column, .right-column {
+        order: 1; /* Ensure sidebar first on stack */
+    }
+    
     .left-column section,
     .right-column section { 
         padding: clamp(15px, 4vw, 20px); /* Smaller padding, no overflow */
         margin-bottom: clamp(10px, 3vw, 15px);
+        width: 100%; /* Force full width */
     }
     
     .diamond { 
@@ -324,19 +392,27 @@ a:hover {
         width: clamp(80px, 20vw, 100px); /* Responsive size */
         height: clamp(80px, 20vw, 100px);
         contain: layout style paint; /* Optimize rendering */
+        display: block;
+        margin: 0 auto 15px; /* Center and space */
     }
     
     .hero { 
         padding: clamp(40px, 10vw, 50px) clamp(10px, 5vw, 15px); /* Adaptive padding */
         min-height: 80vh; /* Full viewport feel */
         text-align: center;
+        overflow: hidden; /* Contain hero overflow */
     }
     
     .hero h1 { 
         font-size: clamp(1.5em, 8vw, 2.5em); /* Scalable hero text */
+        margin: 10px 0;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
     .hero h2 { 
         font-size: clamp(1.1em, 5vw, 1.3em); 
+        margin: 5px 0;
+        overflow-wrap: break-word;
     }
     
     .profile-desc { 
@@ -347,15 +423,21 @@ a:hover {
         padding-left: 0;
         text-align: left; /* Left-align for readability */
         hyphens: auto; /* Word break for long lines */
+        max-width: 100%;
+        padding: 0 clamp(10px, 5vw, 15px);
     }
     
     h3 { 
         font-size: clamp(1.1em, 4vw, 1.2em); 
         gap: clamp(8px, 2vw, 10px);
+        overflow-wrap: break-word;
+        justify-content: flex-start; /* Align left */
     }
     
     h3 i { /* Larger icons for touch */
         font-size: clamp(1.1em, 3vw, 1.2em);
+        flex-shrink: 0; /* Prevent icon squash */
+        min-width: 20px;
     }
     
     ul li { 
@@ -363,27 +445,35 @@ a:hover {
         padding-left: clamp(12px, 3vw, 15px); 
         margin-bottom: 6px;
         min-height: 20px; /* Ensure tap area */
+        overflow-wrap: break-word;
+        white-space: normal;
     }
     
     a { /* Touch-friendly links */
         display: block;
         padding: 4px 0;
         min-height: 44px; /* iOS min tap target */
+        overflow-wrap: break-word;
     }
     
     .navigation-dots { 
         margin-top: clamp(8px, 2vw, 10px); 
         padding: 10px 0; /* Extra space for swipes */
+        display: flex;
+        justify-content: center;
+        gap: clamp(6px, 2vw, 8px);
+        flex-wrap: wrap; /* Wrap if many dots */
     }
     
     .dot { 
         height: 16px; /* Larger for fat-finger taps */
         width: 16px;
-        margin: 0 clamp(4px, 1vw, 6px);
-        min-height: 44px; /* Full tap zone */
-        display: inline-flex;
+        margin: 0;
+        min-height: 44px; /* Full tap zone via container */
+        display: flex;
         align-items: center;
         justify-content: center;
+        flex: 0 0 auto; /* Prevent shrink/grow */
     }
     
     .slider-container { 
@@ -391,12 +481,21 @@ a:hover {
         overflow: visible; /* Prevent clip on edges */
         margin: 0 -10px; /* Full-width bleed */
         border-radius: 0; /* Full-width on mobile */
+        width: calc(100% + 20px); /* Compensate margin */
+        position: relative;
+    }
+    
+    .slider {
+        width: calc(100% + 20px); /* Match container */
+        overflow: hidden;
     }
     
     .slide ul {
         padding-left: 0;
         margin: 0;
         max-width: 100%; /* Prevent overflow */
+        display: flex;
+        flex-direction: column;
     }
     
     .slide li {
@@ -404,11 +503,16 @@ a:hover {
         margin-left: 0;
         text-indent: -0.5em;
         word-break: break-word; /* Break long words */
+        margin-bottom: 4px; /* Tighter on mobile */
+        min-height: 20px;
     }
     
     .skill-tile {
         padding: clamp(10px, 3vw, 12px);
         font-size: clamp(0.8em, 2.5vw, 0.85em);
+        max-height: 180px; /* Shorter cap */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Smooth scroll */
     }
     
     /* Reduced Motion for Accessibility */
@@ -425,12 +529,16 @@ a:hover {
         }
         a:active { /* Visual feedback on tap */
             color: #87cefa;
+            transform: scale(0.98); /* Subtle press effect */
+        }
+        .dot:active {
+            transform: scale(1.3);
         }
     }
     
     html { 
         scroll-behavior: smooth; 
-        scroll-snap-type: y mandatory; /* Snap sections for easy scrolling */
+        scroll-snap-type: y proximity; /* Snap sections gently */
     }
     body { 
         -webkit-overflow-scrolling: touch; /* iOS momentum scroll */
@@ -440,6 +548,14 @@ a:hover {
     /* Landscape orientation fix */
     @media (max-width: 768px) and (orientation: landscape) {
         .hero { min-height: 60vh; }
-        .profile-desc { font-size: 0.8em; }
+        .profile-desc { font-size: 0.8em; line-height: 1.4; }
+        .slide { padding: 15px; }
+    }
+    
+    /* Extra small screens */
+    @media (max-width: 480px) {
+        .slide { padding: 12px; font-size: 0.8em; }
+        .navigation-dots { gap: 4px; }
+        .dot { height: 14px; width: 14px; }
     }
 }
