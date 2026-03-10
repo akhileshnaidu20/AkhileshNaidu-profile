@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Akhilesh N Naidu - Data Annotation Specialist</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
@@ -187,107 +187,109 @@
     </div>
 
     <script>
-        // Skills rotation
-        const skills = [
-            { title: "Data Annotation", details: "Data Labeling and Dataset Preparation (Image, Video, Text). Data Annotation Tools (Labelbox, CVAT)." },
-            { title: "AI Skills", details: "Computer Vision (OpenCV, YOLOv8/v11, Image Segmentation, Object Detection). Machine Learning (Supervised/Unsupervised Learning, Scikit-learn, Feature Engineering). Deep Learning (Neural Networks, CNNs, RNNs, TensorFlow, PyTorch). Programming (Python, Java basics, MATLAB)." },
-            { title: "Web Development", details: "Full Stack Development (HTML, CSS, JavaScript, Node.js, React, Django, Flask). Database Management (SQL, MongoDB)." },
-            { title: "AWS Cloud Development", details: "AWS Core Services (EC2, S3, Lambda, IAM). Cloud Storage and Data Management (S3, EFS). Cloud Compute for AI/ML (EC2, Lambda). AWS Security and Access Management (IAM, KMS). Cloud Architecture and Cost Optimization." },
-            { title: "Engineering & Analysis", details: "Finite Element Analysis (ANSYS). Computer-Aided Design (SolidWorks)." },
-            { title: "Tools & Platforms", details: "Linux (Ubuntu), Docker, Git. Microsoft Office." },
-            { title: "Soft Skills", details: "Critical Thinking and Problem Solving. Communication Skills. Fast Learner." }
-        ];
+        document.addEventListener('DOMContentLoaded', function() {
+            // Skills rotation
+            const skills = [
+                { title: "Data Annotation", details: "Data Labeling and Dataset Preparation (Image, Video, Text). Data Annotation Tools (Labelbox, CVAT)." },
+                { title: "AI Skills", details: "Computer Vision (OpenCV, YOLOv8/v11, Image Segmentation, Object Detection). Machine Learning (Supervised/Unsupervised Learning, Scikit-learn, Feature Engineering). Deep Learning (Neural Networks, CNNs, RNNs, TensorFlow, PyTorch). Programming (Python, Java basics, MATLAB)." },
+                { title: "Web Development", details: "Full Stack Development (HTML, CSS, JavaScript, Node.js, React, Django, Flask). Database Management (SQL, MongoDB)." },
+                { title: "AWS Cloud Development", details: "AWS Core Services (EC2, S3, Lambda, IAM). Cloud Storage and Data Management (S3, EFS). Cloud Compute for AI/ML (EC2, Lambda). AWS Security and Access Management (IAM, KMS). Cloud Architecture and Cost Optimization." },
+                { title: "Engineering & Analysis", details: "Finite Element Analysis (ANSYS). Computer-Aided Design (SolidWorks)." },
+                { title: "Tools & Platforms", details: "Linux (Ubuntu), Docker, Git. Microsoft Office." },
+                { title: "Soft Skills", details: "Critical Thinking and Problem Solving. Communication Skills. Fast Learner." }
+            ];
 
-        let currentSkill = 0;
-        const skillTile = document.getElementById('skill-tile');
+            let currentSkill = 0;
+            const skillTile = document.getElementById('skill-tile');
 
-        function rotateSkill() {
-            skillTile.style.opacity = 0;
-            setTimeout(() => {
-                skillTile.innerHTML = `<div class="skill-card"><h4>${skills[currentSkill].title}</h4><p>${skills[currentSkill].details}</p></div>`;
-                skillTile.style.opacity = 1;
-                currentSkill = (currentSkill + 1) % skills.length;
-            }, 800); // Slower fade for smoothness
-        }
+            function rotateSkill() {
+                skillTile.style.opacity = 0;
+                setTimeout(() => {
+                    skillTile.innerHTML = `<div class="skill-card"><h4>${skills[currentSkill].title}</h4><p>${skills[currentSkill].details}</p></div>`;
+                    skillTile.style.opacity = 1;
+                    currentSkill = (currentSkill + 1) % skills.length;
+                }, 800); // Slower fade for smoothness
+            }
 
-        rotateSkill();
-        setInterval(rotateSkill, 5000);
+            rotateSkill();
+            setInterval(rotateSkill, 5000);
 
-        // Slider functions (updated for 4 experience slides)
-        const sliders = {
-            experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), dots: document.querySelectorAll('.experience .dot') },
-            projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), dots: document.querySelectorAll('.projects .dot') },
-            certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), dots: document.querySelectorAll('.certifications .dot') }
-        };
+            // Slider functions (updated for 4 experience slides)
+            const sliders = {
+                experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), dots: document.querySelectorAll('.experience .dot') },
+                projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), dots: document.querySelectorAll('.projects .dot') },
+                certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), dots: document.querySelectorAll('.certifications .dot') }
+            };
 
-        function showSlide(section, index) {
-            const slider = sliders[section].slider;
-            const dots = sliders[section].dots;
-            sliders[section].currentIndex = index;
-            slider.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-                dot.setAttribute('aria-selected', i === index);
-                dot.tabIndex = i === index ? 0 : -1;
-            });
-        }
+            function showSlide(section, index) {
+                const slider = sliders[section].slider;
+                const dots = sliders[section].dots;
+                sliders[section].currentIndex = index;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                    dot.setAttribute('aria-selected', i === index);
+                    dot.tabIndex = i === index ? 0 : -1;
+                });
+            }
 
-        function currentSlide(index, section) {
-            showSlide(section, index);
-        }
+            window.currentSlide = function(index, section) {
+                showSlide(section, index);
+            };
 
-        function handleSlideClick(event, section) {
-            // Ripple effect for UX
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple');
-            const rect = event.currentTarget.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = event.clientX - rect.left - size / 2;
-            const y = event.clientY - rect.top - size / 2;
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            event.currentTarget.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
+            window.handleSlideClick = function(event, section) {
+                // Ripple effect for UX
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                const rect = event.currentTarget.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.clientX - rect.left - size / 2;
+                const y = event.clientY - rect.top - size / 2;
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                event.currentTarget.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
 
-            const rectFull = event.currentTarget.getBoundingClientRect();
-            const clickX = event.clientX - rectFull.left;
-            const halfWidth = rectFull.width / 2;
-            let newIndex = sliders[section].currentIndex;
-            const maxSlides = section === 'experience' ? 4 : 3; // Handle 4 for experience
-            if (clickX < halfWidth) newIndex = (newIndex - 1 + maxSlides) % maxSlides;
-            else newIndex = (newIndex + 1) % maxSlides;
-            showSlide(section, newIndex);
-        }
-
-        // Auto-slide
-        Object.keys(sliders).forEach(section => {
-            setInterval(() => {
-                const maxSlides = section === 'experience' ? 4 : 3;
-                const newIndex = (sliders[section].currentIndex + 1) % maxSlides;
+                const rectFull = event.currentTarget.getBoundingClientRect();
+                const clickX = event.clientX - rectFull.left;
+                const halfWidth = rectFull.width / 2;
+                let newIndex = sliders[section].currentIndex;
+                const maxSlides = section === 'experience' ? 4 : 3; // Handle 4 for experience
+                if (clickX < halfWidth) newIndex = (newIndex - 1 + maxSlides) % maxSlides;
+                else newIndex = (newIndex + 1) % maxSlides;
                 showSlide(section, newIndex);
-            }, 30000);
-        });
+            };
 
-        // Mobile swipe (enhanced with momentum)
-        document.querySelectorAll('.slider-container').forEach(container => {
-            let startX = 0, startTime = 0;
-            container.addEventListener('touchstart', e => {
-                startX = e.touches[0].clientX;
-                startTime = Date.now();
-            });
-            container.addEventListener('touchend', e => {
-                const endX = e.changedTouches[0].clientX;
-                const deltaX = startX - endX;
-                const deltaTime = Date.now() - startTime;
-                if (Math.abs(deltaX) > 50 && deltaTime < 300) { // Swipe threshold
-                    const section = Array.from(container.closest('section').classList).find(c => ['experience', 'projects', 'certifications'].includes(c));
+            // Auto-slide
+            Object.keys(sliders).forEach(section => {
+                setInterval(() => {
                     const maxSlides = section === 'experience' ? 4 : 3;
-                    let newIndex = sliders[section].currentIndex;
-                    if (deltaX > 0) newIndex = (newIndex + 1) % maxSlides; // Swipe left: next
-                    else newIndex = (newIndex - 1 + maxSlides) % maxSlides; // Swipe right: prev
+                    const newIndex = (sliders[section].currentIndex + 1) % maxSlides;
                     showSlide(section, newIndex);
-                }
+                }, 30000);
+            });
+
+            // Mobile swipe (increased threshold to 80px for easier detection)
+            document.querySelectorAll('.slider-container').forEach(container => {
+                let startX = 0, startTime = 0;
+                container.addEventListener('touchstart', e => {
+                    startX = e.touches[0].clientX;
+                    startTime = Date.now();
+                });
+                container.addEventListener('touchend', e => {
+                    const endX = e.changedTouches[0].clientX;
+                    const deltaX = startX - endX;
+                    const deltaTime = Date.now() - startTime;
+                    if (Math.abs(deltaX) > 80 && deltaTime < 500) { // Increased threshold
+                        const section = Array.from(container.closest('section').classList).find(c => ['experience', 'projects', 'certifications'].includes(c));
+                        const maxSlides = section === 'experience' ? 4 : 3;
+                        let newIndex = sliders[section].currentIndex;
+                        if (deltaX > 0) newIndex = (newIndex + 1) % maxSlides; // Swipe left: next
+                        else newIndex = (newIndex - 1 + maxSlides) % maxSlides; // Swipe right: prev
+                        showSlide(section, newIndex);
+                    }
+                });
             });
         });
     </script>
