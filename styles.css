@@ -280,81 +280,6 @@ a:hover {
     transform: scale(1.2);
 }
 
-/* Mobile Compatibility - Enhanced */
-@media (max-width: 768px) {
-    body { 
-        font-size: 14px; 
-        overflow-x: hidden; 
-    }
-    .container { 
-        grid-template-columns: 1fr; 
-        gap: 20px; 
-        min-height: auto; 
-    }
-    .diamond { 
-        margin: 10px auto; 
-        width: 25px; 
-        height: 25px;
-    }
-    .profile-photo { 
-        width: 100px; 
-        height: 100px;
-    }
-    .hero { 
-        padding: 50px 15px; 
-        min-height: 80vh; 
-    }
-    .hero h1 { font-size: 1.8em; }
-    .hero h2 { font-size: 1.3em; }
-    .profile-desc { 
-        font-size: 0.9em; 
-        line-height: 1.5; 
-        margin-top: 10px;
-        border-left: none; /* Remove on mobile */
-        padding-left: 0;
-    }
-    section { 
-        padding: 20px; 
-    }
-    h3 { 
-        font-size: 1.2em; 
-    }
-    ul li { 
-        font-size: 0.9em; 
-        padding-left: 15px; 
-    }
-    .navigation-dots { 
-        margin-top: 10px; 
-    }
-    .dot { 
-        height: 12px; /* Larger for touch */
-        width: 12px;
-    }
-    .slider-container { 
-        touch-action: pan-y; 
-    }
-    .slide ul {
-        padding-left: 0;
-        margin: 0;
-    }
-    .slide li {
-        padding-left: 0;
-        margin-left: 0;
-        text-indent: -0.5em;
-    }
-    /* Disable hovers on touch, but keep ripples */
-    @media (hover: none) {
-        .glow-hover:hover, .sparkle-hover:hover, .bounce-hover:hover, .spin-hover:hover, 
-        .slider-container:hover, section:hover { 
-            transform: none; 
-            animation: none; 
-            box-shadow: none; 
-        }
-    }
-    html { scroll-behavior: smooth; }
-    body { -webkit-overflow-scrolling: touch; }
-}
-
 /* Skill tile with smoother transition */
 .skill-tile {
     background: #2a2a2a;
@@ -368,4 +293,153 @@ a:hover {
 .skill-card h4 {
     color: #4682b4;
     margin-bottom: 10px;
+}
+
+/* Mobile Compatibility - Enhanced for Optimal UX */
+@media (max-width: 768px) {
+    body { 
+        font-size: clamp(14px, 4vw, 16px); /* Scalable base font */
+        overflow-x: hidden; 
+        -webkit-font-smoothing: antialiased; /* Crisp text on iOS */
+    }
+    
+    .container { 
+        grid-template-columns: 1fr; /* Full stack for single column */
+        gap: clamp(15px, 5vw, 20px); /* Responsive gap */
+        margin: clamp(20px, 5vw, 40px) auto;
+        padding: 0 clamp(10px, 5vw, 20px); /* Flexible padding */
+    }
+    
+    .left-column section,
+    .right-column section { 
+        padding: clamp(15px, 4vw, 20px); /* Smaller padding, no overflow */
+        margin-bottom: clamp(10px, 3vw, 15px);
+    }
+    
+    .diamond { 
+        display: none; /* Hide decorative elements to save space */
+    }
+    
+    .profile-photo { 
+        width: clamp(80px, 20vw, 100px); /* Responsive size */
+        height: clamp(80px, 20vw, 100px);
+        contain: layout style paint; /* Optimize rendering */
+    }
+    
+    .hero { 
+        padding: clamp(40px, 10vw, 50px) clamp(10px, 5vw, 15px); /* Adaptive padding */
+        min-height: 80vh; /* Full viewport feel */
+        text-align: center;
+    }
+    
+    .hero h1 { 
+        font-size: clamp(1.5em, 8vw, 2.5em); /* Scalable hero text */
+    }
+    .hero h2 { 
+        font-size: clamp(1.1em, 5vw, 1.3em); 
+    }
+    
+    .profile-desc { 
+        font-size: clamp(0.85em, 3.5vw, 0.95em); 
+        line-height: 1.5; 
+        margin-top: 15px;
+        border-left: none; /* Remove on mobile */
+        padding-left: 0;
+        text-align: left; /* Left-align for readability */
+        hyphens: auto; /* Word break for long lines */
+    }
+    
+    h3 { 
+        font-size: clamp(1.1em, 4vw, 1.2em); 
+        gap: clamp(8px, 2vw, 10px);
+    }
+    
+    h3 i { /* Larger icons for touch */
+        font-size: clamp(1.1em, 3vw, 1.2em);
+    }
+    
+    ul li { 
+        font-size: clamp(0.85em, 3vw, 0.9em); 
+        padding-left: clamp(12px, 3vw, 15px); 
+        margin-bottom: 6px;
+        min-height: 20px; /* Ensure tap area */
+    }
+    
+    a { /* Touch-friendly links */
+        display: block;
+        padding: 4px 0;
+        min-height: 44px; /* iOS min tap target */
+    }
+    
+    .navigation-dots { 
+        margin-top: clamp(8px, 2vw, 10px); 
+        padding: 10px 0; /* Extra space for swipes */
+    }
+    
+    .dot { 
+        height: 16px; /* Larger for fat-finger taps */
+        width: 16px;
+        margin: 0 clamp(4px, 1vw, 6px);
+        min-height: 44px; /* Full tap zone */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .slider-container { 
+        touch-action: pan-y pinch-zoom; /* Allow zoom + vertical scroll, block horizontal pan */
+        overflow: visible; /* Prevent clip on edges */
+        margin: 0 -10px; /* Full-width bleed */
+        border-radius: 0; /* Full-width on mobile */
+    }
+    
+    .slide ul {
+        padding-left: 0;
+        margin: 0;
+        max-width: 100%; /* Prevent overflow */
+    }
+    
+    .slide li {
+        padding-left: 0;
+        margin-left: 0;
+        text-indent: -0.5em;
+        word-break: break-word; /* Break long words */
+    }
+    
+    .skill-tile {
+        padding: clamp(10px, 3vw, 12px);
+        font-size: clamp(0.8em, 2.5vw, 0.85em);
+    }
+    
+    /* Reduced Motion for Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+    
+    @media (hover: none) and (pointer: coarse) { /* Touch devices only */
+        .glow-hover:hover, .sparkle-hover:hover, .bounce-hover:hover, .spin-hover:hover, 
+        .slider-container:hover, section:hover, .profile-photo:hover, .diamond:hover { 
+            transform: none !important; 
+            animation: none !important; 
+            box-shadow: none !important; 
+        }
+        a:active { /* Visual feedback on tap */
+            color: #87cefa;
+        }
+    }
+    
+    html { 
+        scroll-behavior: smooth; 
+        scroll-snap-type: y mandatory; /* Snap sections for easy scrolling */
+    }
+    body { 
+        -webkit-overflow-scrolling: touch; /* iOS momentum scroll */
+        scroll-snap-align: start;
+    }
+    
+    /* Landscape orientation fix */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .hero { min-height: 60vh; }
+        .profile-desc { font-size: 0.8em; }
+    }
 }
