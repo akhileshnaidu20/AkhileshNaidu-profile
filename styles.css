@@ -1,27 +1,20 @@
-/* Core Document Styling */
+/* Core Styling Rules */
 body {
-    background-color: #08080a;
+    background-color: #000000;
     font-family: 'Inter', sans-serif;
 }
 
-/* Subtle Mathematical Dot grid pattern for back-plane structure */
-.grid-bg {
-    background-image: radial-gradient(#14151a 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.4;
-}
-
-/* Page scrolling acceleration metrics */
+/* Page Scrolling Improvements */
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Desktop Only minimal trailing cursor */
+/* Custom Interactive Follower Cursor (Desktop-Only) */
 #custom-cursor {
-    width: 8px;
-    height: 8px;
-    background: #ffffff;
+    width: 6px;
+    height: 6px;
+    background: #CCC9DC;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -34,16 +27,16 @@ html {
 #custom-cursor.scaled {
     width: 28px;
     height: 28px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(204, 201, 220, 0.15);
 }
 
-/* Performance optimized card glass layouts (removes lag-heavy blur on low spec screens) */
+/* Transparent Panel Background Overrides */
 .glass {
-    background: #101014;
-    border: 1px solid #1a1b22;
+    background: #0C1821;
+    border: 1px solid #1B2A41;
 }
 
-/* Minimalist Navigation buttons */
+/* Custom Tab Buttons */
 .tab-btn {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.75rem;
@@ -51,27 +44,27 @@ html {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     padding: 0.75rem 1.5rem;
-    color: #8b8b94;
+    color: #324A5F;
     border-bottom: 2px solid transparent;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tab-btn:hover {
-    color: #ffffff;
+    color: #CCC9DC;
 }
 
 .tab-btn.active {
     color: #ffffff;
-    border-bottom-color: #ffffff;
+    border-bottom-color: #CCC9DC;
 }
 
 /* Micro-interaction Tag Blocks */
 .tag {
     font-size: 0.725rem;
     font-weight: 500;
-    background: #14151a;
-    border: 1px solid #20212a;
-    color: #d1d5db;
+    background: #000000;
+    border: 1px solid #1B2A41;
+    color: #CCC9DC;
     padding: 0.35rem 0.8rem;
     border-radius: 4px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -79,31 +72,31 @@ html {
 }
 
 .tag:hover {
-    border-color: #ffffff;
+    border-color: #CCC9DC;
     color: #ffffff;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar configuration */
 ::-webkit-scrollbar {
     width: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: #08080a;
+    background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-    background: #20212a;
+    background: #1B2A41;
     border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #4b5563;
+    background: #324A5F;
 }
 
-/* Accelerated spring transitions for elements */
+/* Accelerate transitions */
 .glass, .tab-btn, .tag, a, button {
     will-change: transform, opacity;
 }
 
-/* Desktop Menu styling fallback */
+/* Safety Fallbacks */
 @media (max-width: 768px) {
     #custom-cursor {
         display: none !important;
