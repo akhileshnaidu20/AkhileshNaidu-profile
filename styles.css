@@ -96,7 +96,7 @@ html {
     will-change: transform, opacity;
 }
 
-/* Safety Fallbacks */
+/* Mobile Alignments & Fallbacks */
 @media (max-width: 768px) {
     #custom-cursor {
         display: none !important;
