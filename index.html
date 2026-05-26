@@ -3,375 +3,439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhilesh N Naidu | AI Visionary</title>
+    <title>Akhilesh N Naidu | Technical Portfolio</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#00d4ff',
-                        secondary: '#7000ff',
-                        accent: '#ff00c8',
-                        darkBg: '#030712',
+                        neutralBg: '#0b0b0b',
+                        cardBg: '#121212',
+                        accentGray: '#2c2c2e',
+                        steelBlue: '#4a5a6a',
+                        textMuted: '#8e8e93',
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         display: ['Space Grotesk', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #030712;
-            color: #d1d5db;
-            cursor: none; /* Custom cursor enabled */
-        }
-
-        /* Custom Cursor */
-        #cursor {
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease, background 0.3s ease;
-            mix-blend-mode: difference;
-        }
-        .cursor-hover { transform: scale(3); background: #00d4ff !important; }
-
-        /* Animated Mesh Background */
-        .mesh-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 0% 0%, rgba(0, 212, 255, 0.15) 0%, transparent 35%),
-                radial-gradient(circle at 100% 100%, rgba(112, 0, 255, 0.15) 0%, transparent 35%),
-                radial-gradient(circle at 50% 50%, rgba(255, 0, 200, 0.05) 0%, transparent 50%);
-            will-change: transform;
-        }
-
-        /* Smooth Glassmorphism */
-        .glass {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            will-change: transform, opacity;
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #00d4ff, #7000ff, #ff00c8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 4s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        /* Progress Bar */
-        #progress-bar {
-            position: fixed;
-            top: 0; left: 0; height: 4px;
-            background: linear-gradient(to right, #00d4ff, #ff00c8);
-            z-index: 100;
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        /* 3D Tilt Hover Effect */
-        .tilt-card {
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-        }
-        .tilt-card:hover {
-            transform: scale(1.03) translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 212, 255, 0.2);
-        }
-
-        /* Floating Animation */
-        .float {
-            animation: floating 4s ease-in-out infinite;
-        }
-        @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Skill Pill Interactivity */
-        .skill-pill {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .skill-pill:hover {
-            background: white;
-            color: black;
-            transform: rotate(3deg) scale(1.1);
-            border-color: white;
-        }
-
-        /* Fix for mobile cursor */
-        @media (max-width: 768px) {
-            body { cursor: auto; }
-            #cursor { display: none; }
-        }
-    </style>
 </head>
-<body class="font-sans">
+<body class="bg-neutralBg text-neutral-300 antialiased selection:bg-neutral-800">
 
-    <div id="cursor"></div>
-    <div id="progress-bar"></div>
-    <div class="mesh-bg"></div>
+    <!-- Interactive Dot Grid Background -->
+    <div class="fixed inset-0 grid-bg -z-10"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl">
-        <div class="glass px-8 py-4 rounded-full flex justify-between items-center shadow-2xl">
-            <span class="font-display font-bold text-white text-2xl tracking-tighter">AKHILESH<span class="text-primary">.</span></span>
-            <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
-                <a href="#about" class="text-slate-400 hover:text-primary transition">About</a>
-                <a href="#experience" class="text-slate-400 hover:text-primary transition">Journey</a>
-                <a href="#projects" class="text-slate-400 hover:text-primary transition">Builds</a>
-                <a href="#skills" class="text-slate-400 hover:text-primary transition">Arsenal</a>
+    <!-- Thin Minimal Page Progress Indicator -->
+    <div id="scroll-tracker" class="fixed top-0 left-0 h-[2px] bg-slate-400 z-50 w-0 transition-all duration-100"></div>
+
+    <!-- Minimalistic Custom Follow Cursor (Desktop only) -->
+    <div id="custom-cursor" class="hidden md:block"></div>
+
+    <!-- Minimal Navigation -->
+    <nav class="fixed top-0 w-full z-40 bg-neutralBg/80 backdrop-blur-md border-b border-neutral-900 py-4 transition-all duration-300">
+        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+            <a href="#" class="font-display font-medium text-white tracking-widest text-lg hover-target">AKHILESH<span class="text-slate-500">.</span></a>
+            <div class="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-wider">
+                <a href="#about" class="text-textMuted hover:text-white transition hover-target">About</a>
+                <a href="#experience" class="text-textMuted hover:text-white transition hover-target">Experience</a>
+                <a href="#projects" class="text-textMuted hover:text-white transition hover-target">Projects</a>
+                <a href="#skills" class="text-textMuted hover:text-white transition hover-target">Skills</a>
+                <a href="#credentials" class="text-textMuted hover:text-white transition hover-target">Credentials</a>
             </div>
-            <a href="https://github.com/akhileshnaidu20" target="_blank" class="bg-white text-darkBg px-5 py-2 rounded-full font-bold text-xs hover:bg-primary hover:text-white transition">GITHUB <i class="fab fa-github ml-1"></i></a>
+            <a href="https://github.com/akhileshnaidu20" target="_blank" class="text-textMuted hover:text-white transition hover-target">
+                <i class="fab fa-github text-xl"></i>
+            </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
-        <div class="absolute w-96 h-96 bg-primary/20 blur-[100px] -top-20 -left-20 animate-pulse"></div>
-        <div class="absolute w-96 h-96 bg-secondary/20 blur-[100px] -bottom-20 -right-20 animate-pulse"></div>
-
-        <div class="relative mb-10 float" data-aos="zoom-in">
-            <div class="absolute inset-0 bg-primary blur-3xl opacity-40 rounded-full scale-110"></div>
-            <img src="profile.jpg" alt="Akhilesh" class="w-44 h-44 md:w-56 md:h-56 rounded-full border-8 border-white/5 object-cover relative z-10 shadow-2xl">
-        </div>
-        
-        <h1 class="text-6xl md:text-9xl font-display font-bold text-white mb-6 tracking-tighter leading-none" data-aos="fade-up">
-            Vision <span class="text-gradient">&</span><br>Precision.
-        </h1>
-        <p class="max-w-2xl text-slate-400 text-lg md:text-xl leading-relaxed mb-12" data-aos="fade-up" data-aos-delay="100">
-            Data Annotation Specialist & AI Engineer. I transform raw visual chaos into high-precision datasets that power the world's smartest AI models.
-        </p>
-        
-        <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
-            <a href="#projects" class="bg-primary text-white px-10 py-4 rounded-full font-bold hover:scale-110 transition-transform shadow-lg shadow-primary/30">Explore Works</a>
-            <a href="https://www.linkedin.com/in/akhilesh-n-naidu" target="_blank" class="glass text-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">LinkedIn</a>
+    <section class="min-h-screen flex flex-col justify-center px-6 relative max-w-6xl mx-auto pt-24">
+        <div class="grid md:grid-cols-3 gap-12 items-center">
+            <div class="md:col-span-2 space-y-6">
+                <p class="text-slate-500 font-mono text-xs uppercase tracking-widest" data-aos="fade-right">Data Annotation & CV Specialist</p>
+                <h1 class="text-5xl md:text-7xl font-display font-medium text-white tracking-tight leading-none" data-aos="fade-right" data-aos-delay="100">
+                    Structuring raw visual information with mathematical precision.
+                </h1>
+                <p class="text-textMuted max-w-xl leading-relaxed text-sm md:text-base" data-aos="fade-right" data-aos-delay="200">
+                    A detail-oriented professional specializing in computer vision workflows, dataset preparation, and data pipelines. Applying engineering rigor to organize high-quality datasets for AI model training.
+                </p>
+                <div class="flex gap-4 pt-4" data-aos="fade-right" data-aos-delay="300">
+                    <a href="#projects" class="border border-neutral-800 hover:border-slate-500 text-white px-6 py-3 rounded-md text-xs font-semibold uppercase tracking-wider transition hover-target">Explore Builds</a>
+                    <a href="https://www.linkedin.com/in/akhilesh-n-naidu" target="_blank" class="text-textMuted hover:text-white px-6 py-3 text-xs font-semibold uppercase tracking-wider transition hover-target">LinkedIn <i class="fas fa-arrow-up-right-from-square ml-1 text-[10px]"></i></a>
+                </div>
+            </div>
+            
+            <div class="flex justify-center md:justify-end" data-aos="zoom-in" data-aos-delay="200">
+                <div class="relative group">
+                    <!-- Clean image fallback block prevents broken frames -->
+                    <object data="profile.jpg" type="image/jpg" class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-neutral-800 object-cover grayscale transition duration-500 group-hover:grayscale-0">
+                        <svg class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-neutral-800 bg-neutral-900" viewBox="0 0 100 100">
+                            <text x="50%" y="54%" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="500" font-size="20" fill="#8e8e93">AN</text>
+                        </svg>
+                    </object>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="container mx-auto px-6 max-w-7xl">
-        
-        <!-- About Section -->
-        <section id="about" class="py-32 grid md:grid-cols-2 gap-16 items-center">
-            <div class="relative" data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1639322537228-f710d846685a?auto=format&fit=crop&q=80&w=800" alt="Tech Art" class="rounded-3xl shadow-2xl opacity-80 grayscale hover:grayscale-0 transition duration-700">
-                <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl border-primary/30">
-                    <span class="block text-primary font-bold text-3xl">94%</span>
-                    <span class="text-xs uppercase tracking-widest text-slate-500">Model Accuracy</span>
+    <!-- About Section -->
+    <section id="about" class="py-32 border-t border-neutral-900">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-display font-medium text-white tracking-tight">System Profile</h2>
+                </div>
+                <div class="md:col-span-2 space-y-6 text-textMuted leading-relaxed text-sm md:text-base" data-aos="fade-left">
+                    <p>
+                        Detail-oriented and technically proficient professional with expertise in data annotation, computer vision and machine learning. Skilled in labeling and processing datasets for AI model training using tools like <span class="text-white">Labelbox</span> and <span class="text-white">CVAT</span>, with hands-on experience in <span class="text-white">Python, OpenCV</span> and <span class="text-white">YOLO models</span>.
+                    </p>
+                    <p>
+                        Adept at analyzing complex data, ensuring high accuracy and contributing to innovative AI solutions. Leveraging a <span class="text-white">Mechanical Engineering</span> foundation to bridge hardware-software gaps and optimize system performance metrics.
+                    </p>
+                    
+                    <!-- Contact Card Grid -->
+                    <div class="grid grid-cols-2 gap-4 pt-8">
+                        <div class="border border-neutral-900 p-4 rounded-md">
+                            <span class="block text-slate-500 text-xs uppercase font-mono mb-1">Email Connection</span>
+                            <a href="mailto:akhileshpower22@gmail.com" class="text-white text-xs md:text-sm hover:underline hover-target">akhileshpower22@gmail.com</a>
+                        </div>
+                        <div class="border border-neutral-900 p-4 rounded-md">
+                            <span class="block text-slate-500 text-xs uppercase font-mono mb-1">Active Terminal</span>
+                            <span class="text-white text-xs md:text-sm">Bengaluru, India</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div data-aos="fade-left">
-                <h2 class="text-4xl font-display font-bold text-white mb-6">The <span class="text-primary">Engineer</span> behind the data.</h2>
-                <p class="text-slate-400 text-lg leading-relaxed mb-8">
-                    With a foundation in **Mechanical Engineering**, I approach AI with a unique lens of structural precision. I specialize in the critical intersection of **Computer Vision** and **Dataset Engineering**, ensuring that the "eyes" of AI are accurate, unbiased, and highly efficient.
-                </p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="glass p-4 rounded-xl">
-                        <i class="fas fa-globe text-primary mb-2"></i>
-                        <p class="text-sm font-bold text-white">Bengaluru, India</p>
-                    </div>
-                    <div class="glass p-4 rounded-xl">
-                        <i class="fas fa-envelope text-primary mb-2"></i>
-                        <p class="text-sm font-bold text-white">akhileshpower22@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-32">
-            <h3 class="text-center text-5xl font-display font-bold text-white mb-20" data-aos="fade-up">Professional <span class="text-primary">Journey</span></h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Role 1 -->
-                <div class="glass p-8 rounded-3xl tilt-card relative group" data-aos="fade-up">
-                    <div class="absolute -top-4 -right-4 bg-primary text-darkBg px-4 py-1 rounded-full font-bold text-xs">Current / Recent</div>
-                    <h4 class="text-2xl font-bold text-white mb-2">ML Data Associate (GO-AI)</h4>
-                    <p class="text-primary font-semibold mb-4">Amazon | Bengaluru</p>
-                    <span class="text-xs font-mono text-slate-500 block mb-4">Dec 2025 — May 2026</span>
-                    <ul class="text-slate-400 space-y-3 text-sm">
-                        <li><i class="fas fa-circle-check text-primary mr-2"></i> Auditing global warehouse data via specialized Amazon tools.</li>
-                        <li><i class="fas fa-circle-check text-primary mr-2"></i> Rectifying model errors to maintain high precision training sets.</li>
-                        <li><i class="fas fa-circle-check text-primary mr-2"></i> Monitoring low-confidence data metrics for AI optimization.</li>
+    <!-- Interactive Custom Skills Tabs -->
+    <section id="skills" class="py-32 border-t border-neutral-900 bg-neutral-950/20">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-display font-medium text-white mb-12 text-center">Technical Stack</h2>
+            
+            <!-- Skill Category Selectors -->
+            <div class="flex justify-center gap-4 mb-12 flex-wrap" data-aos="fade-up">
+                <button onclick="switchTab('annotation')" id="btn-annotation" class="tab-btn active hover-target">Data & AI</button>
+                <button onclick="switchTab('development')" id="btn-development" class="tab-btn hover-target">Development</button>
+                <button onclick="switchTab('engineering')" id="btn-engineering" class="tab-btn hover-target">Engineering & Tools</button>
+            </div>
+
+            <!-- Tab Content Blocks -->
+            <div class="glass p-8 rounded-lg max-w-3xl mx-auto min-h-[220px] relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div id="tab-annotation" class="tab-content transition-opacity duration-300">
+                    <h3 class="text-lg font-bold text-white mb-4">Data Annotation & AI Skills</h3>
+                    <p class="text-textMuted text-sm mb-6">High accuracy labeling, dataset management, and visual tracking pipelines.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Labelbox</span>
+                        <span class="tag">CVAT</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">YOLOv8/v11</span>
+                        <span class="tag">Image Segmentation</span>
+                        <span class="tag">Object Detection</span>
+                        <span class="tag">CNNs</span>
+                        <span class="tag">TensorFlow / PyTorch</span>
+                    </div>
+                </div>
+                
+                <div id="tab-development" class="tab-content hidden transition-opacity duration-300">
+                    <h3 class="text-lg font-bold text-white mb-4">Web & Cloud Infrastructure</h3>
+                    <p class="text-textMuted text-sm mb-6">Full stack development paradigms, cloud scaling, and API management.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Python</span>
+                        <span class="tag">React.js</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Flask / Django</span>
+                        <span class="tag">AWS Services (EC2, S3, Lambda)</span>
+                        <span class="tag">SQL / MongoDB</span>
+                        <span class="tag">RESTful APIs</span>
+                        <span class="tag">Git Version Control</span>
+                    </div>
+                </div>
+
+                <div id="tab-engineering" class="tab-content hidden transition-opacity duration-300">
+                    <h3 class="text-lg font-bold text-white mb-4">Engineering Design & Core Tools</h3>
+                    <p class="text-textMuted text-sm mb-6">Structural engineering calculations, modeling, and system infrastructure.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">ANSYS (FEA)</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Linux (Ubuntu)</span>
+                        <span class="tag">EV Powertrain / BMS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-32 border-t border-neutral-900">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-display font-medium text-white mb-16">Chronology</h2>
+            <div class="relative border-l border-neutral-800 pl-6 space-y-16 ml-2">
+                
+                <!-- Amazon -->
+                <div class="relative group" data-aos="fade-left">
+                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">ML Data Associate (GO-AI)</h4>
+                            <p class="text-sm text-slate-500">Amazon | Bengaluru, India</p>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0">Dec 2025 — May 2026</span>
+                    </div>
+                    <ul class="text-slate-400 space-y-2 text-sm max-w-3xl mt-4">
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Audit and verify real-time incoming operations data from global warehouses.</li>
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Interface directly with custom AI models, manually resolving low-confidence system detections.</li>
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Identify recurring systematic errors to provide refined training parameters for ML developers.</li>
                     </ul>
                 </div>
-                <!-- Role 2 -->
-                <div class="glass p-8 rounded-3xl tilt-card" data-aos="fade-up" data-aos-delay="100">
-                    <h4 class="text-2xl font-bold text-white mb-2">Independent CV Developer</h4>
-                    <p class="text-primary font-semibold mb-4">Freelance | AI Specialist</p>
-                    <span class="text-xs font-mono text-slate-500 block mb-4">Jun 2024 — Present</span>
-                    <ul class="text-slate-400 space-y-3 text-sm">
-                        <li><i class="fas fa-circle-check text-primary mr-2"></i> Developed tracking systems using YOLOv8/v11 and OpenCV.</li>
-                        <li><i class="fas fa-circle-check text-primary mr-2"></i> Curated massive collision datasets using CVAT & Labelbox.</li>
-                        <li><i class="fas fa-circle-check text-primary mr-2"></i> Validated datasets for Vision Transformer (ViT) models.</li>
+
+                <!-- Freelance -->
+                <div class="relative group" data-aos="fade-left">
+                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Freelance Computer Vision Developer</h4>
+                            <p class="text-sm text-slate-500">Independent Portfolio Work | Bengaluru, India</p>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0">06/2024 — Present</span>
+                    </div>
+                    <ul class="text-slate-400 space-y-2 text-sm max-w-3xl mt-4">
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Implemented custom YOLOv8/v11 models to resolve high-frequency visual tracking problems.</li>
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Streamlined multi-class bounding box, polygon, and keypoint curation pipelines inside CVAT & Labelbox.</li>
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Executed dataset normalization scripts using Python to ensure zero-loss compatibility with Deep Learning frameworks.</li>
                     </ul>
                 </div>
-                <!-- Role 3 -->
-                <div class="glass p-8 rounded-3xl tilt-card" data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="text-2xl font-bold text-white mb-2">Partnership Executive</h4>
-                    <p class="text-primary font-semibold mb-4">Bhanzu | Bengaluru</p>
-                    <span class="text-xs font-mono text-slate-500 block mb-4">Jul 2023 — Jun 2024</span>
-                    <p class="text-slate-400 text-sm">Analyzed quantitative marketing data and performed structured competitive research to drive business growth.</p>
-                </div>
-                <!-- Role 4 -->
-                <div class="glass p-8 rounded-3xl tilt-card" data-aos="fade-up" data-aos-delay="300">
-                    <h4 class="text-2xl font-bold text-white mb-2">Internship Trainee</h4>
-                    <p class="text-primary font-semibold mb-4">BOSCH Ltd. | Bengaluru</p>
-                    <span class="text-xs font-mono text-slate-500 block mb-4">Sept — Oct 2022</span>
-                    <p class="text-slate-400 text-sm">Optimized production variances and annotated equipment datasets at the Sparkplug Manufacturing Plant.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-32">
-            <h3 class="text-center text-5xl font-display font-bold text-white mb-20" data-aos="fade-up">Featured <span class="text-primary">Builds</span></h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="glass rounded-3xl overflow-hidden group tilt-card" data-aos="zoom-in">
-                    <div class="h-56 bg-gradient-to-br from-primary/40 to-secondary/40 flex items-center justify-center relative overflow-hidden">
-                        <i class="fas fa-gavel text-6xl text-white opacity-20 group-hover:scale-125 transition duration-500"></i>
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=400" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-60 transition duration-500">
+                <!-- Bhanzu -->
+                <div class="relative group" data-aos="fade-left">
+                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Strategic Partnership Executive</h4>
+                            <p class="text-sm text-slate-500">Bhanzu | Bengaluru, India</p>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0">07/2023 — 06/2024</span>
                     </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold text-white mb-2">Legal AI Assistant</h4>
-                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">HackBLR 2026 project. Automated case retrieval and risk analysis using LLMs and Vector Databases.</p>
-                        <a href="https://github.com/akhileshnaidu20/Legalai-Hackblr-2026" target="_blank" class="text-primary font-bold hover:text-white transition inline-flex items-center gap-2">Code <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
+                    <ul class="text-slate-400 space-y-2 text-sm max-w-3xl mt-4">
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Gathered and evaluated performance datasets across multiple digital marketing channels.</li>
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Assembled structured competitor metrics, generating visual business development dashboards.</li>
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Supervised complex documentation and critical calculations for cross-brand partner negotiations.</li>
+                    </ul>
                 </div>
-                <!-- Project 2 -->
-                <div class="glass rounded-3xl overflow-hidden group tilt-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="h-56 bg-gradient-to-br from-green-500/40 to-emerald-500/40 flex items-center justify-center relative overflow-hidden">
-                        <i class="fas fa-leaf text-6xl text-white opacity-20 group-hover:scale-125 transition duration-500"></i>
-                        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cf751?auto=format&fit=crop&q=80&w=400" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-60 transition duration-500">
-                    </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold text-white mb-2">KisanMitra</h4>
-                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">AI-driven agricultural platform for crop recommendation and soil health analysis using ML.</p>
-                        <a href="https://github.com/akhileshnaidu20/KisanMitra" target="_blank" class="text-primary font-bold hover:text-white transition inline-flex items-center gap-2">Code <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="glass rounded-3xl overflow-hidden group tilt-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="h-56 bg-gradient-to-br from-red-500/40 to-orange-500/40 flex items-center justify-center relative overflow-hidden">
-                        <i class="fas fa-car-crash text-6xl text-white opacity-20 group-hover:scale-125 transition duration-500"></i>
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0a72?auto=format&fit=crop&q=80&w=400" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-60 transition duration-500">
-                    </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold text-white mb-2">Collision Detection</h4>
-                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">Real-time dashcam processing with YOLOv8, achieving 92% mAP for autonomous safety.</p>
-                        <span class="text-slate-600 text-xs font-mono">Research Project</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Arsenal Section -->
-        <section id="skills" class="py-32 text-center">
-            <h3 class="text-4xl font-display font-bold text-white mb-16" data-aos="fade-up">Technical <span class="text-primary">Arsenal</span></h3>
-            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto" data-aos="fade-up">
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">Python</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">YOLO v8/v11</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">OpenCV</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">Labelbox</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">CVAT</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">AWS Cloud</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">React.js</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">Node.js</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">SolidWorks</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">ANSYS</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">Docker</span>
-                <span class="skill-pill px-6 py-3 rounded-full text-white font-medium">MongoDB</span>
-            </div>
-        </section>
+                <!-- Bosch -->
+                <div class="relative group" data-aos="fade-left">
+                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Internship Trainee</h4>
+                            <p class="text-sm text-slate-500">BOSCH Ltd. (Sparkplug Manufacturing) | Bengaluru, India</p>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0">Sept — Oct 2022</span>
+                    </div>
+                    <ul class="text-slate-400 space-y-2 text-sm max-w-3xl mt-4">
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Researched technical and production logs to compile actionable physical variance datasets.</li>
+                        <li class="flex gap-2"><span class="text-slate-600">▪</span> Monitored and annotated assembly line machinery data to pinpoint mechanical system inefficiencies.</li>
+                    </ul>
+                </div>
 
-        <!-- Credentials Section -->
-        <section id="certifications" class="py-32">
-            <h3 class="text-center text-4xl font-display font-bold text-white mb-16" data-aos="fade-up">Credentials <span class="text-primary">& Education</span></h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Pure CSS Geometric Previews -->
+    <section id="projects" class="py-32 border-t border-neutral-900 bg-neutral-950/20">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-display font-medium text-white mb-16">Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass p-8 rounded-3xl" data-aos="fade-right">
-                    <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                        <i class="fas fa-graduation-cap text-primary"></i> Education
-                    </h4>
-                    <div class="border-l-2 border-primary pl-6 py-2">
-                        <p class="text-white font-bold">B.E. Mechanical Engineering</p>
-                        <p class="text-slate-400 text-sm">Dayananda Sagar Academy of Technology</p>
-                        <p class="text-primary font-mono text-sm mt-1">2019 — 2023 | 7.3 CGPA</p>
+                
+                <!-- Legal AI Project -->
+                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up">
+                    <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
+                        <!-- Mathematical vector grid instead of brittle images -->
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke-width="0.5"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#grid)" />
+                        </svg>
+                        <i class="fas fa-file-invoice-dollar text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">HackBLR 2026 Build</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Legal AI Assistant</h3>
+                    <p class="text-textMuted text-sm mb-6 leading-relaxed">
+                        An AI assistant constructed to parse unstructured legal drafts, matching queries to Vector databases to automate citation search and detect policy compliance errors.
+                    </p>
+                    <a href="https://github.com/akhileshnaidu20/Legalai-Hackblr-2026" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white hover:underline hover-target inline-flex items-center gap-2">Repository <i class="fas fa-arrow-up-right-from-square text-[9px]"></i></a>
+                </div>
+
+                <!-- KisanMitra Project -->
+                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50%" cy="50%" r="40" fill="none" stroke-width="0.5" />
+                            <circle cx="50%" cy="50%" r="60" fill="none" stroke-width="0.5" stroke-dasharray="4" />
+                        </svg>
+                        <i class="fas fa-seedling text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">AI & Agriculture</span>
+                    <h3 class="text-xl font-bold text-white mb-2">KisanMitra</h3>
+                    <p class="text-textMuted text-sm mb-6 leading-relaxed">
+                        A modern digital assistant system that evaluates geographical soil configurations, recommending precise crops utilizing supervised ML architectures.
+                    </p>
+                    <a href="https://github.com/akhileshnaidu20/KisanMitra" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white hover:underline hover-target inline-flex items-center gap-2">Repository <i class="fas fa-arrow-up-right-from-square text-[9px]"></i></a>
+                </div>
+
+                <!-- Vehicle Collision Detection System -->
+                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up">
+                    <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="0" x2="100%" y2="100%" stroke-width="0.5"/>
+                            <line x1="100%" y1="0" x2="0" y2="100%" stroke-width="0.5"/>
+                        </svg>
+                        <i class="fas fa-road text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">Computer Vision</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Vehicle Collision Detection</h3>
+                    <p class="text-textMuted text-sm mb-6 leading-relaxed">
+                        Implemented YOLOv8 for real-time dashcam vehicle classification. Utilized custom Kalman filtering in OpenCV to tracking trajectories, lowering target overlap conflicts.
+                    </p>
+                    <span class="text-slate-600 text-xs font-mono uppercase">Completed Research</span>
+                </div>
+
+                <!-- Delivery Partner Identification Tool -->
+                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="25%" y="25%" width="50%" height="50%" fill="none" stroke-width="0.5" />
+                        </svg>
+                        <i class="fas fa-portrait text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">Deep Learning</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Delivery Partner Identification</h3>
+                    <p class="text-textMuted text-sm mb-6 leading-relaxed">
+                        Created fine-tuned Vision Transformer pipelines using CVAT multi-class identification. Decreased manual dataset validation routines using custom evaluation automations.
+                    </p>
+                    <span class="text-slate-600 text-xs font-mono uppercase">Completed Build</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials & Background Information -->
+    <section id="credentials" class="py-32 border-t border-neutral-900">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-display font-medium text-white mb-16 text-center">Credentials</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Academic Background -->
+                <div class="border border-neutral-900 p-8 rounded-lg" data-aos="fade-right">
+                    <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">Academic Qualification</h4>
+                    <div class="border-l border-neutral-800 pl-6 py-1">
+                        <p class="text-white font-bold text-lg">Bachelor of Engineering</p>
+                        <p class="text-slate-400 text-sm">Mechanical Engineering Major</p>
+                        <p class="text-slate-500 text-xs mt-1">Dayananda Sagar Academy of Technology</p>
+                        <p class="text-slate-400 font-mono text-xs mt-4">2019 — 2023 | 7.3 Cumulative CGPA</p>
+                    </div>
+
+                    <!-- Languages -->
+                    <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mt-10 mb-4">Languages</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">English (Professional)</span>
+                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">Telugu (Native)</span>
+                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">Kannada (Conversational)</span>
+                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">Hindi (Conversational)</span>
                     </div>
                 </div>
-                <div class="glass p-8 rounded-3xl" data-aos="fade-left">
-                    <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                        <i class="fas fa-certificate text-primary"></i> Certifications
-                    </h4>
-                    <div class="space-y-4 text-sm text-slate-300 mb-8">
-                        <div class="flex items-center gap-3"><i class="fas fa-award text-primary"></i> AWS Certified Cloud Practitioner</div>
-                        <div class="flex items-center gap-3"><i class="fas fa-award text-primary"></i> Full Stack Development (ExcelR)</div>
-                        <div class="flex items-center gap-3"><i class="fas fa-award text-primary"></i> Nanodegree - E-mobility (DIY Guru)</div>
+
+                <!-- Professional Certificates -->
+                <div class="border border-neutral-900 p-8 rounded-lg flex flex-col justify-between" data-aos="fade-left">
+                    <div>
+                        <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">Specialized Verifications</h4>
+                        <div class="space-y-4 text-sm text-slate-300">
+                            <div class="flex items-center gap-3"><i class="fas fa-check text-slate-600 text-xs"></i> <span>AWS Certified Cloud Practitioner</span></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-check text-slate-600 text-xs"></i> <span>Full Stack Development Certificate (ExcelR)</span></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-check text-slate-600 text-xs"></i> <span>E-mobility Nanodegree Program (DIY Guru)</span></div>
+                        </div>
                     </div>
-                    <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank" class="block text-center bg-white text-darkBg py-3 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition">
-                        <i class="fas fa-folder-open mr-2"></i> View All Certificates
-                    </a>
+
+                    <div class="pt-8">
+                        <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank" class="block text-center border border-neutral-800 hover:border-white text-white py-3 rounded text-xs font-semibold uppercase tracking-wider transition hover-target">
+                            <i class="fas fa-external-link-alt mr-2 text-[10px]"></i> View All Certificates (Drive Folder)
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="py-20 border-t border-white/10 text-center">
+    <footer class="py-20 border-t border-neutral-900 text-center">
         <div class="flex justify-center gap-8 mb-8">
-            <a href="https://github.com/akhileshnaidu20" class="text-slate-400 hover:text-primary transition text-3xl"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/akhilesh-n-naidu" class="text-slate-400 hover:text-primary transition text-3xl"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:akhileshpower22@gmail.com" class="text-slate-400 hover:text-primary transition text-3xl"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/akhileshnaidu20" target="_blank" class="text-slate-500 hover:text-white text-2xl transition hover-target"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/akhilesh-n-naidu" target="_blank" class="text-slate-500 hover:text-white text-2xl transition hover-target"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:akhileshpower22@gmail.com" class="text-slate-500 hover:text-white text-2xl transition hover-target"><i class="fas fa-envelope"></i></a>
         </div>
-        <p class="text-slate-600 text-sm">&copy; 2026 Akhilesh N Naidu. Built with precision & AI.</p>
+        <p class="text-slate-600 text-xs italic tracking-wider uppercase">© 2026 Akhilesh N Naidu • Curated with Precision</p>
     </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // AOS Initialization
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 800, once: true });
 
-        // Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
+        // Minimalist Tab Switching Mechanism
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Custom Cursor Movement with Lag compensation
+        const cursor = document.getElementById('custom-cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
 
-        document.querySelectorAll('a, button, .glass').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+        document.querySelectorAll('.hover-target').forEach(item => {
+            item.addEventListener('mouseenter', () => cursor.classList.add('scaled'));
+            item.addEventListener('mouseleave', () => cursor.classList.remove('scaled'));
         });
 
-        // Progress Bar Logic
+        // Reading Progress Logic
         window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progress-bar').style.width = scrolled + "%";
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / docHeight) * 100;
+            document.getElementById('scroll-tracker').style.width = scrolled + '%';
         });
     </script>
 </body>
