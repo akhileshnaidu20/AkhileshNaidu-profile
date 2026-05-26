@@ -21,11 +21,11 @@
             theme: {
                 extend: {
                     colors: {
-                        neutralBg: '#0b0b0b',
-                        cardBg: '#121212',
-                        accentGray: '#2c2c2e',
-                        steelBlue: '#4a5a6a',
-                        textMuted: '#8e8e93',
+                        neutralBg: '#08080a',
+                        cardBg: '#101014',
+                        accentGray: '#24242c',
+                        steelBlue: '#5c6f84',
+                        textMuted: '#8b8b94',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -38,19 +38,21 @@
 </head>
 <body class="bg-neutralBg text-neutral-300 antialiased selection:bg-neutral-800">
 
-    <!-- Interactive Dot Grid Background -->
-    <div class="fixed inset-0 grid-bg -z-10"></div>
+    <!-- Interactive Particle Web Background Canvas -->
+    <canvas id="interactive-canvas" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
 
-    <!-- Thin Minimal Page Progress Indicator -->
-    <div id="scroll-tracker" class="fixed top-0 left-0 h-[2px] bg-slate-400 z-50 w-0 transition-all duration-100"></div>
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-tracker" class="fixed top-0 left-0 h-[3px] bg-slate-300 z-50 w-0 transition-all duration-100"></div>
 
-    <!-- Minimalistic Custom Follow Cursor (Desktop only) -->
+    <!-- Minimalistic custom hover cursor (automatically hidden on touch interfaces) -->
     <div id="custom-cursor" class="hidden md:block"></div>
 
-    <!-- Minimal Navigation -->
-    <nav class="fixed top-0 w-full z-40 bg-neutralBg/80 backdrop-blur-md border-b border-neutral-900 py-4 transition-all duration-300">
-        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full z-40 bg-neutralBg/80 backdrop-blur-md border-b border-neutral-900/60 py-4 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl flex justify-between items-center">
             <a href="#" class="font-display font-medium text-white tracking-widest text-lg hover-target">AKHILESH<span class="text-slate-500">.</span></a>
+            
+            <!-- Desktop Links -->
             <div class="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-wider">
                 <a href="#about" class="text-textMuted hover:text-white transition hover-target">About</a>
                 <a href="#experience" class="text-textMuted hover:text-white transition hover-target">Experience</a>
@@ -58,32 +60,47 @@
                 <a href="#skills" class="text-textMuted hover:text-white transition hover-target">Skills</a>
                 <a href="#credentials" class="text-textMuted hover:text-white transition hover-target">Credentials</a>
             </div>
-            <a href="https://github.com/akhileshnaidu20" target="_blank" class="text-textMuted hover:text-white transition hover-target">
-                <i class="fab fa-github text-xl"></i>
-            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/akhileshnaidu20" target="_blank" class="text-textMuted hover:text-white transition hover-target">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <!-- Mobile Navigation Trigger -->
+                <button onclick="toggleMobileMenu()" class="block md:hidden text-white focus:outline-none hover-target" aria-label="Toggle Menu">
+                    <i id="menu-icon" class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Link Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-neutralBg border-b border-neutral-900 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-textMuted hover:text-white transition">About</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-textMuted hover:text-white transition">Experience</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-textMuted hover:text-white transition">Projects</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-textMuted hover:text-white transition">Skills</a>
+            <a href="#credentials" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-textMuted hover:text-white transition">Credentials</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center px-6 relative max-w-6xl mx-auto pt-24">
-        <div class="grid md:grid-cols-3 gap-12 items-center">
+    <section class="min-h-screen flex flex-col justify-center px-4 md:px-6 relative max-w-6xl mx-auto pt-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             <div class="md:col-span-2 space-y-6">
                 <p class="text-slate-500 font-mono text-xs uppercase tracking-widest" data-aos="fade-right">Data Annotation & CV Specialist</p>
-                <h1 class="text-5xl md:text-7xl font-display font-medium text-white tracking-tight leading-none" data-aos="fade-right" data-aos-delay="100">
-                    Structuring raw visual information with mathematical precision.
+                <h1 class="text-4xl md:text-7xl font-display font-medium text-white tracking-tight leading-none" data-aos="fade-right" data-aos-delay="100">
+                    Teaching systems <br><span class="text-slate-400">how to observe.</span>
                 </h1>
                 <p class="text-textMuted max-w-xl leading-relaxed text-sm md:text-base" data-aos="fade-right" data-aos-delay="200">
-                    A detail-oriented professional specializing in computer vision workflows, dataset preparation, and data pipelines. Applying engineering rigor to organize high-quality datasets for AI model training.
+                    A technically proficient specialist utilizing computer vision models, dataset preparation matrices, and deep learning architectures to convert raw visual sequences into logical data.
                 </p>
-                <div class="flex gap-4 pt-4" data-aos="fade-right" data-aos-delay="300">
-                    <a href="#projects" class="border border-neutral-800 hover:border-slate-500 text-white px-6 py-3 rounded-md text-xs font-semibold uppercase tracking-wider transition hover-target">Explore Builds</a>
+                <div class="flex flex-wrap gap-4 pt-4" data-aos="fade-right" data-aos-delay="300">
+                    <a href="#projects" class="border border-neutral-800 hover:border-slate-400 text-white px-6 py-3 rounded-md text-xs font-semibold uppercase tracking-wider transition-all hover-target">Explore Builds</a>
                     <a href="https://www.linkedin.com/in/akhilesh-n-naidu" target="_blank" class="text-textMuted hover:text-white px-6 py-3 text-xs font-semibold uppercase tracking-wider transition hover-target">LinkedIn <i class="fas fa-arrow-up-right-from-square ml-1 text-[10px]"></i></a>
                 </div>
             </div>
             
             <div class="flex justify-center md:justify-end" data-aos="zoom-in" data-aos-delay="200">
                 <div class="relative group">
-                    <!-- Clean image fallback block prevents broken frames -->
                     <object data="profile.jpg" type="image/jpg" class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-neutral-800 object-cover grayscale transition duration-500 group-hover:grayscale-0">
                         <svg class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-neutral-800 bg-neutral-900" viewBox="0 0 100 100">
                             <text x="50%" y="54%" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="500" font-size="20" fill="#8e8e93">AN</text>
@@ -95,9 +112,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-32 border-t border-neutral-900">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="grid md:grid-cols-3 gap-12">
+    <section id="about" class="py-24 md:py-32 border-t border-neutral-900/60">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div data-aos="fade-right">
                     <h2 class="text-3xl font-display font-medium text-white tracking-tight">System Profile</h2>
                 </div>
@@ -106,11 +123,11 @@
                         Detail-oriented and technically proficient professional with expertise in data annotation, computer vision and machine learning. Skilled in labeling and processing datasets for AI model training using tools like <span class="text-white">Labelbox</span> and <span class="text-white">CVAT</span>, with hands-on experience in <span class="text-white">Python, OpenCV</span> and <span class="text-white">YOLO models</span>.
                     </p>
                     <p>
-                        Adept at analyzing complex data, ensuring high accuracy and contributing to innovative AI solutions. Leveraging a <span class="text-white">Mechanical Engineering</span> foundation to bridge hardware-software gaps and optimize system performance metrics.
+                        Adept at analyzing complex data, ensuring high accuracy and contributing to innovative AI solutions. Leveraging a <span class="text-white">Mechanical Engineering</span> foundation to bridge hardware-software gaps and design robust data-processing models.
                     </p>
                     
-                    <!-- Contact Card Grid -->
-                    <div class="grid grid-cols-2 gap-4 pt-8">
+                    <!-- Contact Details -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8">
                         <div class="border border-neutral-900 p-4 rounded-md">
                             <span class="block text-slate-500 text-xs uppercase font-mono mb-1">Email Connection</span>
                             <a href="mailto:akhileshpower22@gmail.com" class="text-white text-xs md:text-sm hover:underline hover-target">akhileshpower22@gmail.com</a>
@@ -125,21 +142,21 @@
         </div>
     </section>
 
-    <!-- Interactive Custom Skills Tabs -->
-    <section id="skills" class="py-32 border-t border-neutral-900 bg-neutral-950/20">
-        <div class="container mx-auto px-6 max-w-6xl">
+    <!-- Interactive Skills Tabs -->
+    <section id="skills" class="py-24 md:py-32 border-t border-neutral-900/60 bg-neutral-950/20">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-12 text-center">Technical Stack</h2>
             
-            <!-- Skill Category Selectors -->
+            <!-- Tab Buttons -->
             <div class="flex justify-center gap-4 mb-12 flex-wrap" data-aos="fade-up">
                 <button onclick="switchTab('annotation')" id="btn-annotation" class="tab-btn active hover-target">Data & AI</button>
                 <button onclick="switchTab('development')" id="btn-development" class="tab-btn hover-target">Development</button>
                 <button onclick="switchTab('engineering')" id="btn-engineering" class="tab-btn hover-target">Engineering & Tools</button>
             </div>
 
-            <!-- Tab Content Blocks -->
-            <div class="glass p-8 rounded-lg max-w-3xl mx-auto min-h-[220px] relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                <div id="tab-annotation" class="tab-content transition-opacity duration-300">
+            <!-- Content Area -->
+            <div class="glass p-6 md:p-8 rounded-lg max-w-3xl mx-auto min-h-[240px] relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div id="tab-annotation" class="tab-content transition-all duration-300">
                     <h3 class="text-lg font-bold text-white mb-4">Data Annotation & AI Skills</h3>
                     <p class="text-textMuted text-sm mb-6">High accuracy labeling, dataset management, and visual tracking pipelines.</p>
                     <div class="flex flex-wrap gap-2">
@@ -149,12 +166,13 @@
                         <span class="tag">YOLOv8/v11</span>
                         <span class="tag">Image Segmentation</span>
                         <span class="tag">Object Detection</span>
-                        <span class="tag">CNNs</span>
+                        <span class="tag">CNNs / RNNs</span>
                         <span class="tag">TensorFlow / PyTorch</span>
+                        <span class="tag">Feature Engineering</span>
                     </div>
                 </div>
                 
-                <div id="tab-development" class="tab-content hidden transition-opacity duration-300">
+                <div id="tab-development" class="tab-content hidden transition-all duration-300">
                     <h3 class="text-lg font-bold text-white mb-4">Web & Cloud Infrastructure</h3>
                     <p class="text-textMuted text-sm mb-6">Full stack development paradigms, cloud scaling, and API management.</p>
                     <div class="flex flex-wrap gap-2">
@@ -169,7 +187,7 @@
                     </div>
                 </div>
 
-                <div id="tab-engineering" class="tab-content hidden transition-opacity duration-300">
+                <div id="tab-engineering" class="tab-content hidden transition-all duration-300">
                     <h3 class="text-lg font-bold text-white mb-4">Engineering Design & Core Tools</h3>
                     <p class="text-textMuted text-sm mb-6">Structural engineering calculations, modeling, and system infrastructure.</p>
                     <div class="flex flex-wrap gap-2">
@@ -185,15 +203,16 @@
         </div>
     </section>
 
-    <!-- Work Experience Section -->
-    <section id="experience" class="py-32 border-t border-neutral-900">
-        <div class="container mx-auto px-6 max-w-6xl">
+    <!-- Work Experience (Chronology) -->
+    <section id="experience" class="py-24 md:py-32 border-t border-neutral-900/60">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-16">Chronology</h2>
-            <div class="relative border-l border-neutral-800 pl-6 space-y-16 ml-2">
+            <!-- Fixed Timeline Aligner on Mobile screens -->
+            <div class="relative border-l border-neutral-800 pl-6 md:pl-8 space-y-16 ml-2">
                 
                 <!-- Amazon -->
                 <div class="relative group" data-aos="fade-left">
-                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 w-2.5 h-2.5 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
                     <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
                         <div>
                             <h4 class="text-lg font-bold text-white">ML Data Associate (GO-AI)</h4>
@@ -210,7 +229,7 @@
 
                 <!-- Freelance -->
                 <div class="relative group" data-aos="fade-left">
-                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 w-2.5 h-2.5 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
                     <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
                         <div>
                             <h4 class="text-lg font-bold text-white">Freelance Computer Vision Developer</h4>
@@ -227,7 +246,7 @@
 
                 <!-- Bhanzu -->
                 <div class="relative group" data-aos="fade-left">
-                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 w-2.5 h-2.5 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
                     <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
                         <div>
                             <h4 class="text-lg font-bold text-white">Strategic Partnership Executive</h4>
@@ -244,7 +263,7 @@
 
                 <!-- Bosch -->
                 <div class="relative group" data-aos="fade-left">
-                    <div class="absolute -left-[31px] top-1 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 w-2.5 h-2.5 rounded-full bg-slate-500 group-hover:bg-white transition-colors"></div>
                     <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
                         <div>
                             <h4 class="text-lg font-bold text-white">Internship Trainee</h4>
@@ -262,25 +281,28 @@
         </div>
     </section>
 
-    <!-- Projects Section with Pure CSS Geometric Previews -->
-    <section id="projects" class="py-32 border-t border-neutral-900 bg-neutral-950/20">
-        <div class="container mx-auto px-6 max-w-6xl">
+    <!-- Projects (Self-rendering Interactive SVGs instead of brittle links) -->
+    <section id="projects" class="py-24 md:py-32 border-t border-neutral-900/60 bg-neutral-950/20">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-16">Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Legal AI Project -->
-                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up">
+                <div class="border border-neutral-900 bg-neutral-950/80 backdrop-blur-md rounded-lg p-6 hover:border-slate-500 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-900/20 group" data-aos="fade-up">
                     <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
-                        <!-- Mathematical vector grid instead of brittle images -->
-                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Custom Animated Vector Graphics (100% Reliable Load) -->
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800/60" xmlns="http://www.w3.org/2000/svg">
                             <defs>
-                                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke-width="0.5"/>
+                                <pattern id="grid-pattern" width="16" height="16" patternUnits="userSpaceOnUse">
+                                    <path d="M 16 0 L 0 0 0 16" fill="none" stroke-width="0.5"/>
                                 </pattern>
                             </defs>
-                            <rect width="100%" height="100%" fill="url(#grid)" />
+                            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                            <!-- Subtle vector focal point decoration -->
+                            <circle cx="50%" cy="50%" r="20" class="stroke-slate-500/30 fill-none" stroke-width="0.8" />
+                            <circle cx="50%" cy="50%" r="35" class="stroke-slate-600/10 fill-none" stroke-width="0.5" stroke-dasharray="3" />
                         </svg>
-                        <i class="fas fa-file-invoice-dollar text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                        <i class="fas fa-scale-balanced text-3xl text-slate-400 group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">HackBLR 2026 Build</span>
                     <h3 class="text-xl font-bold text-white mb-2">Legal AI Assistant</h3>
@@ -291,13 +313,14 @@
                 </div>
 
                 <!-- KisanMitra Project -->
-                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                <div class="border border-neutral-900 bg-neutral-950/80 backdrop-blur-md rounded-lg p-6 hover:border-slate-500 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-900/20 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50%" cy="50%" r="40" fill="none" stroke-width="0.5" />
-                            <circle cx="50%" cy="50%" r="60" fill="none" stroke-width="0.5" stroke-dasharray="4" />
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800/60" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                            <circle cx="50%" cy="50%" r="30" class="stroke-slate-500/30 fill-none" stroke-width="0.8" />
+                            <line x1="50%" y1="10%" x2="50%" y2="90%" class="stroke-slate-700/20" stroke-width="0.5" />
                         </svg>
-                        <i class="fas fa-seedling text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                        <i class="fas fa-seedling text-3xl text-slate-400 group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">AI & Agriculture</span>
                     <h3 class="text-xl font-bold text-white mb-2">KisanMitra</h3>
@@ -308,29 +331,31 @@
                 </div>
 
                 <!-- Vehicle Collision Detection System -->
-                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up">
+                <div class="border border-neutral-900 bg-neutral-950/80 backdrop-blur-md rounded-lg p-6 hover:border-slate-500 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-900/20 group" data-aos="fade-up">
                     <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="0" y1="0" x2="100%" y2="100%" stroke-width="0.5"/>
-                            <line x1="100%" y1="0" x2="0" y2="100%" stroke-width="0.5"/>
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800/60" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                            <line x1="0" y1="0" x2="100%" y2="100%" class="stroke-slate-600/20" stroke-width="0.5"/>
+                            <line x1="100%" y1="0" x2="0" y2="100%" class="stroke-slate-600/20" stroke-width="0.5"/>
                         </svg>
-                        <i class="fas fa-road text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                        <i class="fas fa-bullseye text-3xl text-slate-400 group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">Computer Vision</span>
                     <h3 class="text-xl font-bold text-white mb-2">Vehicle Collision Detection</h3>
                     <p class="text-textMuted text-sm mb-6 leading-relaxed">
-                        Implemented YOLOv8 for real-time dashcam vehicle classification. Utilized custom Kalman filtering in OpenCV to tracking trajectories, lowering target overlap conflicts.
+                        Implemented YOLOv8 for real-time dashcam vehicle classification. Integrated custom tracking models inside OpenCV to lower false alarm rates on overlapping frames.
                     </p>
                     <span class="text-slate-600 text-xs font-mono uppercase">Completed Research</span>
                 </div>
 
                 <!-- Delivery Partner Identification Tool -->
-                <div class="border border-neutral-900 bg-neutral-950 rounded-lg p-6 hover:border-slate-500 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                <div class="border border-neutral-900 bg-neutral-950/80 backdrop-blur-md rounded-lg p-6 hover:border-slate-500 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-900/20 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="25%" y="25%" width="50%" height="50%" fill="none" stroke-width="0.5" />
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800/60" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                            <rect x="35%" y="35%" width="30%" height="30%" fill="none" class="stroke-slate-500/20" stroke-width="0.5" />
                         </svg>
-                        <i class="fas fa-portrait text-3xl text-slate-500 group-hover:scale-110 transition duration-300 relative z-10"></i>
+                        <i class="fas fa-user-check text-3xl text-slate-400 group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">Deep Learning</span>
                     <h3 class="text-xl font-bold text-white mb-2">Delivery Partner Identification</h3>
@@ -340,19 +365,37 @@
                     <span class="text-slate-600 text-xs font-mono uppercase">Completed Build</span>
                 </div>
 
+                <!-- Composite Material Analysis -->
+                <div class="border border-neutral-900 bg-neutral-950/80 backdrop-blur-md rounded-lg p-6 hover:border-slate-500 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-900/20 group md:col-span-2" data-aos="fade-up">
+                    <div class="h-44 bg-neutral-900 rounded-md mb-6 flex items-center justify-center border border-neutral-800 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full stroke-neutral-800/60" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                            <circle cx="50%" cy="50%" r="15" class="stroke-slate-500/40 fill-none" stroke-width="0.5" />
+                            <circle cx="50%" cy="50%" r="50" class="stroke-slate-500/10 fill-none" stroke-width="0.5" />
+                        </svg>
+                        <i class="fas fa-chart-line text-3xl text-slate-400 group-hover:scale-110 transition duration-500 relative z-10"></i>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-1">B.Tech Graduation Project | 2023</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Composite Material Analysis Dashboard</h3>
+                    <p class="text-textMuted text-sm mb-6 leading-relaxed">
+                        Evaluated structural mechanical performance curves of newly engineered carbon mixtures. Collated and annotated custom physical structural matrices used for FEA validation routines.
+                    </p>
+                    <span class="text-slate-600 text-xs font-mono uppercase">Undergraduate Core Project</span>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Credentials & Background Information -->
-    <section id="credentials" class="py-32 border-t border-neutral-900">
-        <div class="container mx-auto px-6 max-w-6xl">
+    <!-- Credentials & Education Section -->
+    <section id="credentials" class="py-24 md:py-32 border-t border-neutral-900/60">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-16 text-center">Credentials</h2>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Academic Background -->
-                <div class="border border-neutral-900 p-8 rounded-lg" data-aos="fade-right">
-                    <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">Academic Qualification</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Academic Profile -->
+                <div class="border border-neutral-900 bg-neutral-950/40 p-8 rounded-lg" data-aos="fade-right">
+                    <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">Academic History</h4>
                     <div class="border-l border-neutral-800 pl-6 py-1">
                         <p class="text-white font-bold text-lg">Bachelor of Engineering</p>
                         <p class="text-slate-400 text-sm">Mechanical Engineering Major</p>
@@ -361,19 +404,19 @@
                     </div>
 
                     <!-- Languages -->
-                    <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mt-10 mb-4">Languages</h4>
+                    <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mt-10 mb-4">Linguistic Profile</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">English (Professional)</span>
-                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">Telugu (Native)</span>
-                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">Kannada (Conversational)</span>
-                        <span class="text-xs border border-neutral-900 px-3 py-1 rounded bg-neutral-950 text-slate-400">Hindi (Conversational)</span>
+                        <span class="text-xs border border-neutral-900/60 px-3 py-1 rounded bg-neutral-950 text-slate-400">English (Professional)</span>
+                        <span class="text-xs border border-neutral-900/60 px-3 py-1 rounded bg-neutral-950 text-slate-400">Telugu (Native)</span>
+                        <span class="text-xs border border-neutral-900/60 px-3 py-1 rounded bg-neutral-950 text-slate-400">Kannada (Conversational)</span>
+                        <span class="text-xs border border-neutral-900/60 px-3 py-1 rounded bg-neutral-950 text-slate-400">Hindi (Conversational)</span>
                     </div>
                 </div>
 
-                <!-- Professional Certificates -->
-                <div class="border border-neutral-900 p-8 rounded-lg flex flex-col justify-between" data-aos="fade-left">
+                <!-- Professional Certifications -->
+                <div class="border border-neutral-900 bg-neutral-950/40 p-8 rounded-lg flex flex-col justify-between" data-aos="fade-left">
                     <div>
-                        <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">Specialized Verifications</h4>
+                        <h4 class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">Technical Verifications</h4>
                         <div class="space-y-4 text-sm text-slate-300">
                             <div class="flex items-center gap-3"><i class="fas fa-check text-slate-600 text-xs"></i> <span>AWS Certified Cloud Practitioner</span></div>
                             <div class="flex items-center gap-3"><i class="fas fa-check text-slate-600 text-xs"></i> <span>Full Stack Development Certificate (ExcelR)</span></div>
@@ -381,9 +424,10 @@
                         </div>
                     </div>
 
+                    <!-- Integrated Verification Directory Google Drive Link -->
                     <div class="pt-8">
-                        <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank" class="block text-center border border-neutral-800 hover:border-white text-white py-3 rounded text-xs font-semibold uppercase tracking-wider transition hover-target">
-                            <i class="fas fa-external-link-alt mr-2 text-[10px]"></i> View All Certificates (Drive Folder)
+                        <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank" class="block text-center border border-neutral-800 hover:border-slate-400 text-white py-3 rounded text-xs font-semibold uppercase tracking-wider transition hover-target">
+                            <i class="fas fa-external-link-alt mr-2 text-[10px]"></i> Open Credentials Database (Drive)
                         </a>
                     </div>
                 </div>
@@ -392,13 +436,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 border-t border-neutral-900 text-center">
+    <footer class="py-16 border-t border-neutral-900/60 text-center">
         <div class="flex justify-center gap-8 mb-8">
             <a href="https://github.com/akhileshnaidu20" target="_blank" class="text-slate-500 hover:text-white text-2xl transition hover-target"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/akhilesh-n-naidu" target="_blank" class="text-slate-500 hover:text-white text-2xl transition hover-target"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:akhileshpower22@gmail.com" class="text-slate-500 hover:text-white text-2xl transition hover-target"><i class="fas fa-envelope"></i></a>
         </div>
-        <p class="text-slate-600 text-xs italic tracking-wider uppercase">© 2026 Akhilesh N Naidu • Curated with Precision</p>
+        <p class="text-slate-600 text-xs italic tracking-wider uppercase">© 2026 Akhilesh N Naidu • Engineered with Precision</p>
     </footer>
 
     <!-- Scripts -->
@@ -419,7 +463,7 @@
             document.getElementById('btn-' + tabId).classList.add('active');
         }
 
-        // Custom Cursor Movement with Lag compensation
+        // Custom Cursor movement with Lag Compensation
         const cursor = document.getElementById('custom-cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -431,12 +475,108 @@
             item.addEventListener('mouseleave', () => cursor.classList.remove('scaled'));
         });
 
-        // Reading Progress Logic
+        // Reading Scroll Progress
         window.addEventListener('scroll', () => {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrolled = (window.scrollY / docHeight) * 100;
             document.getElementById('scroll-tracker').style.width = scrolled + '%';
         });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fas fa-times text-xl";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fas fa-bars text-xl";
+            }
+        }
+
+        // --- Interactive Particle Canvas Logic ---
+        const canvas = document.getElementById('interactive-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 120 };
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            const numberOfParticles = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100);
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    radius: Math.random() * 1.5 + 1
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Wall Collision
+                if (p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
+                if (p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+
+                // Mouse interaction (gentle displacement)
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        const angle = Math.atan2(dy, dx);
+                        p.x += Math.cos(angle) * force * 1.5;
+                        p.y += Math.sin(angle) * force * 1.5;
+                    }
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+                ctx.fill();
+            });
+
+            // Draw clean mathematical connections
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        animate();
     </script>
 </body>
 </html>
