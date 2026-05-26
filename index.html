@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -36,15 +36,15 @@
         }
     </script>
 </head>
-<body class="bg-color000 text-colorCCC9DC antialiased selection:bg-color324A5F/30">
+<body class="bg-color000 text-colorCCC9DC antialiased selection:bg-color324A5F/40">
 
-    <!-- Interactive Multidisciplinary (AI/ML, Robotics, Mechanics, IoT) Background Canvas -->
-    <canvas id="multidisciplinary-canvas" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
+    <!-- Multidisciplinary Interactive Canvas Background -->
+    <canvas id="creative-backdrop" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
 
-    <!-- Scroll Progress Tracker -->
+    <!-- Scroll Progress Indicator -->
     <div id="scroll-tracker" class="fixed top-0 left-0 h-[2.5px] bg-colorCCC9DC z-50 w-0 transition-all duration-100"></div>
 
-    <!-- Minimal custom cursor (hidden on mobile) -->
+    <!-- Minimal Follow Cursor (Desktop Only) -->
     <div id="custom-cursor" class="hidden md:block"></div>
 
     <!-- Navigation Header -->
@@ -86,12 +86,12 @@
     <section class="min-h-screen flex flex-col justify-center px-4 md:px-6 relative max-w-6xl mx-auto pt-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             <div class="md:col-span-2 space-y-6">
-                <p class="text-colorCCC9DC/50 font-mono text-xs uppercase tracking-widest" data-aos="fade-right">AI/ML & Embedded Systems Specialist</p>
+                <p class="text-colorCCC9DC/50 font-mono text-xs uppercase tracking-widest animate-pulse" data-aos="fade-right">AI/ML & Embedded Systems Specialist</p>
                 <h1 class="text-4xl md:text-7xl font-display font-medium text-white tracking-tight leading-none" data-aos="fade-right" data-aos-delay="100">
-                    Bridging hardware limits with <br><span class="text-colorCCC9DC/60">smart automation.</span>
+                    Bridging physical boundaries <br><span class="text-colorCCC9DC/60">with smart software.</span>
                 </h1>
                 <p class="text-colorCCC9DC/80 max-w-xl leading-relaxed text-sm md:text-base" data-aos="fade-right" data-aos-delay="200">
-                    Integrating physical mechanics with embedded engineering and deep learning data pipelines to construct robust real-world automation [May 2026].
+                    Applying mechanical precision to high-concurrency neural pipelines and embedded microcontrollers to engineer zero-leak automation setups.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4" data-aos="fade-right" data-aos-delay="300">
                     <a href="#projects" class="border border-color324A5F hover:border-colorCCC9DC text-white px-6 py-3 rounded-md text-xs font-semibold uppercase tracking-wider transition-all hover-target">Explore Builds</a>
@@ -103,6 +103,9 @@
                 <div class="relative group">
                     <object data="profile.jpg" type="image/jpg" class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-color1B2A41 object-cover grayscale transition duration-500 group-hover:grayscale-0">
                         <svg class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-color1B2A41 bg-color0C1821" viewBox="0 0 100 100">
+                            <!-- High-fidelity aesthetic placeholder calibration frame -->
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#324A5F" stroke-width="0.5" />
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#1B2A41" stroke-width="1" stroke-dasharray="6,4" />
                             <text x="50%" y="54%" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="500" font-size="20" fill="#CCC9DC">AN</text>
                         </svg>
                     </object>
@@ -111,7 +114,7 @@
         </div>
     </section>
 
-    <!-- Restructured About Section (Hardware-to-Software/Embedded Focus) -->
+    <!-- About Section with Markdown Text Fixes -->
     <section id="about" class="py-24 md:py-32 border-t border-color1B2A41/30">
         <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -120,23 +123,28 @@
                 </div>
                 <div class="md:col-span-2 space-y-6 text-colorCCC9DC/80 leading-relaxed text-sm md:text-base" data-aos="fade-left">
                     <p>
-                        I focus on developing highly performant, resilient **AI/ML systems, ML automation systems, and embedded hardware integrations**. By applying a rigorous **Mechanical Engineering foundation**, I bridge the critical hardware-to-software gap that standard digital-only applications often neglect.
-                    </p>
-                    <p class="text-white font-medium border-l-2 border-color324A5F pl-4">
-                        *The Hardware-Software Advantage:* Modern AI/ML architectures frequently underperform inside edge installations due to real-world physical discrepancies, mechanical system dynamics, and dirty sensor environments. Leveraging structural and thermodynamic perspectives, I systematically debug and resolve physical data inconsistencies, optimizing sensor input validation, and implementing low-latency model deployments directly inside resource-constrained embedded nodes.
-                    </p>
-                    <p>
-                        I am incredibly **excited about and actively pursuing new, pioneering opportunities to work with edge computing frameworks, robotics, IoT telemetry, and embedded ML automation pipelines**.
+                        I focus on developing highly performant, resilient <span class="text-white font-semibold">AI/ML systems, ML automation systems, and embedded hardware integrations</span>. By applying a rigorous <span class="text-white font-semibold">Mechanical Engineering foundation</span>, I bridge the critical hardware-to-software gap that standard digital-only applications often neglect.
                     </p>
                     
-                    <!-- Core Contacts -->
+                    <div class="border-l-2 border-color324A5F pl-4 my-6 bg-color0C1821/20 py-4 pr-4 rounded-r-lg">
+                        <h4 class="font-display font-medium text-white mb-2 text-sm uppercase tracking-wider">The Hardware-Software Advantage:</h4>
+                        <p class="text-sm">
+                            Modern AI/ML architectures frequently underperform inside edge installations due to real-world physical discrepancies, mechanical system dynamics, and dirty sensor environments. Leveraging structural and thermodynamic perspectives, I systematically debug and resolve physical data inconsistencies, optimizing sensor input validation, and implementing low-latency model deployments directly inside resource-constrained embedded nodes.
+                        </p>
+                    </div>
+
+                    <p>
+                        I am incredibly <span class="text-white font-semibold">excited about and actively pursuing new, pioneering opportunities to work with edge computing frameworks, robotics, IoT telemetry, and embedded ML automation pipelines</span>.
+                    </p>
+                    
+                    <!-- Contacts -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8">
                         <div class="border border-color1B2A41/50 p-4 rounded-md bg-color0C1821/20">
-                            <span class="block text-colorCCC9DC/40 text-xs uppercase font-mono mb-1">Direct Terminal</span>
+                            <span class="block text-colorCCC9DC/40 text-xs uppercase font-mono mb-1">Direct Connection</span>
                             <a href="mailto:akhileshpower22@gmail.com" class="text-white text-xs md:text-sm hover:underline hover-target">akhileshpower22@gmail.com</a>
                         </div>
                         <div class="border border-color1B2A41/50 p-4 rounded-md bg-color0C1821/20">
-                            <span class="block text-colorCCC9DC/40 text-xs uppercase font-mono mb-1">Deployment Location</span>
+                            <span class="block text-colorCCC9DC/40 text-xs uppercase font-mono mb-1">Operation Terminal</span>
                             <span class="text-white text-xs md:text-sm">Bengaluru, India</span>
                         </div>
                     </div>
@@ -145,23 +153,21 @@
         </div>
     </section>
 
-    <!-- Technical Arsenal & Tools -->
+    <!-- Skills Tabs -->
     <section id="skills" class="py-24 md:py-32 border-t border-color1B2A41/30 bg-color0C1821/10">
         <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-12 text-center">Technical Stack</h2>
             
-            <!-- Tab Selectors -->
             <div class="flex justify-center gap-4 mb-12 flex-wrap" data-aos="fade-up">
                 <button onclick="switchTab('annotation')" id="btn-annotation" class="tab-btn active hover-target">AI/ML & Automation</button>
                 <button onclick="switchTab('development')" id="btn-development" class="tab-btn hover-target">Embedded & Dev</button>
-                <button onclick="switchTab('engineering')" id="btn-engineering" class="tab-btn hover-target">Mechanical Systems</button>
+                <button onclick="switchTab('engineering')" id="btn-engineering" class="tab-btn hover-target">Mechanical Design</button>
             </div>
 
-            <!-- Tab Content -->
             <div class="glass p-6 md:p-8 rounded-lg max-w-3xl mx-auto min-h-[240px] relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 <div id="tab-annotation" class="tab-content transition-all duration-300">
-                    <h3 class="text-lg font-bold text-white mb-4">AI/ML, Deep Learning & Labeling Pipelines</h3>
-                    <p class="text-colorCCC9DC/60 text-sm mb-6">High accuracy labeling, data pipeline automation, and computer vision models.</p>
+                    <h3 class="text-lg font-bold text-white mb-4">Deep Learning, Dataset Prep & ML Automation</h3>
+                    <p class="text-colorCCC9DC/60 text-sm mb-6">Structuring training paradigms, deep annotations, and model refinement matrices.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">YOLO v8/v11</span>
                         <span class="tag">OpenCV</span>
@@ -170,28 +176,28 @@
                         <span class="tag">TensorFlow</span>
                         <span class="tag">PyTorch</span>
                         <span class="tag">Image Segmentation</span>
-                        <span class="tag">CNNs / RNNs</span>
+                        <span class="tag">Neural Networks</span>
                     </div>
                 </div>
                 
                 <div id="tab-development" class="tab-content hidden transition-all duration-300">
-                    <h3 class="text-lg font-bold text-white mb-4">Embedded Systems & Core Languages</h3>
-                    <p class="text-colorCCC9DC/60 text-sm mb-6">Device level firmware programming, custom automation scripts, and deployment.</p>
+                    <h3 class="text-lg font-bold text-white mb-4">Microcontrollers, IoT Protocols & Languages</h3>
+                    <p class="text-colorCCC9DC/60 text-sm mb-6">Physical device automation, low-latency firmware scripting, and pipeline integration.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">Python</span>
-                        <span class="tag">AWS Cloud (S3, Lambda)</span>
                         <span class="tag">React.js</span>
                         <span class="tag">Node.js</span>
+                        <span class="tag">Flask / Django</span>
+                        <span class="tag">AWS (EC2, S3, Lambda)</span>
                         <span class="tag">SQL / MongoDB</span>
-                        <span class="tag">Linux / Bash</span>
+                        <span class="tag">Linux/Bash</span>
                         <span class="tag">Git / Docker</span>
-                        <span class="tag">IoT Telemetry</span>
                     </div>
                 </div>
 
                 <div id="tab-engineering" class="tab-content hidden transition-all duration-300">
-                    <h3 class="text-lg font-bold text-white mb-4">Mechanical Engineering & CAD</h3>
-                    <p class="text-colorCCC9DC/60 text-sm mb-6">Thermodynamics, Finite Element Analysis (FEA), and robust physical modelling.</p>
+                    <h3 class="text-lg font-bold text-white mb-4">CAD, Fluid Dynamics & Finite Element Analysis</h3>
+                    <p class="text-colorCCC9DC/60 text-sm mb-6">Thermal evaluation, structural calculations, and EV hardware systems design.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">SolidWorks</span>
                         <span class="tag">ANSYS Workbench</span>
@@ -204,11 +210,10 @@
         </div>
     </section>
 
-    <!-- Work Experience (Chronology) -->
+    <!-- Experience Timeline -->
     <section id="experience" class="py-24 md:py-32 border-t border-color1B2A41/30">
         <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-16">Chronology</h2>
-            <!-- Perfectly aligned timeline regardless of viewport -->
             <div class="relative border-l border-color1B2A41 pl-6 md:pl-8 space-y-16 ml-2">
                 
                 <!-- Amazon -->
@@ -282,7 +287,7 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section with self-contained, responsive SVGs -->
     <section id="projects" class="py-24 md:py-32 border-t border-color1B2A41/30 bg-color0C1821/10">
         <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-16">Projects</h2>
@@ -293,14 +298,16 @@
                     <div class="h-44 bg-color000 rounded-md mb-6 flex items-center justify-center border border-color1B2A41/50 relative overflow-hidden">
                         <svg class="absolute inset-0 w-full h-full stroke-color324A5F/30" xmlns="http://www.w3.org/2000/svg">
                             <defs>
-                                <pattern id="custom-grid" width="16" height="16" patternUnits="userSpaceOnUse">
+                                <pattern id="pat-legal" width="16" height="16" patternUnits="userSpaceOnUse">
                                     <path d="M 16 0 L 0 0 0 16" fill="none" stroke-width="0.5"/>
                                 </pattern>
                             </defs>
-                            <rect width="100%" height="100%" fill="url(#custom-grid)" />
-                            <circle cx="50%" cy="50%" r="20" class="stroke-color324A5F/40 fill-none" stroke-width="0.8" />
+                            <rect width="100%" height="100%" fill="url(#pat-legal)" />
+                            <!-- Clean architectural design curves -->
+                            <path d="M10 80 Q 50 10 90 80" class="stroke-color324A5F/30 fill-none" stroke-width="0.8" />
+                            <path d="M30 80 Q 50 30 70 80" class="stroke-color324A5F/10 fill-none" stroke-width="0.5" />
                         </svg>
-                        <i class="fas fa-scale-balanced text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
+                        <i class="fas fa-balance-scale text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-colorCCC9DC/50 uppercase tracking-widest block mb-1">HackBLR 2026 Build</span>
                     <h3 class="text-xl font-bold text-white mb-2">Legal AI Assistant</h3>
@@ -314,15 +321,16 @@
                 <div class="border border-color1B2A41 bg-color0C1821/70 backdrop-blur-md rounded-lg p-6 hover:border-colorCCC9DC transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/60 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-44 bg-color000 rounded-md mb-6 flex items-center justify-center border border-color1B2A41/50 relative overflow-hidden">
                         <svg class="absolute inset-0 w-full h-full stroke-color324A5F/30" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100%" height="100%" fill="url(#custom-grid)" />
-                            <line x1="50%" y1="10%" x2="50%" y2="90%" class="stroke-color324A5F/40" stroke-width="0.5" />
+                            <rect width="100%" height="100%" fill="url(#pat-legal)" />
+                            <circle cx="50%" cy="50%" r="30" class="stroke-color324A5F/40 fill-none" stroke-width="0.5" stroke-dasharray="2" />
+                            <path d="M 10 50 C 30 20, 70 80, 90 50" class="stroke-color324A5F/20 fill-none" stroke-width="0.8" />
                         </svg>
-                        <i class="fas fa-seedling text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
+                        <i class="fas fa-leaf text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-colorCCC9DC/50 uppercase tracking-widest block mb-1">AI & Agriculture</span>
                     <h3 class="text-xl font-bold text-white mb-2">KisanMitra</h3>
                     <p class="text-colorCCC9DC/70 text-sm mb-6 leading-relaxed">
-                        A modern digital assistant system that evaluates geographical soil configurations, recommending precise crops utilizing supervised ML architectures.
+                        A modern agricultural evaluation program that evaluates geographic soil parameters and recommends crops using classification models.
                     </p>
                     <a href="https://github.com/akhileshnaidu20/KisanMitra" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white hover:underline hover-target inline-flex items-center gap-2">Repository <i class="fas fa-arrow-up-right-from-square text-[9px]"></i></a>
                 </div>
@@ -331,10 +339,11 @@
                 <div class="border border-color1B2A41 bg-color0C1821/70 backdrop-blur-md rounded-lg p-6 hover:border-colorCCC9DC transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/60 group" data-aos="fade-up">
                     <div class="h-44 bg-color000 rounded-md mb-6 flex items-center justify-center border border-color1B2A41/50 relative overflow-hidden">
                         <svg class="absolute inset-0 w-full h-full stroke-color324A5F/30" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100%" height="100%" fill="url(#custom-grid)" />
-                            <line x1="0" y1="0" x2="100%" y2="100%" class="stroke-color324A5F/40" stroke-width="0.5"/>
+                            <rect width="100%" height="100%" fill="url(#pat-legal)" />
+                            <line x1="10" y1="10" x2="90" y2="10" class="stroke-color324A5F/10" stroke-width="0.5"/>
+                            <rect x="25" y="25" width="50" height="40" class="stroke-color324A5F/30 fill-none" stroke-width="0.8" />
                         </svg>
-                        <i class="fas fa-bullseye text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
+                        <i class="fas fa-compress text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-colorCCC9DC/50 uppercase tracking-widest block mb-1">Computer Vision</span>
                     <h3 class="text-xl font-bold text-white mb-2">Vehicle Collision Detection</h3>
@@ -348,10 +357,10 @@
                 <div class="border border-color1B2A41 bg-color0C1821/70 backdrop-blur-md rounded-lg p-6 hover:border-colorCCC9DC transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/60 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-44 bg-color000 rounded-md mb-6 flex items-center justify-center border border-color1B2A41/50 relative overflow-hidden">
                         <svg class="absolute inset-0 w-full h-full stroke-color324A5F/30" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100%" height="100%" fill="url(#custom-grid)" />
-                            <rect x="35%" y="35%" width="30%" height="30%" fill="none" class="stroke-color324A5F/40" stroke-width="0.5" />
+                            <rect width="100%" height="100%" fill="url(#pat-legal)" />
+                            <circle cx="50" cy="50" r="35" class="stroke-color324A5F/40 fill-none" stroke-width="0.8" />
                         </svg>
-                        <i class="fas fa-user-check text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
+                        <i class="fas fa-portrait text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
                     <span class="text-xs font-mono text-colorCCC9DC/50 uppercase tracking-widest block mb-1">Deep Learning</span>
                     <h3 class="text-xl font-bold text-white mb-2">Delivery Partner Identification</h3>
@@ -365,8 +374,8 @@
                 <div class="border border-color1B2A41 bg-color0C1821/70 backdrop-blur-md rounded-lg p-6 hover:border-colorCCC9DC transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/60 group md:col-span-2" data-aos="fade-up">
                     <div class="h-44 bg-color000 rounded-md mb-6 flex items-center justify-center border border-color1B2A41/50 relative overflow-hidden">
                         <svg class="absolute inset-0 w-full h-full stroke-color324A5F/30" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100%" height="100%" fill="url(#custom-grid)" />
-                            <circle cx="50%" cy="50%" r="50" class="stroke-color324A5F/20 fill-none" stroke-width="0.5" />
+                            <rect width="100%" height="100%" fill="url(#pat-legal)" />
+                            <path d="M 10 80 L 30 40 L 60 60 L 90 20" class="stroke-color324A5F/40 fill-none" stroke-width="1" />
                         </svg>
                         <i class="fas fa-chart-line text-3xl text-colorCCC9DC group-hover:scale-110 transition duration-500 relative z-10"></i>
                     </div>
@@ -382,13 +391,13 @@
         </div>
     </section>
 
-    <!-- Credentials & Education -->
+    <!-- Credentials Section -->
     <section id="credentials" class="py-24 md:py-32 border-t border-color1B2A41/30">
         <div class="container mx-auto px-4 md:px-6 max-w-6xl">
             <h2 class="text-3xl font-display font-medium text-white mb-16 text-center">Credentials</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Academics -->
+                <!-- Academic Background -->
                 <div class="border border-color1B2A41 bg-color0C1821/40 p-8 rounded-lg" data-aos="fade-right">
                     <h4 class="text-xs font-mono text-colorCCC9DC/50 uppercase tracking-widest mb-6">Academic History</h4>
                     <div class="border-l border-color1B2A41 pl-6 py-1">
@@ -408,7 +417,7 @@
                     </div>
                 </div>
 
-                <!-- Professional Certificates -->
+                <!-- Professional Certifications -->
                 <div class="border border-color1B2A41 bg-color0C1821/40 p-8 rounded-lg flex flex-col justify-between" data-aos="fade-left">
                     <div>
                         <h4 class="text-xs font-mono text-colorCCC9DC/50 uppercase tracking-widest mb-6">Technical Verifications</h4>
@@ -419,7 +428,7 @@
                         </div>
                     </div>
 
-                    <!-- Drive Link Directory -->
+                    <!-- Certifications Drive link -->
                     <div class="pt-8">
                         <a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank" class="block text-center border border-color1B2A41 hover:border-colorCCC9DC text-white py-3 rounded text-xs font-semibold uppercase tracking-wider transition hover-target">
                             <i class="fas fa-external-link-alt mr-2 text-[10px]"></i> Open Credentials Database (Drive)
@@ -445,7 +454,7 @@
     <script>
         AOS.init({ duration: 800, once: true });
 
-        // Minimalist Tab System
+        // Tab selection engine
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.add('hidden');
@@ -458,7 +467,7 @@
             document.getElementById('btn-' + tabId).classList.add('active');
         }
 
-        // Custom Cursor movement with Lag Compensation
+        // Custom pointer translation (Desktop Only)
         const cursor = document.getElementById('custom-cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -470,14 +479,14 @@
             item.addEventListener('mouseleave', () => cursor.classList.remove('scaled'));
         });
 
-        // Reading Scroll Progress
+        // Track reading vertical offsets
         window.addEventListener('scroll', () => {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrolled = (window.scrollY / docHeight) * 100;
             document.getElementById('scroll-tracker').style.width = scrolled + '%';
         });
 
-        // Mobile Menu Toggle
+        // Responsive mobile panel slider
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
@@ -490,114 +499,177 @@
             }
         }
 
-        // --- Custom Animated Multi-Disciplinary Background Canvas ---
-        // Generates interactive elements for AI/ML nodes, mechanical gears, and robotic joints.
-        const canvas = document.getElementById('multidisciplinary-canvas');
+        // --- Multi-Disciplinary Vector Graphics Canvas Engine ---
+        // Generates stylized nodes representing AI, Mechanical Gears, Continuous Loops & PCB Traces.
+        const canvas = document.getElementById('creative-backdrop');
         const ctx = canvas.getContext('2d');
 
-        let particles = [];
-        let gears = [];
-        let mouse = { x: null, y: null, radius: 140 };
+        let elements = [];
+        let mouse = { x: null, y: null, radius: 150 };
 
         function initCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            
-            // Re-instantiate data nodes
-            particles = [];
-            const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 18000), 75);
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3,
-                    radius: Math.random() * 1.5 + 1
-                });
-            }
+            elements = [];
 
-            // Re-instantiate mechanical gears
-            gears = [];
-            const gearCount = 3;
-            for (let i = 0; i < gearCount; i++) {
-                gears.push({
+            const elementCount = Math.min(Math.floor((canvas.width * canvas.height) / 35000), 45);
+            const types = ['lens', 'gear', 'workflow', 'pcb'];
+
+            for (let i = 0; i < elementCount; i++) {
+                const type = types[Math.floor(Math.random() * types.length)];
+                elements.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 60 + 40,
-                    speed: (Math.random() - 0.5) * 0.01,
-                    angle: Math.random() * Math.PI,
-                    teeth: Math.floor(Math.random() * 6) + 8
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    size: Math.random() * 20 + 20,
+                    type: type,
+                    angle: Math.random() * Math.PI * 2,
+                    rotSpeed: (Math.random() - 0.5) * 0.015,
+                    pulse: Math.random() * Math.PI
                 });
             }
         }
 
-        function drawGear(gear) {
-            ctx.save();
-            ctx.translate(gear.x, gear.y);
-            ctx.rotate(gear.angle);
-            ctx.strokeStyle = 'rgba(50, 74, 95, 0.15)';
-            ctx.lineWidth = 1;
-            
+        // 1. Robot Head / Android Persona Optic Lens
+        function drawRobotLens(ctx, x, y, size) {
             ctx.beginPath();
-            ctx.arc(0, 0, gear.radius - 8, 0, Math.PI * 2);
+            ctx.arc(x, y, size * 0.8, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(50, 74, 95, 0.15)';
             ctx.stroke();
 
-            // Draw gear teeth structure
-            for (let i = 0; i < gear.teeth; i++) {
-                ctx.rotate(Math.PI * 2 / gear.teeth);
-                ctx.strokeRect(-6, -gear.radius, 12, 10);
+            ctx.beginPath();
+            ctx.arc(x, y, size * 0.4, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(27, 42, 65, 0.2)';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(204, 201, 220, 0.25)';
+            ctx.stroke();
+
+            // Reflection element representing the "thought/calculating" state
+            ctx.beginPath();
+            ctx.arc(x - size * 0.1, y - size * 0.1, 2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.fill();
+        }
+
+        // 2. Mechanical Engineering Gears & Cogs
+        function drawGear(ctx, x, y, size, angle) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(angle);
+            ctx.strokeStyle = 'rgba(50, 74, 95, 0.2)';
+            ctx.lineWidth = 1;
+
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.6, 0, Math.PI * 2);
+            ctx.stroke();
+
+            const teeth = 8;
+            for (let i = 0; i < teeth; i++) {
+                ctx.rotate(Math.PI * 2 / teeth);
+                ctx.strokeRect(-size * 0.12, -size * 0.75, size * 0.24, size * 0.25);
             }
             ctx.restore();
-            gear.angle += gear.speed;
+        }
+
+        // 3. Robotic Process Automation (RPA) Continuous Workflow Loops
+        function drawWorkflowLoop(ctx, x, y, size, pulse) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.strokeStyle = 'rgba(50, 74, 95, 0.15)';
+            ctx.lineWidth = 1;
+
+            // Simple infinity looping configuration
+            ctx.beginPath();
+            for (let i = 0; i < Math.PI * 2; i += 0.1) {
+                const rx = (size * 1.1) * Math.sin(i);
+                const ry = (size * 0.5) * Math.sin(i) * Math.cos(i);
+                if (i === 0) ctx.moveTo(rx, ry);
+                else ctx.lineTo(rx, ry);
+            }
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        // 4. PCB Traces / Electrical Microchips
+        function drawPCB(ctx, x, y, size) {
+            ctx.strokeStyle = 'rgba(27, 42, 65, 0.25)';
+            ctx.lineWidth = 0.8;
+            ctx.strokeRect(x - size * 0.5, y - size * 0.5, size, size);
+
+            // Draw outgoing PCB traces at perfect 45-degree angles
+            ctx.beginPath();
+            ctx.moveTo(x - size * 0.5, y);
+            ctx.lineTo(x - size * 0.9, y - size * 0.4);
+            ctx.lineTo(x - size * 1.2, y - size * 0.4);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(x - size * 1.2, y - size * 0.4, 2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(50, 74, 95, 0.3)';
+            ctx.fill();
         }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Draw mechanical engineering gears first (background layer)
-            gears.forEach(drawGear);
 
-            // Animate and draw data/robotics nodes
-            particles.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
+            elements.forEach(el => {
+                el.x += el.vx;
+                el.y += el.vy;
+                el.angle += el.rotSpeed;
+                el.pulse += 0.02;
 
-                if (p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
-                if (p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+                // Re-route on screen boundary collision
+                if (el.x < -el.size * 2) el.x = canvas.width + el.size;
+                if (el.x > canvas.width + el.size * 2) el.x = -el.size;
+                if (el.y < -el.size * 2) el.y = canvas.height + el.size;
+                if (el.y > canvas.height + el.size * 2) el.y = -el.size;
 
-                // Smooth collision displacement with mouse cursor
+                // Collision displacement reaction to cursor hover
                 if (mouse.x !== null && mouse.y !== null) {
-                    const dx = p.x - mouse.x;
-                    const dy = p.y - mouse.y;
+                    const dx = el.x - mouse.x;
+                    const dy = el.y - mouse.y;
                     const dist = Math.hypot(dx, dy);
                     if (dist < mouse.radius) {
                         const force = (mouse.radius - dist) / mouse.radius;
-                        const angle = Math.atan2(dy, dx);
-                        p.x += Math.cos(angle) * force * 1.5;
-                        p.y += Math.sin(angle) * force * 1.5;
+                        const targetAngle = Math.atan2(dy, dx);
+                        el.x += Math.cos(targetAngle) * force * 1.2;
+                        el.y += Math.sin(targetAngle) * force * 1.2;
                     }
                 }
 
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(204, 201, 220, 0.15)';
-                ctx.fill();
+                // Render respective technological vector patterns
+                switch (el.type) {
+                    case 'lens':
+                        drawRobotLens(ctx, el.x, el.y, el.size);
+                        break;
+                    case 'gear':
+                        drawGear(ctx, el.x, el.y, el.size, el.angle);
+                        break;
+                    case 'workflow':
+                        drawWorkflowLoop(ctx, el.x, el.y, el.size, el.pulse);
+                        break;
+                    case 'pcb':
+                        drawPCB(ctx, el.x, el.y, el.size);
+                        break;
+                }
             });
 
-            // Connect nodes like network grids and physical robotic joints
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-                    if (dist < 130) {
+            // Connect nearby dynamic nodes mimicking data packet pathways
+            for (let i = 0; i < elements.length; i++) {
+                for (let j = i + 1; j < elements.length; j++) {
+                    const dist = Math.hypot(elements[i].x - elements[j].x, elements[i].y - elements[j].y);
+                    if (dist < 140) {
                         ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(27, 42, 65, ${0.12 * (1 - dist / 130)})`;
+                        ctx.moveTo(elements[i].x, elements[i].y);
+                        ctx.lineTo(elements[j].x, elements[j].y);
+                        ctx.strokeStyle = `rgba(27, 42, 65, ${0.12 * (1 - dist / 140)})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
                 }
             }
+
             requestAnimationFrame(animate);
         }
 
