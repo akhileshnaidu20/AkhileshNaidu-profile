@@ -1,19 +1,26 @@
-/* Custom Global Adjustments */
+/* Core Document Styling */
 body {
-    background-color: #0b0b0b;
+    background-color: #08080a;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Mathematical Dot Pattern Overlay for Clean Tech Feel */
+/* Subtle Mathematical Dot grid pattern for back-plane structure */
 .grid-bg {
-    background-image: radial-gradient(#1f2937 1px, transparent 1px);
-    background-size: 24px 24px;
-    opacity: 0.35;
+    background-image: radial-gradient(#14151a 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.4;
 }
 
-/* Minimal Custom Cursor */
+/* Page scrolling acceleration metrics */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Desktop Only minimal trailing cursor */
 #custom-cursor {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: #ffffff;
     border-radius: 50%;
     position: fixed;
@@ -21,32 +28,32 @@ body {
     z-index: 100;
     transform: translate(-50%, -50%);
     mix-blend-mode: difference;
-    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
 }
 
 #custom-cursor.scaled {
-    width: 30px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.15);
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.12);
 }
 
-/* Clean Glass Border Frame */
+/* Performance optimized card glass layouts (removes lag-heavy blur on low spec screens) */
 .glass {
-    background: #121212;
-    border: 1px solid #1c1c1e;
+    background: #101014;
+    border: 1px solid #1a1b22;
 }
 
-/* Minimalist Skill Tab Buttons */
+/* Minimalist Navigation buttons */
 .tab-btn {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     padding: 0.75rem 1.5rem;
-    color: #8e8e93;
+    color: #8b8b94;
     border-bottom: 2px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tab-btn:hover {
@@ -58,38 +65,47 @@ body {
     border-bottom-color: #ffffff;
 }
 
-/* Custom Minimalist Badges */
+/* Micro-interaction Tag Blocks */
 .tag {
-    font-size: 0.75rem;
-    background: #1c1c1e;
-    border: 1px solid #2c2c2e;
+    font-size: 0.725rem;
+    font-weight: 500;
+    background: #14151a;
+    border: 1px solid #20212a;
     color: #d1d5db;
-    padding: 0.35rem 0.85rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 4px;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, border-color;
 }
 
 .tag:hover {
-    border-color: #9ca3af;
+    border-color: #ffffff;
     color: #ffffff;
 }
 
-/* Hardware-Accelerated Performance Smoothness */
-.glass, .tab-btn, .tag, a {
-    will-change: transform, opacity;
-}
-
-/* Custom Subtle Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: #0b0b0b;
+    background: #08080a;
 }
 ::-webkit-scrollbar-thumb {
-    background: #2c2c2e;
+    background: #20212a;
     border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #4b5563;
+}
+
+/* Accelerated spring transitions for elements */
+.glass, .tab-btn, .tag, a, button {
+    will-change: transform, opacity;
+}
+
+/* Desktop Menu styling fallback */
+@media (max-width: 768px) {
+    #custom-cursor {
+        display: none !important;
+    }
 }
