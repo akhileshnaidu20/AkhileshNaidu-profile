@@ -1,296 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Akhilesh N Naidu - Data Annotation Specialist</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhilesh N Naidu | Data Annotation & AI</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <div class="hero">
-        <div class="hero-content">
-            <img src="profile.jpg" alt="Akhilesh N Naidu" class="profile-photo bounce-load">
-            <h1 class="sparkle-hover">Akhilesh N Naidu</h1>
-            <h2 class="sparkle-hover">Data Annotation Specialist </h2>
-            <p class="profile-desc">Detail-oriented and technically proficient professional with expertise in data annotation, computer vision and machine learning. Skilled in labeling and processing datasets for AI model training using tools like Labelbox and CVAT, with hands-on experience in Python, OpenCV and YOLO models. Adept at analyzing complex data, ensuring high accuracy and contributing to innovative AI solutions. Leveraging a Mechanical Engineering foundation to bridge hardware-software gaps.</p>
-        </div>
-    </div>
-
-    <div class="container">
-        <aside class="left-column">
-            <section class="contact">
-                <h3><i class="fas fa-address-card"></i> Contact</h3>
-                <p><i class="fas fa-phone"></i> +91 7349626862</p>
-                <p><i class="fas fa-envelope"></i> akhileshpower22@gmail.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Bengaluru, India</p>
-                <p><a href="https://www.linkedin.com/in/akhilesh-n-naidu" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
-                <!-- GitHub link removed -->
-            </section>
-
-            <section class="skills">
-                <h3><i class="fas fa-tools"></i> Skills</h3>
-                <div id="skill-tile" class="skill-tile"></div>
-            </section>
-
-            <section class="courses">
-                <h3><i class="fas fa-book"></i> Courses</h3>
-                <ul>
-                    <li>Full Stack Development (ExcelR)</li>
-                    <li>Nanodegree - E-mobility (DIY Guru.org)</li>
-                    <li>AWS Certified Cloud Practitioner</li>
-                </ul>
-            </section>
-
-            <section class="languages">
-                <h3><i class="fas fa-globe"></i> Languages</h3>
-                <ul>
-                    <li>English: Professional</li>
-                    <li>Telugu: Native</li>
-                    <li>Kannada: Conversational</li>
-                    <li>Hindi: Conversational</li>
-                </ul>
-            </section>
-
-            <section class="interests">
-                <h3><i class="fas fa-heart"></i> Interests</h3>
-                <p>Music | Chess | Documentaries | Travel | Sports | Space Research | Technology</p>
-            </section>
-        </aside>
-
-        <main class="right-column">
-            <div class="diamond pink"></div>
-            <section class="education">
-                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                <p>Bachelor of Engineering in Mechanical Engineering<br>Dayananda Sagar Academy of Technology<br>2019–2023 (7.3 CGPA)</p>
-            </section>
-
-            <div class="diamond teal"></div>
-            <section class="experience">
-                <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'experience')" role="region" aria-label="Work Experience Slider">
-                    <div class="slider">
-                        <div class="slide">
-                            <h4>ML Data Associate (GO-AI)</h4>
-                            <p>Amazon | Bengaluru, India | Dec 2025 - Present</p>
-                            <ul>
-                                <li>Audit and use tools to verify live data from Amazon warehouses globally.</li>
-                                <li>Train the model and rectify mistakes to ensure high accuracy.</li>
-                                <li>Keep a check on data metrics such as low confidence and high confidence situations.</li>
-                            </ul>
-                        </div>
-                        <div class="slide">
-                            <h4>Freelance/Independent Computer Vision Developer</h4>
-                            <p>Bengaluru, India | 06/2024 - Present</p>
-                            <ul>
-                                <li>Developed computer vision systems using YOLOv8/v11 and OpenCV for object detection and tracking, annotating video and image datasets with Labelbox and CVAT for model training.</li>
-                                <li>Labeled and curated datasets for vehicle collision detection and delivery partner identification, achieving high precision in bounding box annotations.</li>
-                                <li>Processed and validated annotated datasets to ensure compatibility with Vision Transformer and machine learning models.</li>
-                            </ul>
-                        </div>
-                        <div class="slide">
-                            <h4>Strategic Partnership Executive</h4>
-                            <p>Bhanzu | Bengaluru, India | 07/2023 - 06/2024</p>
-                            <ul>
-                                <li>Collected and analyzed quantitative and qualitative data from marketing campaigns to support strategic partnerships, ensuring data accuracy for decision-making.</li>
-                                <li>Performed market analysis and competitive research, structuring insights into actionable datasets for business development.</li>
-                                <li>Facilitated communication between management and clients, ensuring precise data exchange and documentation.</li>
-                            </ul>
-                        </div>
-                        <div class="slide">
-                            <h4>Internship Trainee</h4>
-                            <p>BOSCH Ltd. (Sparkplug Manufacturing Plant) | Bengaluru, India | Sept - Oct 2022</p>
-                            <ul>
-                                <li>Researched technical and production data, compiling reports on manufacturing variances that optimized processes by identifying inefficiencies.</li>
-                                <li>Monitored and annotated production datasets to pinpoint equipment issues, improving workflow accuracy.</li>
-                                <li>Supported administrative tasks with detailed records for operational analysis.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="navigation-dots" role="tablist" aria-label="Experience Slide Navigation">
-                        <span class="dot active" onclick="currentSlide(0, 'experience')" role="tab" aria-selected="true" tabindex="0"></span>
-                        <span class="dot" onclick="currentSlide(1, 'experience')" role="tab" aria-selected="false" tabindex="-1"></span>
-                        <span class="dot" onclick="currentSlide(2, 'experience')" role="tab" aria-selected="false" tabindex="-1"></span>
-                        <span class="dot" onclick="currentSlide(3, 'experience')" role="tab" aria-selected="false" tabindex="-1"></span>
-                    </div>
-                </div>
-            </section>
-
-            <div class="diamond purple"></div>
-            <section class="projects">
-                <h3><i class="fas fa-rocket"></i> Projects</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'projects')" role="region" aria-label="Projects Slider">
-                    <div class="slider">
-                        <div class="slide">
-                            <h4>Vehicle Collision Detection System</h4>
-                            <p>Personal Project | 2024</p>
-                            <ul>
-                                <li>Implemented YOLOv8 for real-time vehicle detection in dashcam footage, achieving 92% mAP on custom annotated dataset.</li>
-                                <li>Integrated OpenCV for tracking and alert generation, reducing false positives by 15% through post-processing filters.</li>
-                                <li>Deployed on edge devices using TensorRT for low-latency inference.</li>
-                            </ul>
-                        </div>
-                        <div class="slide">
-                            <h4>Delivery Partner Identification Tool</h4>
-                            <p>Freelance | 2024</p>
-                            <ul>
-                                <li>Developed annotation pipeline with CVAT for multi-class labeling of delivery personnel in urban environments.</li>
-                                <li>Fine-tuned Vision Transformer on labeled data, improving recognition accuracy from 78% to 94%.</li>
-                                <li>Automated data validation scripts in Python to flag inconsistencies, saving 20 hours/week in manual review.</li>
-                            </ul>
-                        </div>
-                        <div class="slide">
-                            <h4>Composite Material Analysis Dashboard</h4>
-                            <p>B.Tech Project | 2023</p>
-                            <ul>
-                                <li>Analyzed mechanical properties through data collection and testing.</li>
-                                <li>Compiled and annotated experimental datasets for high-strength composite development.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="navigation-dots" role="tablist" aria-label="Projects Slide Navigation">
-                        <span class="dot active" onclick="currentSlide(0, 'projects')" role="tab" aria-selected="true" tabindex="0"></span>
-                        <span class="dot" onclick="currentSlide(1, 'projects')" role="tab" aria-selected="false" tabindex="-1"></span>
-                        <span class="dot" onclick="currentSlide(2, 'projects')" role="tab" aria-selected="false" tabindex="-1"></span>
-                    </div>
-                </div>
-            </section>
-
-            <div class="diamond pink"></div>
-            <section class="certifications">
-                <h3><i class="fas fa-certificate"></i> Certifications</h3>
-                <div class="slider-container" onclick="handleSlideClick(event, 'certifications')" role="region" aria-label="Certifications Slider">
-                    <div class="slider">
-                        <div class="slide">
-                            <h4>AWS Certified Cloud Practitioner</h4>
-                            <p>(Issued 2024), Amazon Web Services (AWS) Training via Magic Bus India Foundation: Foundational knowledge in EC2, S3, Lambda, IAM; applied to AI/ML data pipelines.</p>
-                            <p><a href="https://drive.google.com/drive/folders/1Ub5GCwBIQAF9n5mPX4e5HRnO0YF1aDxF?usp=sharing" target="_blank">View All Certificates</a></p>
-                        </div>
-                        <div class="slide">
-                            <h4>Full Stack Development</h4>
-                            <p>ExcelR, Bengaluru: HTML, CSS, JavaScript, Node.js, React, Django, Flask; Database Management (SQL, MongoDB); Version Control (Git), RESTful APIs.</p>
-                        </div>
-                        <div class="slide">
-                            <h4>Nanodegree - E-mobility</h4>
-                            <p>DIY Guru.org, Bengaluru: Analog/Digital Electronics, Circuit Designing, EV Fundamentals, MATLAB, ANSYS, SOLIDWORKS, BMS for EV Systems, Powertrain for EV.</p>
-                        </div>
-                    </div>
-                    <div class="navigation-dots" role="tablist" aria-label="Certifications Slide Navigation">
-                        <span class="dot active" onclick="currentSlide(0, 'certifications')" role="tab" aria-selected="true" tabindex="0"></span>
-                        <span class="dot" onclick="currentSlide(1, 'certifications')" role="tab" aria-selected="false" tabindex="-1"></span>
-                        <span class="dot" onclick="currentSlide(2, 'certifications')" role="tab" aria-selected="false" tabindex="-1"></span>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Skills rotation
-            const skills = [
-                { title: "Data Annotation", details: "Data Labeling and Dataset Preparation (Image, Video, Text). Data Annotation Tools (Labelbox, CVAT)." },
-                { title: "AI Skills", details: "Computer Vision (OpenCV, YOLOv8/v11, Image Segmentation, Object Detection). Machine Learning (Supervised/Unsupervised Learning, Scikit-learn, Feature Engineering). Deep Learning (Neural Networks, CNNs, RNNs, TensorFlow, PyTorch). Programming (Python, Java basics, MATLAB)." },
-                { title: "Web Development", details: "Full Stack Development (HTML, CSS, JavaScript, Node.js, React, Django, Flask). Database Management (SQL, MongoDB)." },
-                { title: "AWS Cloud Development", details: "AWS Core Services (EC2, S3, Lambda, IAM). Cloud Storage and Data Management (S3, EFS). Cloud Compute for AI/ML (EC2, Lambda). AWS Security and Access Management (IAM, KMS). Cloud Architecture and Cost Optimization." },
-                { title: "Engineering & Analysis", details: "Finite Element Analysis (ANSYS). Computer-Aided Design (SolidWorks)." },
-                { title: "Tools & Platforms", details: "Linux (Ubuntu), Docker, Git. Microsoft Office." },
-                { title: "Soft Skills", details: "Critical Thinking and Problem Solving. Communication Skills. Fast Learner." }
-            ];
-
-            let currentSkill = 0;
-            const skillTile = document.getElementById('skill-tile');
-
-            function rotateSkill() {
-                skillTile.style.opacity = 0;
-                setTimeout(() => {
-                    skillTile.innerHTML = `<div class="skill-card"><h4>${skills[currentSkill].title}</h4><p>${skills[currentSkill].details}</p></div>`;
-                    skillTile.style.opacity = 1;
-                    currentSkill = (currentSkill + 1) % skills.length;
-                }, 800); // Slower fade for smoothness
-            }
-
-            rotateSkill();
-            setInterval(rotateSkill, 5000);
-
-            // Slider functions (updated for 4 experience slides)
-            const sliders = {
-                experience: { currentIndex: 0, slider: document.querySelector('.experience .slider'), dots: document.querySelectorAll('.experience .dot') },
-                projects: { currentIndex: 0, slider: document.querySelector('.projects .slider'), dots: document.querySelectorAll('.projects .dot') },
-                certifications: { currentIndex: 0, slider: document.querySelector('.certifications .slider'), dots: document.querySelectorAll('.certifications .dot') }
-            };
-
-            function showSlide(section, index) {
-                const slider = sliders[section].slider;
-                const dots = sliders[section].dots;
-                sliders[section].currentIndex = index;
-                slider.style.transform = `translateX(-${index * 100}%)`;
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === index);
-                    dot.setAttribute('aria-selected', i === index);
-                    dot.tabIndex = i === index ? 0 : -1;
-                });
-            }
-
-            window.currentSlide = function(index, section) {
-                showSlide(section, index);
-            };
-
-            window.handleSlideClick = function(event, section) {
-                // Ripple effect for UX
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                const rect = event.currentTarget.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = event.clientX - rect.left - size / 2;
-                const y = event.clientY - rect.top - size / 2;
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                event.currentTarget.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-
-                const rectFull = event.currentTarget.getBoundingClientRect();
-                const clickX = event.clientX - rectFull.left;
-                const halfWidth = rectFull.width / 2;
-                let newIndex = sliders[section].currentIndex;
-                const maxSlides = section === 'experience' ? 4 : 3; // Handle 4 for experience
-                if (clickX < halfWidth) newIndex = (newIndex - 1 + maxSlides) % maxSlides;
-                else newIndex = (newIndex + 1) % maxSlides;
-                showSlide(section, newIndex);
-            };
-
-            // Auto-slide
-            Object.keys(sliders).forEach(section => {
-                setInterval(() => {
-                    const maxSlides = section === 'experience' ? 4 : 3;
-                    const newIndex = (sliders[section].currentIndex + 1) % maxSlides;
-                    showSlide(section, newIndex);
-                }, 30000);
-            });
-
-            // Mobile swipe (increased threshold to 80px for easier detection)
-            document.querySelectorAll('.slider-container').forEach(container => {
-                let startX = 0, startTime = 0;
-                container.addEventListener('touchstart', e => {
-                    startX = e.touches[0].clientX;
-                    startTime = Date.now();
-                });
-                container.addEventListener('touchend', e => {
-                    const endX = e.changedTouches[0].clientX;
-                    const deltaX = startX - endX;
-                    const deltaTime = Date.now() - startTime;
-                    if (Math.abs(deltaX) > 80 && deltaTime < 500) { // Increased threshold
-                        const section = Array.from(container.closest('section').classList).find(c => ['experience', 'projects', 'certifications'].includes(c));
-                        const maxSlides = section === 'experience' ? 4 : 3;
-                        let newIndex = sliders[section].currentIndex;
-                        if (deltaX > 0) newIndex = (newIndex + 1) % maxSlides; // Swipe left: next
-                        else newIndex = (newIndex - 1 + maxSlides) % maxSlides; // Swipe right: prev
-                        showSlide(section, newIndex);
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4682b4',
+                        accent: '#87cefa',
+                        dark: '#050505',
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     }
-                });
-            });
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-gray-300 antialiased overflow-x-hidden">
+
+    <!-- Animated Background -->
+    <div class="mesh-gradient"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+        <div class="glass-card px-6 py-3 rounded-full border border-white/10 flex justify-between items-center backdrop-blur-md">
+            <span class="text-white font-extrabold tracking-tighter">AN.</span>
+            <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+            </div>
+            <a href="https://github.com/akhileshnaidu20" target="_blank" class="text-xl hover:text-primary transition-transform hover:scale-110">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 text-center">
+        <div class="relative mb-8" data-aos="zoom-in">
+            <div class="absolute inset-0 bg-primary blur-3xl opacity-20 rounded-full animate-pulse"></div>
+            <img src="profile.jpg" alt="Akhilesh" class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-primary/30 object-cover relative z-10 floating-animation">
+        </div>
+        
+        <h1 class="text-5xl md:text-8xl font-extrabold text-white mb-4 tracking-tighter" data-aos="fade-up">
+            Akhilesh <span class="text-gradient">N Naidu</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10" data-aos="fade-up" data-aos-delay="100">
+            Data Annotation Specialist & AI Developer. Crafting precision datasets for the next generation of Machine Vision.
+        </p>
+        
+        <div class="flex gap-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="#projects" class="bg-primary hover:bg-accent text-white px-8 py-3 rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-primary/20">View My Work</a>
+            <a href="https://www.linkedin.com/in/akhilesh-n-naidu" target="_blank" class="border border-white/20 hover:bg-white/5 text-white px-8 py-3 rounded-full font-bold transition-all">Connect</a>
+        </div>
+    </section>
+
+    <!-- About / Stats -->
+    <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-3xl font-bold text-white mb-6">Bridging Hardware <br>& Intelligence</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    With a foundation in Mechanical Engineering and a focus on AI, I specialize in the critical middle-layer of Machine Learning: <b>Data Quality</b>. From real-time collision detection to automated legal analysis, I build the systems that make models smarter.
+                </p>
+                <div class="flex flex-wrap gap-4 text-sm">
+                    <div class="glass-card px-4 py-2 rounded-lg border border-white/5">
+                        <span class="block text-primary font-bold">Location</span> Bengaluru, India
+                    </div>
+                    <div class="glass-card px-4 py-2 rounded-lg border border-white/5">
+                        <span class="block text-primary font-bold">Email</span> akhileshpower22@gmail.com
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                <div class="glass-card p-6 rounded-2xl border border-white/5 text-center">
+                    <h3 class="text-4xl font-black text-white">94%</h3>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Model Accuracy</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-white/5 text-center">
+                    <h3 class="text-4xl font-black text-white">5k+</h3>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Data Labels</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-black text-white mb-16" data-aos="fade-right italic">Professional Journey</h2>
+        <div class="space-y-8">
+            <!-- Updated Amazon Role -->
+            <div class="glass-card p-8 rounded-3xl border border-white/5 relative overflow-hidden group" data-aos="fade-up">
+                <div class="absolute top-0 right-0 p-8 text-primary/10 text-6xl font-black group-hover:text-primary/20 transition-colors">01</div>
+                <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">ML Data Associate (GO-AI)</h3>
+                        <p class="text-primary font-semibold">Amazon</p>
+                    </div>
+                    <p class="text-gray-500 font-mono">Dec 2025 — May 2026</p>
+                </div>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="flex gap-2"><i class="fas fa-check-circle text-primary mt-1"></i> Global warehouse data auditing.</li>
+                    <li class="flex gap-2"><i class="fas fa-check-circle text-primary mt-1"></i> Model rectification and data metric monitoring.</li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border border-white/5 relative overflow-hidden group" data-aos="fade-up">
+                <div class="absolute top-0 right-0 p-8 text-primary/10 text-6xl font-black group-hover:text-primary/20 transition-colors">02</div>
+                <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Computer Vision Developer</h3>
+                        <p class="text-primary font-semibold">Independent</p>
+                    </div>
+                    <p class="text-gray-500 font-mono">Jun 2024 — Present</p>
+                </div>
+                <p class="text-gray-400">YOLOv8/v11 implementation for object tracking and CVAT dataset curation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="py-24 px-6 bg-white/5 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <h2 class="text-4xl font-black text-white">Featured Builds</h2>
+                <a href="https://github.com/akhileshnaidu20" target="_blank" class="text-primary hover:underline font-bold">View GitHub <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Legal AI -->
+                <div class="group cursor-pointer" data-aos="zoom-in-up">
+                    <div class="glass-card p-2 rounded-[2rem] border border-white/10 transition-transform group-hover:-translate-y-2">
+                        <div class="bg-gradient-to-br from-gray-800 to-black h-64 rounded-[1.8rem] mb-6 flex items-center justify-center overflow-hidden">
+                            <i class="fas fa-gavel text-6xl text-primary opacity-50 group-hover:scale-125 transition-transform duration-500"></i>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-bold text-white mb-2">Legal AI Assistant</h3>
+                            <p class="text-gray-400 text-sm mb-4">HackBLR 2026: Automated case law retrieval and document analysis using LLMs and Vector DBs.</p>
+                            <a href="https://github.com/akhileshnaidu20/Legalai-Hackblr-2026" target="_blank" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-primary border border-primary/30 px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-all">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KisanMitra -->
+                <div class="group cursor-pointer" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="glass-card p-2 rounded-[2rem] border border-white/10 transition-transform group-hover:-translate-y-2">
+                        <div class="bg-gradient-to-br from-gray-800 to-black h-64 rounded-[1.8rem] mb-6 flex items-center justify-center overflow-hidden">
+                            <i class="fas fa-seedling text-6xl text-green-500 opacity-50 group-hover:scale-125 transition-transform duration-500"></i>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-bold text-white mb-2">KisanMitra</h3>
+                            <p class="text-gray-400 text-sm mb-4">Agri-Tech ML platform providing real-time soil analysis and crop recommendations for local farmers.</p>
+                            <a href="https://github.com/akhileshnaidu20/KisanMitra" target="_blank" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-primary border border-primary/30 px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-all">Explore Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collision Detection -->
+                <div class="group cursor-pointer" data-aos="zoom-in-up">
+                    <div class="glass-card p-2 rounded-[2rem] border border-white/10 transition-transform group-hover:-translate-y-2">
+                        <div class="bg-gradient-to-br from-gray-800 to-black h-64 rounded-[1.8rem] mb-6 flex items-center justify-center overflow-hidden">
+                            <i class="fas fa-car-crash text-6xl text-red-500 opacity-50"></i>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <h3 class="text-2xl font-bold text-white mb-2">Collision Detection</h3>
+                            <p class="text-gray-400 text-sm mb-4">Real-time dashcam footage processing with YOLOv8, achieving 92% mAP.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Cloud -->
+    <section id="skills" class="py-24 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white mb-12">Toolbelt</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            <span class="skill-pill" data-aos="fade-up">Python</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="50">PyTorch</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="100">AWS Cloud</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="150">OpenCV</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="200">Labelbox</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="250">CVAT</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="300">Docker</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="350">React.js</span>
+            <span class="skill-pill" data-aos="fade-up" data-aos-delay="400">YOLOv11</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="https://github.com/akhileshnaidu20" class="hover:text-primary text-2xl transition-colors"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/akhilesh-n-naidu" class="hover:text-primary text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="text-gray-600 text-sm italic">© 2026 Akhilesh N Naidu • Designed for the AI Era</p>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
         });
     </script>
 </body>
